@@ -1,0 +1,48 @@
+{
+  "name": "rehoboth-ethiopian-coffee",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@next/swc-wasm-nodejs": "^15.5.19",
+    "@sanity/client": "^6.24.1",
+    "@sanity/image-url": "^1.1.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.18.2",
+    "next": "^15.5.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sanity": "^3.74.0"
+  },
+  "overrides": {
+    "@architect/hydrate": {
+      "glob": "10.5.0"
+    },
+    "@architect/utils": {
+      "glob": "10.5.0"
+    },
+    "archiver-utils": {
+      "glob": "10.5.0"
+    },
+    "rimraf": {
+      "glob": "10.5.0"
+    }
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "@types/node": "^22.10.10",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "^15.5.6",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
+  }
+}
