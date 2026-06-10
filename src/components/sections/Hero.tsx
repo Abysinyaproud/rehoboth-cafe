@@ -6,12 +6,12 @@ export function Hero() {
   return (
     <section className="relative min-h-[calc(100svh-73px)] overflow-hidden bg-espresso text-ivory">
       <Image
-        src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=2200&q=90"
-        alt="Coffee being prepared in a warm, cinematic cafe setting"
+        src="/brand/images/hero-jebena-ceremony.png"
+        alt="Ethiopian coffee ceremony with jebena coffee, steam, and roasted beans"
         fill
         priority
         sizes="100vw"
-        className="object-cover opacity-[0.5] saturate-[0.9]"
+        className="object-cover opacity-[0.56] saturate-[0.9] contrast-[1.04]"
       />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(26,21,17,0.94),rgba(26,21,17,0.56)_48%,rgba(26,21,17,0.78)),linear-gradient(180deg,rgba(26,21,17,0.2),rgba(26,21,17,0.84))]" />
       <div className="absolute inset-0 opacity-[0.1] mix-blend-soft-light texture" />

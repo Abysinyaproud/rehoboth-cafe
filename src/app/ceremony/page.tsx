@@ -26,11 +26,11 @@ export default function CeremonyPage() {
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
           <div className="relative aspect-[16/11] overflow-hidden rounded-brand bg-espresso/20">
             <Image
-              src="https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1600&q=85"
-              alt="Coffee ceremony table with cups prepared for guests"
+              src="/brand/images/ethiopian-coffee-ceremony.png"
+              alt="Ethiopian coffee ceremony with jebena coffee prepared for guests"
               fill
               sizes="(min-width: 1024px) 52vw, 100vw"
-              className="object-cover opacity-90"
+              className="object-cover opacity-92 saturate-[0.9] contrast-[1.04]"
             />
           </div>
           <div className="rounded-brand border border-ivory/15 p-7">

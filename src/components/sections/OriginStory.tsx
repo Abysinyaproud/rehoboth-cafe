@@ -15,11 +15,11 @@ export function OriginStory() {
         <MotionReveal>
           <div className="relative aspect-[4/5] overflow-hidden rounded-brand bg-stone shadow-subtle">
             <Image
-              src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?auto=format&fit=crop&w=1400&q=85"
-              alt="Coffee beans held by hand"
+              src="/brand/images/heritage-coffee-farmers.png"
+              alt="Coffee farmers harvesting Ethiopian coffee cherries"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
-              className="object-cover"
+              className="object-cover saturate-[0.9] contrast-[1.04]"
             />
           </div>
         </MotionReveal>
