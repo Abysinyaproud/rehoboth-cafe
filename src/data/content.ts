@@ -1,60 +1,53 @@
 export const featuredCoffees = [
   {
     id: "single-origin",
-    name: "Yirgacheffe Single Origin",
-    eyebrow: "Single Origin",
-    notes: "Jasmine, citrus, honeyed black tea",
-    body: "A washed profile with lift and precision, made for slow mornings, pour-over clarity, and gifting with confidence.",
-    price: "$22",
-    image:
-      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=85"
+    name: "Ethiopian Coffee",
+    eyebrow: "Origin",
+    notes: "Roasted coffee, tea-like aromatics, warm hospitality",
+    body: "The coffee program starts with Ethiopia as the source of the story: beans, brewing, and a traditional coffee experience that makes the cup feel connected to place.",
+    price: "In store",
+    image: "/brand/images/hero-jebena-ceremony.png"
   },
   {
     id: "espresso",
-    name: "Rehoboth Espresso Blend",
-    eyebrow: "Espresso",
-    notes: "Cocoa, dried fruit, warm spice",
-    body: "Built for depth without heaviness: cocoa structure, ripe fruit, and the floral edge that keeps Ethiopian espresso alive.",
-    price: "$20",
-    image:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85"
+    name: "Cafe Mocha, Macchiato & Americano",
+    eyebrow: "Cafe favorites",
+    notes: "Espresso structure, milk texture, balanced sweetness",
+    body: "A familiar way into Buna House: espresso drinks served with the warmth of a neighborhood cafe and the cultural depth of an Ethiopian market.",
+    price: "In store",
+    image: "/brand/images/cafe-market-interior.png"
   },
   {
     id: "subscriptions",
-    name: "Origin Subscription",
-    eyebrow: "Subscription",
-    notes: "Rotating regions and roast profiles",
-    body: "A monthly path through Ethiopian regions with tasting notes, brew guidance, and seasonal releases before they leave the shelf.",
-    price: "From $18",
-    image:
-      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=85"
+    name: "Take-Home Coffee",
+    eyebrow: "Market shelf",
+    notes: "Beans, tea, gifts, and pantry companions",
+    body: "Coffee can move from the cafe counter into the home pantry through beans, tea, brewing gifts, and shelf finds that change with availability.",
+    price: "Ask in store",
+    image: "/brand/images/hero-jebena-ceremony.png"
   }
 ];
 
 export const marketCategories = [
   {
-    title: "Imported Goods",
-    text: "Pantry pieces chosen for the same table as coffee: useful, specific, and worthy of taking home.",
-    image:
-      "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=85"
+    title: "Injera Bread & Teff Flour",
+    text: "Staples for the Ethiopian table, placed where guests can build a real meal after coffee.",
+    image: "/brand/images/cafe-market-interior.png"
   },
   {
-    title: "Honey",
-    text: "Natural sweetness for ceremony service, tea, breakfast, gifting, and quiet daily rituals.",
-    image:
-      "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=1200&q=85"
+    title: "Coffee & Tea",
+    text: "Cafe favorites and take-home goods that keep the Buna House ritual alive beyond the visit.",
+    image: "/brand/images/hero-jebena-ceremony.png"
   },
   {
     title: "Spices",
-    text: "Aromatic essentials with warmth and color, selected for cooks who care about origin and freshness.",
-    image:
-      "https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=1200&q=85"
+    text: "Aromatic essentials for cooks who want Ethiopian warmth, color, and depth in the pantry.",
+    image: "/brand/images/cafe-market-interior.png"
   },
   {
-    title: "Traditional Products",
-    text: "Objects and ingredients that carry Ethiopian hospitality from the ceremony table into everyday life.",
-    image:
-      "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&q=85"
+    title: "Habesha Kemis & Cultural Goods",
+    text: "Cultural garments, gifts, and everyday pieces that make the market feel specific to Buna House.",
+    image: "/brand/images/heritage-coffee-farmers.png"
   }
 ];
 
@@ -100,7 +93,7 @@ export const originMoments = [
 ];
 
 export const visitReasons = [
-  "A first cup that feels different from the usual weekend cafe run",
-  "Single-origin Ethiopian coffee served with patience and warmth",
-  "A place to bring someone when you want the afternoon to feel intentional"
+  "A Columbia stop for coffee, injera, teff flour, spices, and conversation in one visit",
+  "A traditional Ethiopian coffee experience with room to slow down",
+  "A place to bring someone when the afternoon needs to feel intentional"
 ];

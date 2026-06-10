@@ -12,8 +12,8 @@ export function FeaturedCoffee() {
       id="featured-coffee"
       tone="white"
       eyebrow="Coffee first"
-      title="Ethiopian coffees chosen for clarity, sweetness, and return visits."
-      intro="Single origins, espresso, subscriptions, and gifts are presented as the heart of Rehoboth rather than a side shelf."
+      title="Coffee for the quick stop, the slow cup, and the take-home shelf."
+      intro="Buna House can meet a cafe craving and a cultural coffee ritual in the same visit: Ethiopian coffee, espresso drinks, tea, and market goods for home."
     >
       <JsonLd
         data={featuredCoffees.map((coffee) =>
@@ -30,21 +30,21 @@ export function FeaturedCoffee() {
           <MotionReveal key={coffee.id} delay={index * 0.06}>
             <EditorialCard
               image={coffee.image}
-              eyebrow={coffee.eyebrow}
+              eyebrow={`${coffee.eyebrow} / 0${index + 1}`}
               title={coffee.name}
               text={coffee.body}
               meta={`${coffee.notes} · ${coffee.price}`}
               imageClassName={index === 0 ? "md:aspect-[3/4]" : undefined}
             >
               <ButtonLink href={`/coffee#${coffee.id}`} variant="text">
-                Taste the profile
+                Learn more
               </ButtonLink>
             </EditorialCard>
           </MotionReveal>
         ))}
       </div>
       <div className="mt-10">
-        <ButtonLink href="/coffee">Explore Coffee Releases</ButtonLink>
+        <ButtonLink href="/coffee">Explore Coffee</ButtonLink>
       </div>
     </Section>
   );

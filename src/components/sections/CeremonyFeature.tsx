@@ -16,20 +16,20 @@ export function CeremonyFeature() {
           />
         </div>
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+          <p className="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-gold/82">
             Coffee ceremony
           </p>
-          <h2 className="font-display text-4xl leading-[1.02] sm:text-6xl">
+          <h2 className="font-display text-4xl leading-[1.08] sm:text-5xl">
             A ceremony that makes the room slow down.
           </h2>
           <p className="mt-6 leading-8 text-ivory/75">
             Roasting, grinding, brewing, serving, and conversation become one
-            act of hospitality. It is the experience to book for a private
-            gathering, bring a team to, or discover on a weekend visit.
+            act of hospitality. Ask about traditional Ethiopian coffee
+            experiences during your visit or call ahead for group interest.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/visit" className="bg-ivory text-espresso hover:bg-gold">
-              Experience Ceremony
+            <ButtonLink href="/visit" className="border-ivory bg-ivory text-espresso hover:bg-white">
+              Plan a Visit
             </ButtonLink>
             <ButtonLink href="/about" variant="secondary" className="border-ivory/45 text-ivory hover:bg-ivory hover:text-espresso">
               Understand the Ritual

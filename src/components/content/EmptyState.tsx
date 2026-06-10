@@ -16,11 +16,11 @@ export function EmptyState({
   ctaHref
 }: EmptyStateProps) {
   return (
-    <div className="rounded-rehoboth border border-espresso/10 bg-white p-7 shadow-subtle">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay">
+    <div className="border border-gold/22 bg-[#fbf7ef] p-7 shadow-subtle sm:p-8">
+      <p className="text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-gold">
         {eyebrow}
       </p>
-      <h3 className="mt-5 font-display text-3xl leading-tight text-espresso">
+      <h3 className="mt-5 font-display text-[1.9rem] uppercase leading-[1.02] tracking-[0.035em] text-espresso">
         {title}
       </h3>
       <p className="mt-4 max-w-xl leading-7 text-ink/68">{body}</p>

@@ -1,65 +1,87 @@
 import Link from "next/link";
-import { navigation, siteConfig } from "@/config/site";
-import { ButtonLink } from "@/components/ui/Button";
+import { BunaEmblem } from "@/components/brand/BunaEmblem";
+
+const leftNavigation = [
+  { label: "Shop", href: "/shop" },
+  { label: "Cafe & Market", href: "/market" },
+  { label: "Our Story", href: "/about" }
+];
+
+const rightNavigation = [
+  { label: "Journal", href: "/journal" },
+  { label: "Contact", href: "/contact" }
+];
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-espresso/10 bg-ivory/94 px-5 py-4 backdrop-blur-xl sm:px-8 lg:px-12">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6">
-        <Link
-          href="/"
-          className="max-w-[12rem] font-sans text-sm font-semibold uppercase leading-tight tracking-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest"
-          aria-label={`${siteConfig.name} home`}
-        >
-          Rehoboth
-          <span className="block text-[0.64rem] font-medium tracking-[0.24em] text-clay">
-            Ethiopian Coffee
-          </span>
-        </Link>
-
-        <nav aria-label="Primary navigation" className="hidden items-center gap-8 md:flex">
-          {navigation.map((item) => (
+    <header className="site-shell-header sticky top-0 z-50 border-b border-gold/75 bg-forest text-gold shadow-[0_18px_70px_rgba(0,0,0,0.22)]">
+      <div className="mx-auto grid max-w-[110rem] grid-cols-[1fr_auto_1fr] items-center gap-3 px-5 py-4 sm:px-7 lg:px-12">
+        <nav aria-label="Primary navigation left" className="hidden items-center gap-4 sm:flex lg:gap-8">
+          {leftNavigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-espresso/68 transition hover:text-espresso focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest"
+              className="text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-gold transition hover:text-ivory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold lg:text-[0.68rem]"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <ButtonLink href="/coffee" variant="secondary" className="min-h-10 px-4 py-2">
-            Choose Coffee
-          </ButtonLink>
-          <ButtonLink href="/visit" className="min-h-10 px-4 py-2">
-            Plan Visit
-          </ButtonLink>
+        <Link
+          href="/"
+          className="col-start-2 justify-self-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+          aria-label="Buna House home"
+        >
+          <span className="flex items-center gap-4">
+            <BunaEmblem className="size-12 sm:size-14" />
+            <span className="hidden text-left lg:block">
+              <span className="block font-display text-xl uppercase leading-none tracking-[0.12em] text-gold">
+                Buna House
+              </span>
+              <span className="mt-2 block font-subhead text-sm uppercase tracking-[0.14em] text-ivory/78">
+                The House of Ethiopian Coffee
+              </span>
+            </span>
+          </span>
+        </Link>
+
+        <div className="hidden items-center justify-end gap-4 sm:flex lg:gap-8">
+          <nav aria-label="Primary navigation right" className="flex items-center gap-4 lg:gap-8">
+            {rightNavigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-gold transition hover:text-ivory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold lg:text-[0.68rem]"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <Link
+            href="/visit"
+            className="border border-gold/70 px-5 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-gold transition duration-300 hover:bg-gold hover:text-forest hover:shadow-[0_0_24px_rgba(176,138,68,0.26)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+          >
+            Locations
+          </Link>
         </div>
 
-        <details className="group relative md:hidden">
-          <summary className="flex min-h-11 cursor-pointer list-none items-center rounded-rehoboth border border-espresso/20 px-4 text-sm font-semibold uppercase tracking-[0.14em] marker:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest">
+        <details className="group relative col-start-3 justify-self-end sm:hidden">
+          <summary className="flex min-h-11 cursor-pointer list-none items-center border border-gold/70 px-4 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold marker:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">
             Menu
           </summary>
-          <div className="absolute right-0 top-14 w-[min(86vw,22rem)] rounded-rehoboth border border-espresso/10 bg-ivory p-5 shadow-subtle">
+          <div className="absolute right-0 top-14 w-[min(86vw,22rem)] border border-gold/55 bg-forest p-5 shadow-[0_24px_70px_rgba(0,0,0,0.28)]">
             <nav aria-label="Mobile navigation" className="grid gap-2">
-              {navigation.map((item) => (
+              {[...leftNavigation, ...rightNavigation].map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-rehoboth px-3 py-3 text-lg font-medium hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest"
+                  className="px-3 py-3 text-base font-medium text-ivory/82 hover:bg-gold/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              <ButtonLink href="/coffee" variant="secondary">
-                Shop
-              </ButtonLink>
-              <ButtonLink href="/visit">Visit</ButtonLink>
-            </div>
           </div>
         </details>
       </div>

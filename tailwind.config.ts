@@ -5,24 +5,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        espresso: "#14110F",
-        ivory: "#F7F1E8",
-        oak: "#B98B5D",
-        forest: "#1F3D32",
-        gold: "#C6A15B",
-        clay: "#9B4F35",
-        stone: "#D8D0C4",
-        ink: "#24201C"
+        espresso: "#140D09",
+        ivory: "#F4E9D8",
+        oak: "#8A6A2D",
+        forest: "#081412",
+        gold: "#B08A44",
+        clay: "#7C3329",
+        stone: "#D9C7AA",
+        ink: "#0B0B0A",
+        accent: "#1A4A43"
       },
       fontFamily: {
-        display: ["Cormorant Garamond", "Georgia", "Times New Roman", "serif"],
-        sans: ["Geist", "Inter", "ui-sans-serif", "system-ui", "sans-serif"]
+        display: ["var(--font-display)", "Bodoni Moda", "Georgia", "Times New Roman", "serif"],
+        subhead: ["var(--font-subhead)", "Cormorant Garamond", "Georgia", "Times New Roman", "serif"],
+        sans: ["var(--font-sans)", "Inter", "ui-sans-serif", "system-ui", "sans-serif"]
       },
       borderRadius: {
         rehoboth: "6px"
       },
       boxShadow: {
-        subtle: "0 12px 40px rgba(20, 17, 15, 0.08)"
+        subtle: "0 18px 60px rgba(8, 20, 18, 0.14)"
       },
       transitionTimingFunction: {
         luxury: "cubic-bezier(0.22, 1, 0.36, 1)"

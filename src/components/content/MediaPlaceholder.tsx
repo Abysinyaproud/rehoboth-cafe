@@ -20,13 +20,15 @@ export function MediaPlaceholder({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-rehoboth border p-6",
+        "relative overflow-hidden border p-7 shadow-subtle sm:p-8",
         isDark
           ? "border-ivory/15 bg-ivory/8 text-ivory"
-          : "border-espresso/10 bg-stone/40 text-espresso",
+          : "border-gold/22 bg-[#fbf7ef] text-espresso",
         className
       )}
     >
+      <div className="absolute right-0 top-0 h-16 w-px bg-gold/50" aria-hidden="true" />
+      <div className="absolute right-0 top-0 h-px w-16 bg-gold/50" aria-hidden="true" />
       <div
         aria-hidden="true"
         className={cn(
@@ -37,13 +39,13 @@ export function MediaPlaceholder({
       <div className="relative flex min-h-full flex-col justify-end">
         <p
           className={cn(
-            "text-xs font-semibold uppercase tracking-[0.2em]",
-            isDark ? "text-gold" : "text-clay"
+            "text-[0.68rem] font-semibold uppercase tracking-[0.15em]",
+            isDark ? "text-gold" : "text-gold"
           )}
         >
           {label}
         </p>
-        <h3 className="mt-5 max-w-md font-display text-4xl leading-[1.02]">
+        <h3 className="mt-5 max-w-md font-display text-3xl uppercase leading-[1.02] tracking-[0.035em] sm:text-4xl">
           {title}
         </h3>
         <p className="mt-4 max-w-md leading-7 opacity-72">{body}</p>

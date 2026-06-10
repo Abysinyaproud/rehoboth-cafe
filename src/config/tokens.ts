@@ -1,13 +1,14 @@
 export const tokens = {
   color: {
-    espresso: "#14110F",
-    ivory: "#F7F1E8",
-    oak: "#B98B5D",
-    forest: "#1F3D32",
-    gold: "#C6A15B",
-    clay: "#9B4F35",
-    stone: "#D8D0C4",
-    ink: "#24201C",
+    espresso: "#140D09",
+    ivory: "#F4E9D8",
+    oak: "#8A6A2D",
+    forest: "#081412",
+    gold: "#B08A44",
+    clay: "#7C3329",
+    stone: "#D9C7AA",
+    ink: "#0B0B0A",
+    accent: "#1A4A43",
     white: "#FFFFFF"
   },
   radius: {

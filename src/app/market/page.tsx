@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { EmptyState } from "@/components/content/EmptyState";
 import { MarketPreview } from "@/components/sections/MarketPreview";
 import { ButtonLink } from "@/components/ui/Button";
+import { LuxuryMediaFrame } from "@/components/ui/LuxuryMediaFrame";
 import { Section } from "@/components/ui/Section";
+import { siteConfig } from "@/config/site";
 import { marketCategories } from "@/data/content";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
   title: "Curated Ethiopian Market",
   description:
-    "Explore Rehoboth Ethiopian Coffee's curated market with imported goods, honey, spices, traditional products, and thoughtful gifts.",
+    "Explore the Buna House shelves for injera bread, teff flour, spices, coffee, tea, Habesha Kemis, and cultural goods in Columbia, Maryland.",
   path: "/market"
 });
 
@@ -21,30 +22,33 @@ export default function MarketPage() {
         tone="forest"
         headingLevel="h1"
         eyebrow="Market"
-        title="A market chosen with the restraint of a good coffee menu."
-        intro="Every shelf should feel edited: useful, giftable, culturally specific, and connected to the rituals of coffee, home, and gathering."
+        title="A market chosen for the Ethiopian table."
+        intro="Every shelf should feel edited: injera, teff flour, spices, coffee, tea, gifts, and cultural goods connected to home, ceremony, and gathering."
       >
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div className="max-w-2xl">
-          <p className="font-display text-3xl leading-tight sm:text-4xl">
-            Imported goods, honey, spices, and traditional products selected
-            with the same care as the coffee.
-          </p>
-          <div className="mt-8">
-            <ButtonLink href="/visit" className="bg-ivory text-espresso hover:bg-gold">
-              Visit the Market This Weekend
-            </ButtonLink>
+            <p className="font-display text-[1.9rem] leading-[1.12] sm:text-4xl">
+              Injera bread, teff flour, spices, coffee, tea, and cultural goods
+              selected with the same care as the cup.
+            </p>
+            <div className="mt-8 grid gap-3 border-l border-gold/45 pl-5 text-sm leading-6 text-ivory/62">
+              <p>Edited shelves, not visual noise.</p>
+              <p>Every object should feel useful, giftable, and rooted in Ethiopian hospitality.</p>
+            </div>
+            <div className="mt-8">
+              <ButtonLink href="/visit" className="border-ivory bg-ivory text-espresso hover:bg-white">
+                Visit the Market This Weekend
+              </ButtonLink>
+            </div>
           </div>
-          </div>
-          <div className="relative aspect-[16/11] overflow-hidden rounded-rehoboth bg-espresso/20">
-            <Image
-              src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1500&q=85"
-              alt="Curated specialty market goods arranged with care"
-              fill
-              sizes="(min-width: 1024px) 52vw, 100vw"
-              className="object-cover opacity-90"
-            />
-          </div>
+          <LuxuryMediaFrame
+            src="/brand/images/cafe-market-interior.png"
+            alt="Buna House interior with Ethiopian market shelves and coffee service"
+            eyebrow="Shelf ritual"
+            title="Coffee, pantry, and cultural goods with restraint."
+            meta="A quiet market experience for guests who want to bring Ethiopian hospitality home."
+            imageClassName="aspect-[16/12] lg:aspect-[16/11]"
+          />
         </div>
       </Section>
 
@@ -53,8 +57,10 @@ export default function MarketPage() {
       <Section tone="white" eyebrow="Retail rhythm" title="Curated, giftable, and seasonal.">
         <div className="grid gap-6 md:grid-cols-2">
           {marketCategories.map((category) => (
-            <article key={category.title} className="rounded-rehoboth border border-espresso/10 bg-ivory p-7">
-              <h2 className="font-display text-3xl">{category.title}</h2>
+            <article key={category.title} className="relative overflow-hidden border border-gold/22 bg-[#fbf7ef] p-7 shadow-subtle transition duration-300 ease-luxury hover:border-gold/55 sm:p-8">
+              <div className="absolute right-0 top-0 h-12 w-px bg-gold/45" aria-hidden="true" />
+              <div className="absolute right-0 top-0 h-px w-12 bg-gold/45" aria-hidden="true" />
+              <h2 className="font-display text-[1.9rem] uppercase leading-[1.02] tracking-[0.035em]">{category.title}</h2>
               <p className="mt-4 leading-7 text-ink/70">{category.text}</p>
             </article>
           ))}
@@ -63,9 +69,9 @@ export default function MarketPage() {
           <EmptyState
             eyebrow="Inventory"
             title="Market availability will change with sourcing and season."
-            body="Market names, prices, gift boxes, and in-store availability can be updated as the shelf changes."
+            body="Market names, prices, gift boxes, and in-store availability can be updated as the shelf changes. Visit or call for current injera, teff flour, spice, coffee, tea, and cultural goods availability."
             ctaLabel="Ask About Market Goods"
-            ctaHref="mailto:hello@rehobothethiopiancoffee.com"
+            ctaHref={`tel:${siteConfig.phone}`}
           />
         </div>
       </Section>

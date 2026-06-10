@@ -15,10 +15,10 @@ export function MotionReveal({ children, className, delay = 0 }: MotionRevealPro
   return (
     <motion.div
       className={className}
-      initial={reducedMotion ? false : { opacity: 0, y: 22 }}
+      initial={reducedMotion ? false : { opacity: 0, y: 20 }}
       whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay }}
+      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1], delay }}
     >
       {children}
     </motion.div>

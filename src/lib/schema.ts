@@ -9,13 +9,16 @@ export function localBusinessSchema() {
     url: siteConfig.url,
     address: {
       "@type": "PostalAddress",
+      streetAddress: siteConfig.address.street,
       addressLocality: siteConfig.address.city,
       addressRegion: siteConfig.address.region,
+      postalCode: siteConfig.address.postalCode,
       addressCountry: siteConfig.address.country
     },
     servesCuisine: ["Coffee", "Ethiopian"],
     priceRange: "$$",
-    sameAs: [siteConfig.socials.instagram]
+    openingHours: ["Mo-Sa 10:00-20:00", "Su 10:00-16:00"],
+    sameAs: [siteConfig.yelpUrl, siteConfig.socials.instagram]
   };
 
   if (siteConfig.phone) {

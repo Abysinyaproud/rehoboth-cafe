@@ -7,7 +7,7 @@ export function Newsletter() {
       tone="ivory"
       eyebrow="Newsletter"
       title="Stay close to the ritual."
-      intro="Join the Rehoboth list for coffee releases, ceremony dates, market arrivals, and community updates."
+      intro="Join the Buna House list for coffee releases, ceremony dates, market arrivals, and community updates."
     >
       <form className="grid max-w-2xl gap-3 sm:grid-cols-[1fr_auto]">
         <label className="sr-only" htmlFor="newsletter-email">
@@ -18,7 +18,7 @@ export function Newsletter() {
           name="email"
           type="email"
           placeholder="Email address"
-          className="min-h-12 rounded-rehoboth border border-espresso/18 bg-white px-4 text-espresso outline-none transition focus:border-forest focus:ring-2 focus:ring-forest/20"
+          className="min-h-12 rounded-rehoboth border border-espresso/14 bg-white/70 px-4 text-sm text-espresso outline-none transition placeholder:text-espresso/38 focus:border-forest focus:ring-2 focus:ring-forest/14"
         />
         <Button type="submit">Join the List</Button>
       </form>

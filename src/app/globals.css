@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --color-espresso: #14110f;
-  --color-ivory: #f7f1e8;
-  --color-gold: #c6a15b;
-  --font-sans: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-espresso: #140d09;
+  --color-ivory: #f4e9d8;
+  --color-gold: #b08a44;
   --radius-rehoboth: 6px;
   --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: light;
@@ -42,8 +41,9 @@ body {
   min-height: 100vh;
   background: var(--color-ivory);
   color: var(--color-espresso);
-  font-family: var(--font-sans);
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
   text-rendering: optimizeLegibility;
+  font-feature-settings: "kern";
 }
 
 a {
@@ -75,7 +75,17 @@ a {
 
 .texture {
   background-image:
-    linear-gradient(rgba(20, 17, 15, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(20, 17, 15, 0.025) 1px, transparent 1px);
-  background-size: 38px 38px;
+    linear-gradient(rgba(44, 30, 23, 0.026) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(44, 30, 23, 0.018) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+body:has(.reference-homepage) {
+  background: #081412;
+}
+
+body:has(.reference-homepage) .site-shell-header,
+body:has(.reference-homepage) .site-shell-footer,
+body:has(.reference-homepage) .site-mobile-action {
+  display: none;
 }

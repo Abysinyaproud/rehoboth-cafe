@@ -14,7 +14,7 @@ type SectionProps = {
 
 const tones = {
   ivory: "bg-ivory text-espresso",
-  white: "bg-white text-espresso",
+  white: "bg-[#fbf7ef] text-espresso",
   espresso: "bg-espresso text-ivory",
   forest: "bg-forest text-ivory"
 };
@@ -35,29 +35,31 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-32",
+        "relative overflow-hidden border-b border-gold/20 px-5 py-24 sm:px-8 sm:py-28 lg:px-12 lg:py-32",
         tones[tone],
         className
       )}
     >
       <div className="mx-auto max-w-7xl">
         {(eyebrow || title || intro) && (
-          <div className="mb-12 max-w-3xl lg:mb-16">
+          <div className="mb-14 grid gap-8 lg:mb-20 lg:grid-cols-[0.72fr_1fr] lg:items-end">
             {eyebrow ? (
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-clay">
+              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-gold">
                 {eyebrow}
               </p>
             ) : null}
-            {title ? (
-              <Heading className="font-display text-4xl leading-[0.98] sm:text-6xl lg:text-7xl">
-                {title}
-              </Heading>
-            ) : null}
-            {intro ? (
-              <p className="mt-7 max-w-2xl text-base leading-8 text-current/72 sm:text-lg">
-                {intro}
-              </p>
-            ) : null}
+            <div>
+              {title ? (
+                <Heading className="max-w-5xl font-display text-4xl uppercase leading-[0.96] tracking-[0.035em] sm:text-5xl lg:text-6xl">
+                  {title}
+                </Heading>
+              ) : null}
+              {intro ? (
+                <p className="mt-7 max-w-2xl text-base leading-8 text-current/66 sm:text-[1.05rem]">
+                  {intro}
+                </p>
+              ) : null}
+            </div>
           </div>
         )}
         {children}

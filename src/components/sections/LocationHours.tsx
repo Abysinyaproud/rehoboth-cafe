@@ -7,45 +7,50 @@ export function LocationHours() {
     <Section
       id="location"
       tone="espresso"
-      eyebrow="Visit Rehoboth"
+      eyebrow="Visit Buna House"
       title="Make the visit easy. Make the memory linger."
-      intro="Hours, directions, parking, call, and review actions are close at hand, but the page still leads with the feeling of arriving somewhere specific."
+      intro="The essentials are simple: full address, current public listing hours, one-tap directions, and a call button for anything that needs a human answer."
     >
       <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
         <div className="min-h-[22rem] rounded-rehoboth border border-ivory/15 bg-ivory/8 p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-gold/82">
             Columbia, Maryland
           </p>
-          <div className="mt-24 max-w-sm">
-            <p className="font-display text-4xl leading-tight">{siteConfig.locationLabel}</p>
+          <div className="mt-16 max-w-sm">
+            <p className="font-display text-4xl leading-[1.08]">Find Buna House on Snowden River Parkway.</p>
             <p className="mt-4 leading-7 text-ivory/65">
-              Set your route, bring a friend, and make the stop feel like the
-              point of the afternoon rather than an errand.
+              {siteConfig.locationLabel}
             </p>
+            <a
+              href={`tel:${siteConfig.phone}`}
+              className="mt-5 inline-block text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-gold/86 underline underline-offset-8"
+            >
+              Call {siteConfig.phoneLabel}
+            </a>
           </div>
         </div>
 
         <div className="grid gap-4">
           {[
-            ["Hours", "Daily hours are shared on the Visit page"],
-            ["Parking", "Arrival notes are kept close to the directions path"],
-            ["Remote Work", "A welcoming weekday rhythm for focused coffee time"],
-            ["Reviews", "Guest stories and reviews help new visitors choose Rehoboth"]
+            ["Hours", "Mon-Sat 10:00 AM-8:00 PM / Sun 10:00 AM-4:00 PM"],
+            ["Market", "Injera bread, teff flour, spices, tea, coffee, and cultural goods"],
+            ["Coffee", "Cafe mocha, macchiato, Americano, and Ethiopian coffee experiences"],
+            ["Reviews", "Guest stories help new visitors choose Buna House with confidence"]
           ].map(([label, value]) => (
             <div key={label} className="rounded-rehoboth border border-ivory/15 p-5">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-gold">{label}</p>
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-gold/82">{label}</p>
               <p className="mt-2 text-lg text-ivory/78">{value}</p>
             </div>
           ))}
           <div className="mt-4 flex flex-col gap-3 sm:flex-row">
             <ButtonLink
               href={siteConfig.directionsUrl}
-              className="bg-ivory text-espresso hover:bg-gold"
+              className="border-ivory bg-ivory text-espresso hover:bg-white"
             >
               Get Directions
             </ButtonLink>
-            <ButtonLink href="/visit#hours" variant="secondary" className="border-ivory/45 text-ivory hover:bg-ivory hover:text-espresso">
-              Check Today&apos;s Hours
+            <ButtonLink href={`tel:${siteConfig.phone}`} variant="secondary" className="border-ivory/45 text-ivory hover:bg-ivory hover:text-espresso">
+              Call Buna House
             </ButtonLink>
           </div>
         </div>

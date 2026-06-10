@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Buna House">
+  <rect width="64" height="64" fill="#081412"/>
+  <path d="M21 42h22c3.5 0 6-2.5 6-6 0-3.1-2.2-5.4-5.2-5.9V26c0-6.6-5.2-12-11.8-12S20.2 19.4 20.2 26v4.1C17.2 30.6 15 32.9 15 36c0 3.5 2.5 6 6 6Z" fill="none" stroke="#B08A44" stroke-width="2.8" stroke-linejoin="round"/>
+  <path d="M25 27c4.5-5.2 9.5-5.2 14 0M24 49h16" fill="none" stroke="#B08A44" stroke-width="2.8" stroke-linecap="round"/>
+</svg>

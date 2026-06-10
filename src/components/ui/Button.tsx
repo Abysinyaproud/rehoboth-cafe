@@ -6,15 +6,15 @@ type Variant = "primary" | "secondary" | "text";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-espresso text-ivory shadow-[inset_0_0_0_1px_rgba(247,241,232,0.08)] hover:bg-forest focus-visible:outline-forest",
+    "border border-gold bg-forest text-gold shadow-[inset_0_0_0_1px_rgba(244,233,216,0.08)] hover:bg-gold hover:text-espresso focus-visible:outline-gold",
   secondary:
-    "border border-espresso/30 text-espresso hover:border-espresso hover:bg-white focus-visible:outline-forest",
+    "border border-gold/70 text-gold hover:border-gold hover:bg-gold hover:text-espresso focus-visible:outline-gold",
   text:
-    "min-h-0 px-0 py-1 text-espresso underline decoration-gold decoration-1 underline-offset-8 hover:text-forest focus-visible:outline-forest"
+    "min-h-0 px-0 py-1 text-espresso underline decoration-gold/65 decoration-1 underline-offset-8 hover:text-forest focus-visible:outline-gold"
 };
 
 const base =
-  "inline-flex min-h-12 items-center justify-center rounded-rehoboth px-6 py-3 text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition duration-300 ease-luxury focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex min-h-12 items-center justify-center rounded-none px-7 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.18em] transition duration-300 ease-luxury focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 disabled:pointer-events-none disabled:opacity-50";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: Variant;

@@ -8,14 +8,15 @@ export function MarketPreview() {
     <Section
       id="market"
       eyebrow="The market"
-      title="A market edited like a shelf in someone&apos;s home."
-      intro="Imported goods, honey, spices, and traditional products appear as a curated extension of Ethiopian hospitality, not a grocery aisle."
+      title="A market edited for the Ethiopian table."
+      intro="Injera, teff flour, spices, coffee, tea, and cultural goods make the market an extension of hospitality, not a generic shelf."
     >
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {marketCategories.map((category, index) => (
           <EditorialCard
             key={category.title}
             image={category.image}
+            eyebrow={`0${index + 1}`}
             title={category.title}
             text={category.text}
             imageClassName={index === 0 ? "lg:aspect-[3/4]" : undefined}
@@ -24,7 +25,7 @@ export function MarketPreview() {
       </div>
       <div className="mt-10">
         <ButtonLink href="/market" variant="secondary">
-          Browse the Market Story
+          Browse the Market
         </ButtonLink>
       </div>
     </Section>

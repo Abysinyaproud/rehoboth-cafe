@@ -9,7 +9,7 @@ export function OriginStory() {
     <Section
       eyebrow="Why Ethiopia"
       title="Before coffee was a habit, it was a place."
-      intro="Rehoboth treats Ethiopia as the beginning of the story: origin, flavor, ceremony, and welcome all held together in one destination."
+      intro="Buna House treats Ethiopia as the beginning of the story: coffee, ceremony, food staples, market goods, and welcome held together in one Columbia destination."
     >
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <MotionReveal>
@@ -26,14 +26,14 @@ export function OriginStory() {
 
         <MotionReveal delay={0.08}>
           <div className="max-w-2xl lg:pl-10">
-            <p className="font-display text-4xl leading-[1.02] text-espresso sm:text-5xl">
-              Bright single-origin beans, the smoke and patience of ceremony,
-              and the warmth of being received.
+            <p className="font-display text-4xl leading-[1.08] text-espresso sm:text-5xl">
+              Coffee at the counter, injera and teff flour on the shelf, spices
+              for the kitchen, and the warmth of being received.
             </p>
             <p className="mt-6 leading-8 text-ink/70">
-              The site now makes that sequence clearer: taste the coffee, learn
-              the origin, gather for ceremony, and take a piece of the ritual
-              home through beans and market goods.
+              Buna House is strongest when the experience feels connected: drink
+              the coffee, learn the origin, ask about ceremony, and take
+              something home for the next table.
             </p>
             <div className="mt-8 grid gap-3">
               {originMoments.map((moment) => (
@@ -41,7 +41,7 @@ export function OriginStory() {
                   key={moment.label}
                   className="grid gap-2 border-t border-espresso/12 py-4 sm:grid-cols-[8rem_1fr]"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-clay/80">
                     {moment.label}
                   </p>
                   <p className="leading-7 text-espresso/78">{moment.value}</p>
@@ -50,7 +50,7 @@ export function OriginStory() {
             </div>
             <div className="mt-8">
               <ButtonLink href="/about" variant="text">
-                Read the Rehoboth Story
+                Read the Buna House Story
               </ButtonLink>
             </div>
           </div>

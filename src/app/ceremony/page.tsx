@@ -9,7 +9,7 @@ import { createMetadata } from "@/lib/seo";
 export const metadata: Metadata = createMetadata({
   title: "Ethiopian Coffee Ceremony",
   description:
-    "Learn about Ethiopian coffee ceremony at Rehoboth Ethiopian Coffee, including private group experiences, community gatherings, and ceremony as hospitality.",
+    "Learn about traditional Ethiopian coffee experiences at Buna House in Columbia, Maryland.",
   path: "/ceremony"
 });
 
@@ -21,7 +21,7 @@ export default function CeremonyPage() {
         headingLevel="h1"
         eyebrow="Coffee Ceremony"
         title="A tradition of welcome, aroma, and gathering."
-        intro="The Ethiopian coffee ceremony turns coffee into an act of care. Rehoboth presents ceremony as a way to slow down, learn, gather, and experience Ethiopian hospitality."
+        intro="The Ethiopian coffee ceremony turns coffee into an act of care. Buna House presents traditional coffee experiences as a way to slow down, learn, gather, and feel Ethiopian hospitality."
       >
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
           <div className="relative aspect-[16/11] overflow-hidden rounded-rehoboth bg-espresso/20">
@@ -34,23 +34,22 @@ export default function CeremonyPage() {
             />
           </div>
           <div className="rounded-rehoboth border border-ivory/15 p-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-gold/82">
               Ceremony details
             </p>
-            <p className="mt-5 font-display text-3xl leading-tight">
+            <p className="mt-5 font-display text-[1.9rem] leading-[1.1]">
               Private and group ceremony experiences are being shaped with care.
             </p>
             <p className="mt-5 leading-8 text-ivory/72">
-              Until formal booking opens, guests can contact Rehoboth for
-              ceremony questions, private gathering interest, and community
-              event updates.
+              Until formal booking opens, guests can call Buna House for ceremony
+              questions, private gathering interest, and community event updates.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <ButtonLink
-                href={`mailto:${siteConfig.email}`}
-                className="bg-ivory text-espresso hover:bg-gold"
+                href={`tel:${siteConfig.phone}`}
+                className="border-ivory bg-ivory text-espresso hover:bg-white"
               >
-                Inquire by Email
+                Call Buna House
               </ButtonLink>
               <ButtonLink
                 href="/visit"
@@ -77,7 +76,7 @@ export default function CeremonyPage() {
             ["Gathering", "Coffee becomes a reason for conversation and connection."]
           ].map(([title, text]) => (
             <article key={title} className="border-t border-espresso/15 pt-6">
-              <h2 className="font-display text-3xl">{title}</h2>
+              <h2 className="font-display text-[1.9rem] leading-[1.1]">{title}</h2>
               <p className="mt-4 leading-7 text-ink/70">{text}</p>
             </article>
           ))}
@@ -88,9 +87,9 @@ export default function CeremonyPage() {
         <EmptyState
           eyebrow="Ceremony calendar"
           title="Ceremony inquiries are open."
-          body="Guests interested in private gatherings, group experiences, or future ceremony dates can contact Rehoboth directly while the public calendar is being shaped."
-          ctaLabel="Send a Ceremony Inquiry"
-          ctaHref={`mailto:${siteConfig.email}`}
+          body="Guests interested in private gatherings, group experiences, or future ceremony dates can call Buna House directly while the public calendar is being shaped."
+          ctaLabel="Call About Ceremony"
+          ctaHref={`tel:${siteConfig.phone}`}
         />
       </Section>
     </>
