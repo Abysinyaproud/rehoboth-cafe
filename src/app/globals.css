@@ -6,7 +6,7 @@
   --color-espresso: #140d09;
   --color-ivory: #f4e9d8;
   --color-gold: #b08a44;
-  --radius-rehoboth: 6px;
+  --radius-brand: 6px;
   --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: light;
   background: var(--color-ivory);
@@ -62,7 +62,7 @@ a {
   top: 1rem;
   z-index: 100;
   transform: translateY(-150%);
-  border-radius: var(--radius-rehoboth);
+  border-radius: var(--radius-brand);
   background: var(--color-espresso);
   color: var(--color-ivory);
   padding: 0.75rem 1rem;

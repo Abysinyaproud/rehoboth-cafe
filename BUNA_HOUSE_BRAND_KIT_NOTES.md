@@ -1,4 +1,4 @@
-# Rehoboth Brand Kit Notes
+# Buna House Brand Kit Notes
 
 Source reviewed: SharePoint Brand Kit folder.
 
@@ -30,6 +30,6 @@ Applied digital palette:
 
 Implementation note:
 
-The SharePoint folder can be viewed in the in-app browser, but direct file downloads are blocked by the browser environment. The site currently uses the uploaded logo already present in `public/brand/rehoboth-logo.jpg` and the extracted/reference mockup assets in `public/brand/mockup-assets`.
+The SharePoint folder can be viewed in the in-app browser, but direct file downloads are blocked by the browser environment. The active site now uses the minimalist Buna House emblem at `public/brand/logos/buna-house-favicon.svg` and the extracted/reference brand imagery in `public/brand/images`.
 
 When the full brand kit is downloaded locally, replace the logo and mockup placeholders with the highest-resolution source exports from the files listed above.

@@ -13,7 +13,7 @@ export function OriginStory() {
     >
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <MotionReveal>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-rehoboth bg-stone shadow-subtle">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-brand bg-stone shadow-subtle">
             <Image
               src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?auto=format&fit=crop&w=1400&q=85"
               alt="Coffee beans held by hand"

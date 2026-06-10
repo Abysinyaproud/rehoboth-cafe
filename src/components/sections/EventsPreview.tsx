@@ -19,7 +19,7 @@ export function EventsPreview() {
         {events.map((event) => (
           <article
             key={event.title}
-            className="rounded-rehoboth border border-espresso/10 bg-ivory p-7 transition duration-300 ease-luxury hover:border-gold/30 hover:bg-white/70"
+            className="rounded-brand border border-espresso/10 bg-ivory p-7 transition duration-300 ease-luxury hover:border-gold/30 hover:bg-white/70"
           >
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-clay/80">
               {event.date}

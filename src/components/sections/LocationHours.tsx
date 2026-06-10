@@ -12,7 +12,7 @@ export function LocationHours() {
       intro="The essentials are simple: full address, current public listing hours, one-tap directions, and a call button for anything that needs a human answer."
     >
       <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
-        <div className="min-h-[22rem] rounded-rehoboth border border-ivory/15 bg-ivory/8 p-6">
+        <div className="min-h-[22rem] rounded-brand border border-ivory/15 bg-ivory/8 p-6">
           <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-gold/82">
             Columbia, Maryland
           </p>
@@ -37,7 +37,7 @@ export function LocationHours() {
             ["Coffee", "Cafe mocha, macchiato, Americano, and Ethiopian coffee experiences"],
             ["Reviews", "Guest stories help new visitors choose Buna House with confidence"]
           ].map(([label, value]) => (
-            <div key={label} className="rounded-rehoboth border border-ivory/15 p-5">
+            <div key={label} className="rounded-brand border border-ivory/15 p-5">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-gold/82">{label}</p>
               <p className="mt-2 text-lg text-ivory/78">{value}</p>
             </div>

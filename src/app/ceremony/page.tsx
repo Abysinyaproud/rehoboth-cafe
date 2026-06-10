@@ -24,7 +24,7 @@ export default function CeremonyPage() {
         intro="The Ethiopian coffee ceremony turns coffee into an act of care. Buna House presents traditional coffee experiences as a way to slow down, learn, gather, and feel Ethiopian hospitality."
       >
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-          <div className="relative aspect-[16/11] overflow-hidden rounded-rehoboth bg-espresso/20">
+          <div className="relative aspect-[16/11] overflow-hidden rounded-brand bg-espresso/20">
             <Image
               src="https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1600&q=85"
               alt="Coffee ceremony table with cups prepared for guests"
@@ -33,7 +33,7 @@ export default function CeremonyPage() {
               className="object-cover opacity-90"
             />
           </div>
-          <div className="rounded-rehoboth border border-ivory/15 p-7">
+          <div className="rounded-brand border border-ivory/15 p-7">
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-gold/82">
               Ceremony details
             </p>

@@ -25,6 +25,7 @@ export const siteConfig = {
     "https://www.google.com/maps/search/?api=1&query=Buna%20House%209400%20Snowden%20River%20Pkwy%20Suite%20113%20Columbia%20MD%2021045",
   reviewUrl:
     "https://www.google.com/search?q=Buna+House+Ethiopian+Coffee+reviews",
+  publicListingLabel: "Current public Yelp listing",
   yelpUrl:
     "https://www.yelp.com/biz/rehoboth-cafe-and-market-columbia?utm_source=ishare",
   socials: {

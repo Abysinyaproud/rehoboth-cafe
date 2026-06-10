@@ -21,7 +21,7 @@ const config: Config = {
         sans: ["var(--font-sans)", "Inter", "ui-sans-serif", "system-ui", "sans-serif"]
       },
       borderRadius: {
-        rehoboth: "6px"
+        brand: "6px"
       },
       boxShadow: {
         subtle: "0 18px 60px rgba(8, 20, 18, 0.14)"

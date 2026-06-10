@@ -18,7 +18,7 @@ export function Newsletter() {
           name="email"
           type="email"
           placeholder="Email address"
-          className="min-h-12 rounded-rehoboth border border-espresso/14 bg-white/70 px-4 text-sm text-espresso outline-none transition placeholder:text-espresso/38 focus:border-forest focus:ring-2 focus:ring-forest/14"
+          className="min-h-12 rounded-brand border border-espresso/14 bg-white/70 px-4 text-sm text-espresso outline-none transition placeholder:text-espresso/38 focus:border-forest focus:ring-2 focus:ring-forest/14"
         />
         <Button type="submit">Join the List</Button>
       </form>

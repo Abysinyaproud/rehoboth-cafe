@@ -6,7 +6,7 @@ export function CeremonyFeature() {
   return (
     <Section id="ceremony" tone="forest" className="overflow-hidden">
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <div className="relative aspect-[16/11] overflow-hidden rounded-rehoboth bg-espresso">
+        <div className="relative aspect-[16/11] overflow-hidden rounded-brand bg-espresso">
           <Image
             src="https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1600&q=85"
             alt="Coffee ceremony and gathering table"

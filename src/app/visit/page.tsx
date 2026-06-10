@@ -112,7 +112,7 @@ export default function VisitPage() {
             Call {siteConfig.phoneLabel}
           </ButtonLink>
           <ButtonLink href={siteConfig.yelpUrl} variant="text">
-            View Yelp Listing
+            Current Public Yelp Listing
           </ButtonLink>
         </div>
       </Section>
