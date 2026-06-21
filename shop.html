@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#051713" />
+  <title>The Market — Shop · Rehoboth Ethiopian Café and Market</title>
+  <meta name="description" content="Browse the Rehoboth Ethiopian Market — 400+ items: Ethiopian coffee, berbere & mitmita spices, 100% teff injera and breads, spiced teas, snacks, flours, legumes, housewares and more. Search and filter the full shelf." />
+
+  <link rel="icon" href="assets/brand/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .shop-head { padding-top: 130px; padding-bottom: 6px; }
+    .shop-controls {
+      position: sticky; top: 80px; z-index: 40;
+      padding-block: 18px; margin-top: 14px;
+      background: linear-gradient(180deg, var(--green-900) 70%, transparent);
+      backdrop-filter: blur(6px);
+    }
+    .search { position: relative; max-width: 520px; }
+    .search svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--gold-soft); pointer-events: none; }
+    .search input {
+      width: 100%; background: var(--green-850); border: 1px solid var(--line);
+      border-radius: 999px; padding: 14px 18px 14px 46px; color: var(--cream); font: inherit; font-size: 1rem;
+      box-shadow: var(--hi), var(--shadow-card);
+    }
+    .search input::placeholder { color: var(--cream-faint); }
+    .search input:focus { outline: none; border-color: var(--gold); }
+    .cat-row { display: flex; gap: 8px; margin-top: 16px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; }
+    .cat-row::-webkit-scrollbar { height: 6px; }
+    .cat-row::-webkit-scrollbar-thumb { background: var(--line); border-radius: 99px; }
+    .count { margin-top: 14px; font-size: 0.85rem; color: var(--cream-faint); letter-spacing: 0.04em; }
+    .count b { color: var(--gold-bright); font-weight: 600; }
+    .shop-grid { margin-top: 10px; padding-bottom: 90px; }
+    .good__price.empty { color: var(--cream-faint); font-family: var(--font-body); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; }
+    .noresults { text-align: center; color: var(--cream-dim); padding: 60px 0; font-family: var(--font-head); }
+    @media (max-width: 560px){ .shop-controls{ top: 76px; } }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="nav scrolled" id="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="index.html" aria-label="Rehoboth Ethiopian Café and Market home">
+        <img class="brand__logo" src="assets/brand/logo.png" alt="Rehoboth Ethiopian Café and Market emblem" width="46" height="46" />
+        <span class="brand__name">Rehoboth<small>Ethiopian Café · Market</small></span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html#story">Ceremony</a></li>
+          <li><a href="index.html#menu">Menu</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="index.html#visit">Visit</a></li>
+          <li><a href="order.html">Order Ahead</a></li>
+        </ul>
+      </nav>
+      <div class="nav__cta">
+        <a class="btn btn--gold" href="order.html">Order Ahead
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap shop-head">
+      <p class="eyebrow">ገበያ · The Market</p>
+      <h1 class="section-title" style="font-size:clamp(2.1rem,6vw,3.4rem)">Four hundred ways to <span class="accent">taste home</span>.</h1>
+      <p class="lead">Our whole shelf, searchable — Ethiopian coffee &amp; our own house roast, berbere &amp; mitmita, teff injera and breads, spiced teas, snacks, flours, legumes, and the housewares that make a kitchen Ethiopian.</p>
+    </div>
+
+    <div class="shop-controls">
+      <div class="wrap">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="q" type="search" placeholder="Search the market — injera, berbere, cardamom…" autocomplete="off" aria-label="Search products" />
+        </div>
+        <div class="cat-row" id="cats" role="tablist" aria-label="Categories"></div>
+        <p class="count" id="count"></p>
+      </div>
+    </div>
+
+    <div class="wrap shop-grid">
+      <div class="shelf" id="grid"></div>
+      <div class="noresults" id="noresults" hidden>No items match — try another word.</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__bottom" style="margin-top:0;border-top:0">
+      <span>© <span id="year">2026</span> Rehoboth Cafe and Market, LLC · 9400 Snowden River Pkwy, Columbia, MD</span>
+      <span><a href="index.html" style="color:var(--cream-dim)">← Back to home</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/shop-data.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>
