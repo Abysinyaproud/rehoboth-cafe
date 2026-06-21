@@ -581,6 +581,33 @@ body::after {
 @keyframes beam-trace { to { --beam-angle: 360deg; } }
 
 /* ---------------------------------------------------------------------
+   Market — category chips + real-product "shelf" cards
+   --------------------------------------------------------------------- */
+.market__cats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.market__cats span {
+  font-family: var(--font-head); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--cream-dim); border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px;
+}
+.shelf-label {
+  display: flex; align-items: center; gap: 16px; margin-top: 46px;
+  font-family: var(--font-head); font-size: 0.76rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.shelf-label::after { content: ""; height: 1px; flex: 1; background: linear-gradient(90deg, var(--line), transparent); }
+.shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin-top: 24px; }
+.good {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding: 16px 18px; border: 1px solid var(--line-soft); border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--green-800), var(--green-850));
+  box-shadow: var(--hi), var(--shadow-card);
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.good:hover { border-color: var(--gold); transform: translateY(-2px); }
+.good__name { font-family: var(--font-head); font-size: 1rem; font-weight: 600; }
+.good__tag { display: block; font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-faint); margin-top: 4px; }
+.good__price { font-family: var(--font-head); color: var(--gold-bright); font-weight: 600; white-space: nowrap; }
+
+/* ---------------------------------------------------------------------
    Hero spotlight — a soft gold "lit stage" pool that slowly breathes
    (technique adapted from 21st.dev hero components / spotlight)
    --------------------------------------------------------------------- */
