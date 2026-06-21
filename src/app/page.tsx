@@ -1,391 +1,444 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BunaEmblem } from "@/components/brand/BunaEmblem";
+import { EthiopianCoffeeScene } from "@/components/visuals/EthiopianCoffeeScene";
+import { HeroVideo } from "@/components/visuals/HeroVideo";
+import { brandImages, brandVideos } from "@/config/brand-assets";
+import { siteConfig } from "@/config/site";
 
-const navLeft = [
-  ["Shop", "/shop"],
-  ["Cafe & Market", "/market"],
-  ["Our Story", "/about"]
-];
-
-const navRight = [
-  ["Journal", "/journal"],
-  ["Contact", "/contact"]
+const navItems = [
+  ["Coffee", "/coffee"],
+  ["Market", "/market"],
+  ["Our Story", "/about"],
+  ["Visit", "/visit"]
 ];
 
 const coffees = [
   {
     name: "Yirgacheffe",
     notes: "Floral • Citrus • Tea Like",
-    origin: "From the highlands of Ethiopia",
-    price: "$24",
-    href: "/coffee/yirgacheffe",
-    tone: "bg-[#081412]"
+    description: "A lifted Ethiopian profile with clean aromatics and a precise finish.",
+    video: brandVideos.origin,
+    videoLabel: "Ethiopian coffee origin, cherries, green coffee, and hand sorting",
+    href: "/coffee/yirgacheffe"
   },
   {
     name: "Sidamo",
-    notes: "Berry • Chocolate • Sweet",
-    origin: "A rounded cup with elegant fruit depth",
-    price: "$22",
-    href: "/coffee/sidamo",
-    tone: "bg-[#d9c09a] text-espresso"
+    notes: "Stone Fruit • Chocolate • Sweet",
+    description: "Rounded, expressive, and generous without losing clarity.",
+    video: brandVideos.ritual,
+    videoLabel: "Traditional Ethiopian coffee ritual with jebena, beans, steam, and incense",
+    href: "/coffee/sidamo"
   },
   {
     name: "Limu",
-    notes: "Caramel • Spice • Smooth",
-    origin: "Balanced, warm, and quietly complex",
-    price: "$21",
-    href: "/coffee/limu",
-    tone: "bg-[#21150f]"
+    notes: "Caramel • Spice • Wine Like",
+    description: "Warm and composed with a smooth structure and quiet depth.",
+    video: brandVideos.pour,
+    videoLabel: "Coffee pouring from a jebena into Ethiopian sini cups with steam",
+    href: "/coffee/limu"
   }
 ];
 
-const experiences = [
-  ["Coffee", "Rare Ethiopian beans.", "/coffee"],
-  ["Culture", "Authentic traditions.", "/ceremony"],
-  ["Community", "A gathering place.", "/visit"]
-];
-
-function Wordmark({ compact = false }: { compact?: boolean }) {
+function BrandMark() {
   return (
     <span className="inline-flex items-center gap-4">
-      <BunaEmblem className={compact ? "size-12" : "size-16"} />
+      <BunaEmblem className="size-12" />
       <span>
         <span className="block font-display text-xl uppercase leading-none tracking-[0.12em] text-gold">
           Buna House
         </span>
-        {!compact ? (
-          <span className="mt-2 block font-subhead text-sm leading-none tracking-[0.16em] text-ivory/78">
-            The House of Ethiopian Coffee
-          </span>
-        ) : null}
+        <span className="mt-2 hidden font-subhead text-sm uppercase tracking-[0.14em] text-ivory/72 sm:block">
+          The House of Ethiopian Coffee
+        </span>
       </span>
     </span>
   );
 }
 
-function GoldLink({
-  href,
-  children,
-  className = ""
-}: {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-}) {
+function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link
       href={href}
-      className={`inline-flex min-h-12 items-center justify-center border border-gold px-7 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold transition duration-300 hover:bg-gold hover:text-forest hover:shadow-[0_0_28px_rgba(176,138,68,0.28)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold ${className}`}
+      className="editorial-link text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gold transition duration-300 hover:text-ivory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
     >
       {children}
     </Link>
   );
 }
 
-function CoffeeBag({ name, notes, origin, price, href, tone }: (typeof coffees)[number]) {
+function CtaLink({
+  href,
+  children,
+  variant = "primary"
+}: {
+  href: string;
+  children: React.ReactNode;
+  variant?: "primary" | "secondary";
+}) {
+  const styles =
+    variant === "primary"
+      ? "border-gold bg-gold text-forest hover:bg-ivory"
+      : "border-gold/60 text-gold hover:border-gold hover:bg-gold hover:text-forest";
+
   return (
-    <article className="group grid gap-7 text-left">
-      <Link
-        href={href}
-        className="mx-auto flex w-full max-w-[19rem] flex-col items-center transition duration-300 hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
-      >
-        <span
-          className={`relative flex aspect-[3/4] w-full flex-col justify-between overflow-hidden border border-gold/65 p-7 shadow-[0_34px_90px_rgba(0,0,0,0.32)] ${tone}`}
-        >
-          <span className="absolute inset-x-0 top-0 h-16 border-b border-gold/30 bg-[linear-gradient(180deg,rgba(244,233,216,0.16),transparent)]" />
-          <span className="relative mx-auto mt-8 grid size-20 place-items-center border border-current/60">
-            <BunaEmblem className="size-14 border-0 bg-transparent" />
-          </span>
-          <span className="relative text-center">
-            <span className="block font-display text-3xl uppercase tracking-[0.1em] text-gold">
-              {name}
-            </span>
-            <span className="mt-3 block text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-current/70">
-              Single Origin
-            </span>
-          </span>
-        </span>
-      </Link>
-      <div className="mx-auto max-w-[19rem] text-center">
-        <h3 className="font-display text-3xl uppercase tracking-[0.08em] text-gold">{name}</h3>
-        <p className="mt-2 font-subhead text-xl leading-6 text-ivory/82">{notes}</p>
-        <p className="mt-3 text-sm leading-6 text-ivory/62">{origin}</p>
-        <p className="mt-4 font-semibold text-gold">{price}</p>
-        <Link
-          href={href}
-          className="mt-6 inline-flex text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold transition duration-300 hover:text-ivory"
-        >
-          Explore Coffee →
-        </Link>
-      </div>
-    </article>
+    <Link
+      href={href}
+      className={`luxury-button inline-flex min-h-12 items-center justify-center border px-8 text-[0.72rem] font-semibold uppercase tracking-[0.18em] transition duration-300 hover:shadow-[0_0_34px_rgba(176,138,68,0.26)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold ${styles}`}
+    >
+      <span>{children}</span>
+    </Link>
   );
+}
+
+function Eyebrow({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <p className={`text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-gold ${className}`}>
+      {children}
+    </p>
+  );
+}
+
+function LuxuryRule({ className = "" }: { className?: string }) {
+  return <span className={`luxury-rule ${className}`} aria-hidden="true" />;
 }
 
 export default function HomePage() {
   return (
-    <article className="reference-homepage bg-forest text-ivory">
-      <div className="mx-auto max-w-[110rem] overflow-hidden bg-forest shadow-[0_0_120px_rgba(0,0,0,0.45)]">
-        <header className="relative z-20 grid grid-cols-[1fr_auto_1fr] items-center border-b border-gold/55 bg-forest/92 px-7 py-5 text-gold backdrop-blur-md lg:px-14">
-          <nav className="hidden items-center gap-4 sm:flex lg:gap-10" aria-label="Primary navigation left">
-            {navLeft.map(([label, href]) => (
-              <Link
-                key={label}
-                href={href}
-                className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] transition duration-300 hover:text-ivory"
-              >
+    <article className="reference-homepage overflow-x-hidden bg-ivory text-espresso">
+      <header className="absolute inset-x-0 top-0 z-40 border-b border-gold/25 bg-forest/76 px-5 py-5 text-ivory backdrop-blur-md sm:px-8 lg:px-12">
+        <div className="mx-auto grid max-w-[112rem] grid-cols-[1fr_auto] items-center gap-5 lg:grid-cols-[1fr_auto_1fr]">
+          <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary navigation">
+            {navItems.slice(0, 2).map(([label, href]) => (
+              <NavLink key={href} href={href}>
                 {label}
-              </Link>
+              </NavLink>
             ))}
           </nav>
-          <Link href="/" aria-label="Buna House home" className="justify-self-center">
-            <Wordmark compact />
+
+          <Link href="/" aria-label="Buna House home" className="justify-self-start lg:justify-self-center">
+            <BrandMark />
           </Link>
-          <div className="hidden items-center justify-end gap-4 sm:flex lg:gap-10">
-            <nav className="flex items-center gap-4 lg:gap-10" aria-label="Primary navigation right">
-              {navRight.map(([label, href]) => (
-                <Link
-                  key={label}
-                  href={href}
-                  className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] transition duration-300 hover:text-ivory"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-          <details className="justify-self-end sm:hidden">
+
+          <nav className="hidden items-center justify-end gap-8 lg:flex" aria-label="Secondary navigation">
+            {navItems.slice(2).map(([label, href]) => (
+              <NavLink key={href} href={href}>
+                {label}
+              </NavLink>
+            ))}
+          </nav>
+
+          <details className="relative justify-self-end lg:hidden">
             <summary className="cursor-pointer list-none text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold">
               Menu
             </summary>
-            <nav className="absolute right-5 top-16 grid w-64 gap-2 border border-gold/50 bg-forest p-5 shadow-[0_24px_70px_rgba(0,0,0,0.36)]">
-              {[...navLeft, ...navRight].map(([label, href]) => (
-                <Link key={label} href={href} className="py-2 text-sm text-ivory/80">
+            <nav className="absolute right-0 top-12 grid w-64 gap-3 border border-gold/45 bg-forest p-5 shadow-[0_24px_70px_rgba(0,0,0,0.36)]">
+              {navItems.map(([label, href]) => (
+                <Link key={href} href={href} className="py-2 text-sm text-ivory/76">
                   {label}
                 </Link>
               ))}
             </nav>
           </details>
-        </header>
+        </div>
+      </header>
 
-        <section className="grid min-h-[calc(100vh-5.5rem)] border-b border-gold/60 bg-espresso text-ivory lg:grid-cols-[3fr_2fr]">
-          <div className="relative min-h-[26rem] overflow-hidden lg:min-h-0">
-            <Image
-              src="/brand/images/ethiopian-coffee-ceremony.png"
-              alt="Ethiopian coffee ceremony with jebena coffee being poured"
-              fill
-              priority
-              sizes="(min-width: 1024px) 60vw, 100vw"
-              className="object-cover object-left transition duration-300 ease-luxury hover:scale-[1.02]"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,20,18,0.05),rgba(8,20,18,0.45)),linear-gradient(0deg,rgba(8,20,18,0.44),transparent_52%)]" />
-          </div>
-          <div className="flex flex-col justify-center px-7 py-16 sm:px-12 lg:px-16">
-            <p className="font-display text-[clamp(3.4rem,6vw,7rem)] uppercase leading-[0.86] tracking-[0.08em] text-gold">
+      <section className="hero-video-section relative h-[100svh] max-h-[980px] min-h-[720px] overflow-hidden bg-forest text-ivory">
+        <Image
+          src={brandImages.heroJebena}
+          alt="Ethiopian coffee ceremony atmosphere with jebena and warm light"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center saturate-[0.92] contrast-[1.06]"
+        />
+        <HeroVideo
+          src={brandImages.heroVideo}
+          poster={brandImages.heroJebena}
+          className="hero-video absolute inset-0 size-full object-cover object-center saturate-[0.9] contrast-[1.08]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,77,70,0.94),rgba(27,23,20,0.7)_46%,rgba(15,77,70,0.18)),linear-gradient(0deg,rgba(27,23,20,0.74),transparent_48%)]" />
+        <div className="relative mx-auto flex h-full max-w-[112rem] items-end px-5 pb-16 pt-32 sm:px-8 lg:px-12 lg:pb-24">
+          <div className="max-w-4xl">
+            <p className="font-display text-[clamp(4.2rem,9vw,10rem)] uppercase leading-[0.82] tracking-[0.05em] text-gold">
               Buna
               <br />
               House
             </p>
-            <h1 className="mt-8 font-display text-[clamp(2.7rem,4.2vw,5rem)] uppercase leading-[0.92] tracking-[0.04em] text-ivory">
-              More Than Coffee
+            <LuxuryRule className="mt-8 text-gold" />
+            <h1 className="mt-8 font-subhead text-[clamp(2rem,3.4vw,4rem)] font-normal leading-[1.02] text-ivory">
+              The House of Ethiopian Coffee
             </h1>
-            <p className="mt-8 max-w-md font-subhead text-2xl leading-9 text-ivory/84">
-              Experience the traditions, flavors, and hospitality of Ethiopia.
+            <p className="mt-7 max-w-2xl font-subhead text-2xl leading-9 text-ivory/82 sm:text-3xl sm:leading-10">
+              Rooted in Ethiopia. Crafted for modern hospitality.
             </p>
-            <div className="mt-10">
-              <GoldLink href="/about">Discover Our Story</GoldLink>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <CtaLink href="/coffee">Explore Coffee</CtaLink>
+              <CtaLink href="/visit" variant="secondary">
+                Visit Buna House
+              </CtaLink>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="birthplace" className="border-b border-gold/60 bg-ivory px-7 py-20 text-espresso sm:px-12 lg:px-20">
-          <div className="mx-auto max-w-4xl">
-            <p className="text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-gold">
-              Ethiopian Heritage
-            </p>
-            <h2 className="mt-7 font-display text-[clamp(3rem,6vw,6.5rem)] uppercase leading-[0.9] tracking-[0.035em]">
-              The Birthplace of Coffee
-            </h2>
-            <p className="mt-10 max-w-2xl font-subhead text-2xl leading-9 text-espresso/78">
-              For centuries Ethiopia has shared coffee not simply as a beverage,
-              but as a ritual of hospitality, community, and connection. At
-              Buna House we bring this heritage into a modern coffee experience.
-            </p>
-          </div>
-        </section>
+      <section className="artisan-surface material-section grid border-y border-gold/35 bg-ivory lg:grid-cols-[0.44fr_0.56fr]">
+        <div className="premium-image relative min-h-[28rem] min-w-0 overflow-hidden border-b border-gold/35 lg:min-h-[44rem] lg:border-b-0 lg:border-r">
+          <Image
+            src={brandImages.heritageOrigin}
+            alt="Coffee origin and Ethiopian coffee heritage"
+            fill
+            sizes="(min-width: 1024px) 44vw, 100vw"
+            className="object-cover object-center saturate-[0.9] contrast-[1.04]"
+          />
+        </div>
+        <div className="premium-copy flex min-h-[34rem] min-w-0 flex-col justify-center px-6 py-20 sm:px-12 lg:px-20">
+          <span className="section-index absolute right-8 top-10 hidden lg:block" aria-hidden="true">
+            01
+          </span>
+          <Eyebrow>Our Heritage</Eyebrow>
+          <h2 className="mt-8 max-w-4xl font-display text-[clamp(3rem,15vw,7.8rem)] uppercase leading-[0.86] tracking-[0.035em] text-espresso">
+            The Birthplace of Coffee
+          </h2>
+          <LuxuryRule className="mt-9" />
+          <p className="mt-10 max-w-2xl font-subhead text-2xl leading-9 text-espresso/76 sm:text-[1.75rem] sm:leading-10">
+            For centuries, Ethiopia has shared coffee not simply as a beverage,
+            but as a ritual of hospitality, community, and connection.
+          </p>
+          <Link
+            href="/about"
+            className="editorial-link mt-10 inline-flex w-fit text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold transition duration-300 hover:text-espresso"
+          >
+            Learn Our Story
+          </Link>
+        </div>
+      </section>
 
-        <section id="signature-coffees" className="relative border-b border-gold/60 bg-forest px-7 py-20 text-center text-ivory sm:px-12 lg:px-16">
-          <div className="mx-auto max-w-5xl">
-            <p className="text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-gold">
-              Our Signature Coffees
-            </p>
-            <h2 className="mt-6 font-display text-[clamp(2.8rem,5vw,5.8rem)] uppercase leading-[0.92] tracking-[0.035em] text-gold">
-              Single Origin. Distinctly Ethiopian.
-            </h2>
-            <p className="mx-auto mt-7 max-w-2xl font-subhead text-2xl leading-8 text-ivory/78">
-              Carefully sourced from Ethiopia’s finest regions. Each cup tells a
-              story of origin, elevation, and excellence.
-            </p>
+      <section className="material-section material-section-dark woven-dark relative bg-forest px-5 py-18 text-ivory sm:px-8 lg:px-12 lg:py-24">
+        <Image
+          src={brandImages.kitLogo}
+          alt=""
+          width={560}
+          height={560}
+          className="pointer-events-none absolute -right-28 top-16 hidden opacity-[0.035] saturate-0 lg:block"
+        />
+        <div className="relative mx-auto max-w-[112rem]">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.46fr] lg:items-end">
+            <div className="max-w-6xl">
+              <span className="section-index absolute right-0 top-0 hidden lg:block" aria-hidden="true">
+                02
+              </span>
+              <Eyebrow>Coffee</Eyebrow>
+              <h2 className="mt-7 max-w-6xl font-display text-[clamp(2.35rem,8vw,5.7rem)] uppercase leading-[0.92] tracking-[0.025em] text-gold sm:tracking-[0.035em]">
+                Single origin.
+                <br />
+                Distinctly Ethiopian.
+              </h2>
+              <LuxuryRule className="mt-9 text-gold" />
+            </div>
+            <div className="coffee-3d-stage relative min-h-[18rem] overflow-hidden border border-gold/35 bg-espresso/25 shadow-[0_34px_110px_rgba(0,0,0,0.28)] sm:min-h-[21rem] lg:min-h-[24rem]">
+              <EthiopianCoffeeScene presentation="showcase" className="opacity-100" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_36%,rgba(176,138,68,0.18),transparent_35%),linear-gradient(180deg,transparent,rgba(8,20,18,0.24))]" />
+              <div className="pointer-events-none absolute inset-4 border border-gold/18" />
+              <p className="absolute bottom-6 left-6 text-[0.64rem] font-semibold uppercase tracking-[0.22em] text-gold/80">
+                Origin Atmosphere
+              </p>
+            </div>
           </div>
-          <div className="mt-14 grid gap-14 lg:grid-cols-3">
+
+          <div className="mx-auto mt-12 grid max-w-[82rem] gap-6 md:grid-cols-3 lg:mt-14 lg:items-start">
             {coffees.map((coffee) => (
-              <CoffeeBag key={coffee.name} {...coffee} />
+              <Link
+                key={coffee.name}
+                href={coffee.href}
+                className="luxury-card group mx-auto w-full max-w-[24rem] border border-gold/28 bg-espresso/26 transition duration-300 hover:border-gold/70 hover:bg-espresso/42 hover:shadow-[0_30px_100px_rgba(0,0,0,0.32)] md:max-w-none md:[&:nth-child(2)]:mt-[-1.5rem]"
+              >
+                <div className="origin-video-panel relative aspect-[9/16] overflow-hidden">
+                  <video
+                    className="media-breathe size-full object-cover saturate-[0.88] contrast-[1.04]"
+                    src={coffee.video}
+                    aria-label={coffee.videoLabel}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent" />
+                </div>
+                <div className="p-7 sm:p-8">
+                  <h3 className="font-display text-4xl uppercase tracking-[0.06em] text-gold">{coffee.name}</h3>
+                  <p className="mt-3 font-subhead text-2xl leading-7 text-ivory/84">{coffee.notes}</p>
+                  <p className="mt-5 text-sm leading-7 text-ivory/62">{coffee.description}</p>
+                  <span className="editorial-link mt-7 inline-flex text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold">
+                    Explore
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
-          <GoldLink href="/coffee" className="mt-14 bg-forest/90">
-            Shop Collection
-          </GoldLink>
-        </section>
+        </div>
+      </section>
 
-        <section id="ceremony" className="grid border-b border-gold/60 bg-espresso text-ivory lg:grid-cols-[3fr_2fr]">
-          <div className="relative min-h-[26rem] overflow-hidden lg:min-h-[38rem]">
-            <Image
-              src="/brand/images/hero-jebena-ceremony.png"
-              alt="Jebena coffee ceremony with steam and roasted coffee beans"
-              fill
-              sizes="(min-width: 1024px) 60vw, 100vw"
-              className="object-cover object-center transition duration-300 ease-luxury hover:scale-[1.02]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-espresso/70" />
-          </div>
-          <div className="flex flex-col justify-center px-7 py-16 text-center sm:px-12 lg:px-16">
-            <p className="text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-gold">
-              The Coffee Ceremony
-            </p>
-            <h2 className="mt-8 font-display text-[clamp(3rem,5vw,5.8rem)] uppercase leading-[0.9] tracking-[0.04em] text-gold">
-              More Than Coffee
-            </h2>
-            <p className="mx-auto mt-8 max-w-md font-subhead text-2xl leading-9 text-ivory/82">
-              Coffee is woven into Ethiopian culture through ceremony,
-              storytelling, and shared moments.
-            </p>
-            <GoldLink href="/ceremony" className="mx-auto mt-10">
-              Discover the Ceremony
-            </GoldLink>
-          </div>
-        </section>
+      <section className="artisan-surface material-section grid bg-ivory text-espresso lg:grid-cols-[0.56fr_0.44fr]">
+        <div className="premium-copy flex min-h-[36rem] min-w-0 flex-col justify-center px-6 py-20 sm:px-12 lg:px-20">
+          <span className="section-index absolute right-8 top-10 hidden lg:block" aria-hidden="true">
+            03
+          </span>
+          <Eyebrow>Ceremony</Eyebrow>
+          <h2 className="mt-8 max-w-4xl font-display text-[clamp(3rem,14vw,7rem)] uppercase leading-[0.88] tracking-[0.035em]">
+            From ceremony to cup
+          </h2>
+          <LuxuryRule className="mt-9" />
+          <p className="mt-10 max-w-2xl font-subhead text-2xl leading-9 text-espresso/76 sm:text-[1.7rem] sm:leading-10">
+            The Ethiopian coffee ceremony is an invitation to slow down. Aroma,
+            patience, and conversation turn coffee into welcome.
+          </p>
+          <Link
+            href="/ceremony"
+            className="editorial-link mt-10 inline-flex w-fit text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold transition duration-300 hover:text-espresso"
+          >
+            Discover the Ceremony
+          </Link>
+        </div>
+        <div className="premium-image relative min-h-[30rem] min-w-0 overflow-hidden border-t border-gold/35 bg-espresso lg:min-h-[44rem] lg:border-l lg:border-t-0">
+          <video
+            className="absolute inset-0 size-full object-cover object-center saturate-[0.86] contrast-[1.08]"
+            poster={brandImages.ceremony}
+            aria-label="Ethiopian coffee ceremony atmosphere with jebena, smoke, and warm light"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          >
+            <source src={brandVideos.ritual} type="video/mp4" />
+          </video>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-forest/16 via-transparent to-espresso/12" />
+        </div>
+      </section>
 
-        <section className="grid border-b border-gold/60 bg-forest text-ivory lg:grid-cols-2">
-          {[
-            ["Cafe", "Handcrafted beverages, fresh pastries, and a room designed for gathering.", "/visit"],
-            ["Market", "Imported Ethiopian goods, spices, coffee equipment, and specialty foods.", "/market"]
-          ].map(([title, text, href]) => (
-            <Link
-              key={title}
-              href={href}
-              className="group relative min-h-[26rem] overflow-hidden border-b border-gold/60 lg:border-b-0 lg:border-r"
-            >
+      <section className="material-section material-section-dark woven-dark grid border-y border-gold/35 bg-forest text-ivory lg:grid-cols-2">
+        {[
+          {
+            title: "Cafe",
+            text: "Specialty coffee, quiet hospitality, and a room made for gathering.",
+            video: brandVideos.pour,
+            mediaLabel: "Coffee pouring into Ethiopian cups with warm hospitality atmosphere",
+            href: "/visit"
+          },
+          {
+            title: "Market",
+            text: "Curated Ethiopian goods, coffee, tea, spices, and pantry staples.",
+            image: brandImages.marketShelves,
+            mediaClassName: "scale-110 object-center opacity-70 saturate-[0.82] contrast-[1.08]",
+            href: "/market"
+          }
+        ].map((item) => (
+          <Link
+            key={item.title}
+            href={item.href}
+            className="luxury-card group relative min-h-[32rem] overflow-hidden border-b border-gold/35 lg:border-b-0 lg:border-r"
+          >
+            {"video" in item ? (
+              <video
+                className="media-breathe absolute inset-0 size-full object-cover object-center saturate-[0.84] contrast-[1.08]"
+                aria-label={item.mediaLabel}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              >
+                <source src={item.video} type="video/mp4" />
+              </video>
+            ) : (
               <Image
-                src="/brand/images/cafe-market-interior.png"
-                alt={`${title} at Buna House`}
+                src={item.image}
+                alt={`${item.title} at Buna House`}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover transition duration-300 group-hover:scale-[1.02]"
+                className={`media-breathe object-cover ${item.mediaClassName}`}
               />
-              <div className="absolute inset-0 bg-forest/66 transition duration-300 group-hover:bg-forest/56" />
-              <div className="relative flex h-full min-h-[26rem] flex-col justify-end p-8 sm:p-12">
-                <h3 className="font-display text-5xl uppercase tracking-[0.06em] text-gold">{title}</h3>
-                <p className="mt-5 max-w-sm font-subhead text-2xl leading-8 text-ivory/82">{text}</p>
-                <span className="mt-8 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold">
-                  Visit {title} →
-                </span>
-              </div>
-            </Link>
-          ))}
-        </section>
-
-        <section className="grid border-b border-gold/60 bg-forest text-ivory lg:grid-cols-[1fr_1.1fr]">
-          <div className="border-b border-gold/60 px-7 py-14 lg:border-b-0 lg:border-r lg:px-12">
-            <h2 className="font-display text-5xl uppercase tracking-[0.06em] text-gold">
-              Featured Experience
-            </h2>
-            <div className="mt-10 grid gap-6 sm:grid-cols-3">
-              {experiences.map(([title, text, href]) => (
-                <Link key={title} href={href} className="border border-gold/45 p-6 transition duration-300 hover:border-gold hover:bg-gold/10">
-                  <h3 className="font-display text-3xl uppercase tracking-[0.06em] text-gold">{title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-ivory/70">{text}</p>
-                  <span className="mt-6 inline-flex text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-gold">
-                    Explore →
-                  </span>
-                </Link>
-              ))}
+            )}
+            <div className="absolute inset-0 bg-forest/74 transition duration-300 group-hover:bg-forest/64" />
+            <div className="relative flex h-full min-h-[32rem] flex-col justify-end p-8 sm:p-12">
+              <h3 className="font-display text-[clamp(3rem,5vw,5.8rem)] uppercase tracking-[0.05em] text-gold">
+                {item.title}
+              </h3>
+              <LuxuryRule className="mt-6 max-w-52 text-gold" />
+              <p className="mt-5 max-w-sm font-subhead text-2xl leading-8 text-ivory/82">{item.text}</p>
+              <span className="editorial-link mt-8 inline-flex w-fit text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold">
+                Visit {item.title}
+              </span>
             </div>
-          </div>
-          <div className="px-7 py-14 lg:px-12">
-            <p className="mb-6 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold">
-              @bunahousecoffee
-            </p>
-            <div className="grid grid-cols-3 gap-3">
-              {[
-                "/brand/images/hero-jebena-ceremony.png",
-                "/brand/images/ethiopian-coffee-ceremony.png",
-                "/brand/images/cafe-market-interior.png",
-                "/brand/images/heritage-coffee-farmers.png",
-                "/brand/images/hero-jebena-ceremony.png",
-                "/brand/images/cafe-market-interior.png"
-              ].map((src, index) => (
-                <div key={`${src}-${index}`} className="relative aspect-[4/3] overflow-hidden border border-gold/45">
-                  <Image src={src} alt={`Buna House coffee and culture moment ${index + 1}`} fill sizes="20vw" className="object-cover transition duration-300 hover:scale-[1.02]" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+          </Link>
+        ))}
+      </section>
 
-        <section className="grid border-b border-gold/60 bg-ivory text-espresso lg:grid-cols-[1fr_1fr]">
-          <div className="grid sm:grid-cols-2">
-            {["Best Ethiopian coffee experience in Maryland.", "Beautiful atmosphere and exceptional coffee."].map((quote) => (
-              <blockquote key={quote} className="border-b border-gold/45 px-8 py-14 text-center sm:border-b-0 sm:border-r">
-                <p className="font-subhead text-3xl italic leading-[1.22] text-espresso/78">“{quote}”</p>
-                <p className="mt-7 text-[0.68rem] uppercase tracking-[0.18em] text-espresso/55">Guest testimonial</p>
-              </blockquote>
-            ))}
-          </div>
-          <div className="bg-forest px-8 py-14 text-center text-ivory">
-            <h2 className="font-display text-5xl uppercase tracking-[0.06em] text-gold">Buna House Rewards</h2>
-            <p className="mx-auto mt-6 max-w-xl font-subhead text-2xl leading-8 text-ivory/78">
-              Coffee. Culture. Community. Join for releases, gatherings, and member moments.
-            </p>
-            <GoldLink href="/rewards" className="mt-9 bg-forest">
-              Join Now
-            </GoldLink>
-          </div>
-        </section>
-
-        <footer className="grid gap-10 bg-forest px-8 py-14 text-ivory lg:grid-cols-[1.1fr_3fr_1.3fr]">
+      <section className="artisan-surface material-section bg-ivory px-6 py-20 text-espresso sm:px-10 lg:px-12 lg:py-28">
+        <div className="mx-auto grid max-w-[112rem] gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-end">
           <div>
-            <Wordmark />
-            <p className="mt-6 max-w-xs text-sm leading-6 text-ivory/64">
+            <Eyebrow>Visit</Eyebrow>
+            <h2 className="mt-7 max-w-4xl font-display text-[clamp(3rem,14vw,6.8rem)] uppercase leading-[0.9] tracking-[0.035em]">
+              Make Buna House the plan
+            </h2>
+            <LuxuryRule className="mt-9" />
+          </div>
+          <div className="premium-panel border border-gold/26 bg-[#fbf7ef]/70 p-6 shadow-[0_28px_80px_rgba(8,20,18,0.08)] sm:p-8">
+            <p className="font-subhead text-2xl leading-9 text-espresso/76">
+              {siteConfig.locationLabel}
+            </p>
+            <div className="mt-6 grid gap-3 text-sm leading-7 text-espresso/68 sm:grid-cols-2">
+              {siteConfig.hours.map((item) => (
+                <p key={item.days}>
+                  <span className="block text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-gold">
+                    {item.days}
+                  </span>
+                  {item.time}
+                </p>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <CtaLink href={siteConfig.directionsUrl}>Get Directions</CtaLink>
+              <CtaLink href={`tel:${siteConfig.phone}`} variant="secondary">
+                Call {siteConfig.phoneLabel}
+              </CtaLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-forest px-6 py-14 text-ivory sm:px-10 lg:px-12">
+        <div className="mx-auto grid max-w-[112rem] gap-10 lg:grid-cols-[1fr_2fr_1fr]">
+          <div>
+            <BrandMark />
+            <p className="mt-6 max-w-xs text-sm leading-6 text-ivory/62">
               Coffee. Culture. Community. From Ethiopia to your cup.
             </p>
           </div>
-          <div className="grid gap-8 sm:grid-cols-4">
-            {[
-              ["Shop", "/shop", "All Coffee", "Coffee Bundles", "Accessories"],
-              ["Cafe & Market", "/market", "Cafe Menu", "Market", "Private Events"],
-              ["Our Story", "/about", "Heritage", "Our Journey", "Sustainability"],
-              ["Journal", "/journal", "Stories", "Brewing Guide", "News"]
-            ].map(([title, href, ...items]) => (
-              <div key={title}>
-                <h3 className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">{title}</h3>
-                <ul className="mt-5 grid gap-2">
-                  {items.map((item) => (
-                    <li key={item}>
-                      <Link href={href} className="text-sm text-ivory/58 transition hover:text-ivory">{item}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <nav className="grid gap-5 sm:grid-cols-4" aria-label="Footer navigation">
+            {navItems.map(([label, href]) => (
+              <Link
+                key={href}
+                href={href}
+                className="editorial-link w-fit text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-gold transition hover:text-ivory"
+              >
+                {label}
+              </Link>
             ))}
-          </div>
+          </nav>
           <div>
-            <h3 className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">Contact</h3>
-            <p className="mt-5 text-sm leading-6 text-ivory/62">Columbia, Maryland</p>
-            <Link href="/contact" className="mt-5 inline-flex text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-gold">Plan Your Visit</Link>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">Columbia, Maryland</p>
+            <Link
+              href="/visit"
+              className="editorial-link mt-5 inline-flex text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-gold transition hover:text-ivory"
+            >
+              Plan Your Visit
+            </Link>
           </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </article>
   );
 }

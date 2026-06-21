@@ -2,6 +2,7 @@ import Image from "next/image";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { brandImages } from "@/config/brand-assets";
 import { originMoments } from "@/data/content";
 
 export function OriginStory() {
@@ -15,7 +16,7 @@ export function OriginStory() {
         <MotionReveal>
           <div className="relative aspect-[4/5] overflow-hidden rounded-brand bg-stone shadow-subtle">
             <Image
-              src="/brand/images/heritage-coffee-farmers.png"
+              src={brandImages.heritageOrigin}
               alt="Coffee farmers harvesting Ethiopian coffee cherries"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"

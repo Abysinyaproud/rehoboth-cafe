@@ -3,6 +3,7 @@ import Image from "next/image";
 import { EmptyState } from "@/components/content/EmptyState";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { brandImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { createMetadata } from "@/lib/seo";
 
@@ -26,7 +27,7 @@ export default function CeremonyPage() {
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
           <div className="relative aspect-[16/11] overflow-hidden rounded-brand bg-espresso/20">
             <Image
-              src="/brand/images/ethiopian-coffee-ceremony.png"
+              src={brandImages.ceremony}
               alt="Ethiopian coffee ceremony with jebena coffee prepared for guests"
               fill
               sizes="(min-width: 1024px) 52vw, 100vw"

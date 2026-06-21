@@ -4,6 +4,7 @@ import { MarketPreview } from "@/components/sections/MarketPreview";
 import { ButtonLink } from "@/components/ui/Button";
 import { LuxuryMediaFrame } from "@/components/ui/LuxuryMediaFrame";
 import { Section } from "@/components/ui/Section";
+import { brandImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { marketCategories } from "@/data/content";
 import { createMetadata } from "@/lib/seo";
@@ -42,7 +43,7 @@ export default function MarketPage() {
             </div>
           </div>
           <LuxuryMediaFrame
-            src="/brand/images/cafe-market-interior.png"
+            src={brandImages.marketShelves}
             alt="Buna House interior with Ethiopian market shelves and coffee service"
             eyebrow="Shelf ritual"
             title="Coffee, pantry, and cultural goods with restraint."
@@ -57,7 +58,7 @@ export default function MarketPage() {
       <Section tone="white" eyebrow="Retail rhythm" title="Curated, giftable, and seasonal.">
         <div className="grid gap-6 md:grid-cols-2">
           {marketCategories.map((category) => (
-            <article key={category.title} className="relative overflow-hidden border border-gold/22 bg-[#fbf7ef] p-7 shadow-subtle transition duration-300 ease-luxury hover:border-gold/55 sm:p-8">
+            <article key={category.title} className="luxury-card relative overflow-hidden border border-gold/22 bg-[#fbf7ef] p-7 shadow-subtle transition duration-300 ease-luxury hover:border-gold/55 sm:p-8">
               <div className="absolute right-0 top-0 h-12 w-px bg-gold/45" aria-hidden="true" />
               <div className="absolute right-0 top-0 h-px w-12 bg-gold/45" aria-hidden="true" />
               <h2 className="font-display text-[1.9rem] uppercase leading-[1.02] tracking-[0.035em]">{category.title}</h2>

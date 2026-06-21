@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
+import { brandImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 
 export function Hero() {
   return (
     <section className="relative min-h-[calc(100svh-73px)] overflow-hidden bg-espresso text-ivory">
       <Image
-        src="/brand/images/hero-jebena-ceremony.png"
+        src={brandImages.heroJebena}
         alt="Ethiopian coffee ceremony with jebena coffee, steam, and roasted beans"
         fill
         priority

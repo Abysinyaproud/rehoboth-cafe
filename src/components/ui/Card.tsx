@@ -26,7 +26,7 @@ export function EditorialCard({
   return (
     <article
       className={cn(
-        "group overflow-hidden border border-gold/20 bg-[#fbf7ef] shadow-subtle transition duration-300 ease-luxury hover:border-gold/55 hover:shadow-[0_28px_90px_rgba(8,20,18,0.13)]",
+        "luxury-card group overflow-hidden border border-gold/20 bg-[#fbf7ef] shadow-subtle transition duration-300 ease-luxury hover:border-gold/55 hover:shadow-[0_30px_95px_rgba(8,20,18,0.15)]",
         className
       )}
     >
@@ -36,14 +36,14 @@ export function EditorialCard({
           alt=""
           fill
           sizes="(min-width: 1024px) 33vw, 100vw"
-          className="object-cover saturate-[0.86] contrast-[1.02] transition duration-300 ease-luxury group-hover:scale-[1.018]"
+          className="media-breathe object-cover saturate-[0.86] contrast-[1.02]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-espresso/32 via-transparent to-transparent opacity-75" />
         <div className="absolute left-5 top-5 h-10 w-px bg-gold/70" aria-hidden="true" />
       </div>
       <div className="p-7 sm:p-8">
         {eyebrow ? (
-          <p className="mb-5 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-gold">
+          <p className="mb-5 text-[0.66rem] font-semibold uppercase tracking-[0.26em] text-gold">
             {eyebrow}
           </p>
         ) : null}

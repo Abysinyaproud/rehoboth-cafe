@@ -5,15 +5,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        espresso: "#140D09",
-        ivory: "#F4E9D8",
+        espresso: "#1B1714",
+        ivory: "#F5F0E8",
         oak: "#8A6A2D",
-        forest: "#081412",
-        gold: "#B08A44",
+        forest: "#0F4D46",
+        gold: "#C9A96E",
         clay: "#7C3329",
         stone: "#D9C7AA",
         ink: "#0B0B0A",
-        accent: "#1A4A43"
+        accent: "#0F4D46"
       },
       fontFamily: {
         display: ["var(--font-display)", "Bodoni Moda", "Georgia", "Times New Roman", "serif"],

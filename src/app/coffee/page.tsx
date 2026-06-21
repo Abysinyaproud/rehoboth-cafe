@@ -4,6 +4,7 @@ import { EmptyState } from "@/components/content/EmptyState";
 import { FeaturedCoffee } from "@/components/sections/FeaturedCoffee";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { brandImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { featuredCoffees } from "@/data/content";
 import { createMetadata } from "@/lib/seo";
@@ -28,7 +29,7 @@ export default function CoffeePage() {
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div className="relative aspect-[4/5] overflow-hidden border border-gold/24 bg-ivory/10 shadow-[0_34px_100px_rgba(8,20,18,0.24)]">
             <Image
-              src="/brand/images/hero-jebena-ceremony.png"
+              src={brandImages.coffeeDetail}
               alt="Buna House Ethiopian coffee ceremony and roasted coffee beans"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
@@ -45,7 +46,7 @@ export default function CoffeePage() {
             <a
               key={category}
               href={target === "ceremony" ? "/ceremony" : `#${target}`}
-              className="border border-gold/25 p-6 transition hover:border-gold/70 hover:bg-ivory/[0.05] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+              className="luxury-card border border-gold/25 p-6 transition duration-300 ease-luxury hover:border-gold/70 hover:bg-ivory/[0.05] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
             >
               <span className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-gold/82">
                 Explore
@@ -67,8 +68,8 @@ export default function CoffeePage() {
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {featuredCoffees.map((coffee) => (
-            <article key={coffee.id} id={coffee.id} className="border border-gold/25 bg-[#fbf7ef] p-8 shadow-subtle">
-              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-gold">{coffee.eyebrow}</p>
+            <article key={coffee.id} id={coffee.id} className="luxury-card border border-gold/25 bg-[#fbf7ef] p-8 shadow-subtle transition duration-300 ease-luxury hover:border-gold/50">
+              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.26em] text-gold">{coffee.eyebrow}</p>
               <h2 className="mt-5 font-display text-[2rem] uppercase leading-[1] tracking-[0.035em]">{coffee.name}</h2>
               <p className="mt-4 text-[0.72rem] font-semibold uppercase tracking-[0.13em] text-accent">{coffee.notes}</p>
               <p className="mt-4 leading-7 text-ink/70">{coffee.body}</p>
@@ -97,8 +98,8 @@ export default function CoffeePage() {
             ctaLabel="Ask About Coffee Availability"
             ctaHref={`tel:${siteConfig.phone}`}
           />
-          <div className="border border-gold/24 bg-ivory/[0.06] p-7 sm:p-8">
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-gold/82">
+          <div className="luxury-card border border-gold/24 bg-ivory/[0.06] p-7 sm:p-8">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-gold/82">
               Launch collection
             </p>
             <h2 className="mt-5 font-display text-[1.9rem] uppercase leading-[1.02] tracking-[0.035em]">

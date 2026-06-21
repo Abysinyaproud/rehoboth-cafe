@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { brandImages } from "@/config/brand-assets";
 
 export function CeremonyFeature() {
   return (
@@ -8,7 +9,7 @@ export function CeremonyFeature() {
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="relative aspect-[16/11] overflow-hidden rounded-brand bg-espresso">
           <Image
-            src="/brand/images/ethiopian-coffee-ceremony.png"
+            src={brandImages.ceremony}
             alt="Traditional Ethiopian coffee ceremony and gathering table"
             fill
             sizes="(min-width: 1024px) 55vw, 100vw"

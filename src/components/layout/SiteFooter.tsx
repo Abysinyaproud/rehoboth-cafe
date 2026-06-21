@@ -27,7 +27,7 @@ const footerGroups = [
 
 export function SiteFooter() {
   return (
-    <footer className="site-shell-footer bg-forest px-5 pb-28 pt-16 text-ivory sm:px-8 md:pb-16 lg:px-12">
+    <footer className="site-shell-footer material-section material-section-dark bg-forest px-5 pb-28 pt-16 text-ivory sm:px-8 md:pb-16 lg:px-12">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_2.4fr_1fr]">
         <div>
           <BunaEmblem className="size-24" />
@@ -47,7 +47,7 @@ export function SiteFooter() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {footerGroups.map((group) => (
             <div key={group.title}>
-              <h3 className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-gold">
+              <h3 className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-gold">
                 {group.title}
               </h3>
               <ul className="mt-5 grid gap-2.5">
@@ -67,7 +67,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h3 className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-gold">
+          <h3 className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-gold">
             Contact
           </h3>
           <p className="mt-5 text-sm leading-7 text-ivory/62">{siteConfig.locationLabel}</p>
@@ -77,8 +77,8 @@ export function SiteFooter() {
           >
             {siteConfig.phoneLabel}
           </a>
-          <div className="mt-6 border border-gold/50 p-5">
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-gold">
+          <div className="luxury-card mt-6 border border-gold/38 p-5">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-gold">
               Hours
             </p>
             {siteConfig.hours.map((item) => (

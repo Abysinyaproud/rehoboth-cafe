@@ -20,7 +20,7 @@ export function MediaPlaceholder({
   return (
     <div
       className={cn(
-        "relative overflow-hidden border p-7 shadow-subtle sm:p-8",
+        "luxury-card relative overflow-hidden border p-7 shadow-subtle transition duration-300 ease-luxury hover:border-gold/45 sm:p-8",
         isDark
           ? "border-ivory/15 bg-ivory/8 text-ivory"
           : "border-gold/22 bg-[#fbf7ef] text-espresso",
@@ -39,7 +39,7 @@ export function MediaPlaceholder({
       <div className="relative flex min-h-full flex-col justify-end">
         <p
           className={cn(
-            "text-[0.68rem] font-semibold uppercase tracking-[0.15em]",
+            "text-[0.68rem] font-semibold uppercase tracking-[0.24em]",
             isDark ? "text-gold" : "text-gold"
           )}
         >

@@ -5,6 +5,7 @@ import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { JsonLd } from "@/components/content/JsonLd";
+import { brandImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { localBusinessSchema } from "@/lib/schema";
 import "./globals.css";
@@ -37,9 +38,9 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.name,
   icons: {
-    icon: "/brand/logos/buna-house-favicon.svg",
-    shortcut: "/brand/logos/buna-house-favicon.svg",
-    apple: "/brand/logos/buna-house-favicon.svg"
+    icon: brandImages.kitLogo,
+    shortcut: brandImages.kitLogo,
+    apple: brandImages.kitLogo
   },
   keywords: [
     "Buna House",

@@ -22,9 +22,9 @@ export function LaunchPageShell({
   children
 }: LaunchPageShellProps) {
   return (
-    <section className="bg-forest px-6 py-24 text-ivory sm:px-10 lg:px-16">
+    <section className="material-section material-section-dark bg-forest px-6 py-24 text-ivory sm:px-10 lg:px-16">
       <div className="mx-auto max-w-6xl">
-        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gold">
+        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-gold">
           {eyebrow}
         </p>
         <h1 className="mt-6 max-w-4xl font-display text-6xl uppercase leading-[0.95] tracking-[0.04em] text-gold md:text-8xl">
@@ -34,15 +34,15 @@ export function LaunchPageShell({
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           <Link
             href={primaryHref}
-            className="inline-flex min-h-12 items-center justify-center border border-gold bg-forest px-7 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold transition hover:bg-gold hover:text-espresso"
+            className="luxury-button inline-flex min-h-12 items-center justify-center border border-gold bg-forest px-7 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold transition hover:bg-gold hover:text-espresso"
           >
-            {primaryLabel}
+            <span>{primaryLabel}</span>
           </Link>
           <Link
             href={secondaryHref}
-            className="inline-flex min-h-12 items-center justify-center border border-gold/70 px-7 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold transition hover:bg-gold hover:text-espresso"
+            className="luxury-button inline-flex min-h-12 items-center justify-center border border-gold/70 px-7 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold transition hover:bg-gold hover:text-espresso"
           >
-            {secondaryLabel}
+            <span>{secondaryLabel}</span>
           </Link>
         </div>
         {children ? <div className="mt-16">{children}</div> : null}

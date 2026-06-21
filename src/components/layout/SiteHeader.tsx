@@ -14,14 +14,14 @@ const rightNavigation = [
 
 export function SiteHeader() {
   return (
-    <header className="site-shell-header sticky top-0 z-50 border-b border-gold/75 bg-forest text-gold shadow-[0_18px_70px_rgba(0,0,0,0.22)]">
+    <header className="site-shell-header sticky top-0 z-50 border-b border-gold/55 bg-forest/98 text-gold shadow-[0_18px_70px_rgba(0,0,0,0.22)] backdrop-blur-xl">
       <div className="mx-auto grid max-w-[110rem] grid-cols-[1fr_auto_1fr] items-center gap-3 px-5 py-4 sm:px-7 lg:px-12">
         <nav aria-label="Primary navigation left" className="hidden items-center gap-4 sm:flex lg:gap-8">
           {leftNavigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-gold transition hover:text-ivory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold lg:text-[0.68rem]"
+              className="editorial-link text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-gold transition hover:text-ivory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold lg:text-[0.68rem]"
             >
               {item.label}
             </Link>
@@ -52,7 +52,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-gold transition hover:text-ivory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold lg:text-[0.68rem]"
+                className="editorial-link text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-gold transition hover:text-ivory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold lg:text-[0.68rem]"
               >
                 {item.label}
               </Link>
@@ -60,15 +60,15 @@ export function SiteHeader() {
           </nav>
           <Link
             href="/visit"
-            className="border border-gold/70 px-5 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-gold transition duration-300 hover:bg-gold hover:text-forest hover:shadow-[0_0_24px_rgba(176,138,68,0.26)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+            className="luxury-button border border-gold/70 px-5 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-gold transition duration-300 hover:bg-gold hover:text-forest hover:shadow-[0_0_28px_rgba(176,138,68,0.28)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
           >
-            Locations
+            <span>Locations</span>
           </Link>
         </div>
 
         <details className="group relative col-start-3 justify-self-end sm:hidden">
-          <summary className="flex min-h-11 cursor-pointer list-none items-center border border-gold/70 px-4 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold marker:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">
-            Menu
+          <summary className="luxury-button flex min-h-11 cursor-pointer list-none items-center border border-gold/70 px-4 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold marker:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">
+            <span>Menu</span>
           </summary>
           <div className="absolute right-0 top-14 w-[min(86vw,22rem)] border border-gold/55 bg-forest p-5 shadow-[0_24px_70px_rgba(0,0,0,0.28)]">
             <nav aria-label="Mobile navigation" className="grid gap-2">

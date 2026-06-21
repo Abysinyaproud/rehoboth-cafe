@@ -14,14 +14,18 @@ const variants: Record<Variant, string> = {
 };
 
 const base =
-  "inline-flex min-h-12 items-center justify-center rounded-none px-7 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.18em] transition duration-300 ease-luxury focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 disabled:pointer-events-none disabled:opacity-50";
+  "luxury-button inline-flex min-h-12 items-center justify-center rounded-none px-7 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.18em] transition duration-300 ease-luxury focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 disabled:pointer-events-none disabled:opacity-50";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: Variant;
 };
 
-export function Button({ className, variant = "primary", ...props }: ButtonProps) {
-  return <button className={cn(base, variants[variant], className)} {...props} />;
+export function Button({ className, variant = "primary", children, ...props }: ButtonProps) {
+  return (
+    <button className={cn(base, variants[variant], className)} {...props}>
+      <span>{children}</span>
+    </button>
+  );
 }
 
 type ButtonLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -39,7 +43,7 @@ export function ButtonLink({
 }: ButtonLinkProps) {
   return (
     <Link className={cn(base, variants[variant], className)} href={href} {...props}>
-      {children}
+      <span>{children}</span>
     </Link>
   );
 }

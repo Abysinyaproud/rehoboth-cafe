@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { brandImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { visitReasons } from "@/data/content";
 import { createMetadata } from "@/lib/seo";
@@ -24,8 +25,8 @@ export default function VisitPage() {
         intro="Find Ethiopian coffee, cafe drinks, injera, teff flour, spices, tea, and cultural goods at 9400 Snowden River Pkwy Suite 113 in Columbia."
       >
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
-          <div className="border border-gold/24 bg-ivory/[0.06] p-7 sm:p-9">
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-gold/82">
+          <div className="luxury-card border border-gold/24 bg-ivory/[0.06] p-7 sm:p-9">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-gold/82">
               Columbia, Maryland
             </p>
             <h2 className="mt-8 font-display text-4xl leading-[1.08] sm:text-5xl">
@@ -53,13 +54,13 @@ export default function VisitPage() {
             </div>
           </div>
 
-          <div className="relative min-h-[28rem] overflow-hidden border border-gold/24 bg-ivory/10">
+          <div className="luxury-card relative min-h-[28rem] overflow-hidden border border-gold/24 bg-ivory/10">
             <Image
-              src="/brand/images/cafe-market-interior.png"
+              src={brandImages.cafeAtmosphere}
               alt="Buna House interior with coffee counter and warm hospitality atmosphere"
               fill
               sizes="(min-width: 1024px) 52vw, 100vw"
-              className="object-cover opacity-92 saturate-[0.9] contrast-[1.04]"
+              className="media-breathe object-cover opacity-92 saturate-[0.9] contrast-[1.04]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-espresso/75 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
@@ -84,8 +85,8 @@ export default function VisitPage() {
               ["Directions", "Open maps directly to 9400 Snowden River Pkwy Suite 113, Columbia, MD 21045."],
               ["Reviews", "Read public listing reviews before you visit, then leave your own after the experience."]
             ].map(([title, text]) => (
-              <article key={title} className="border border-gold/22 bg-[#fbf7ef] p-6 shadow-subtle">
-                <h2 className="text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-gold">{title}</h2>
+              <article key={title} className="luxury-card border border-gold/22 bg-[#fbf7ef] p-6 shadow-subtle transition duration-300 ease-luxury hover:border-gold/45">
+                <h2 className="text-[0.66rem] font-semibold uppercase tracking-[0.26em] text-gold">{title}</h2>
                 <p className="mt-3 leading-7 text-ink/70">{text}</p>
               </article>
             ))}

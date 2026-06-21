@@ -13,10 +13,10 @@ type SectionProps = {
 };
 
 const tones = {
-  ivory: "bg-ivory text-espresso",
-  white: "bg-[#fbf7ef] text-espresso",
-  espresso: "bg-espresso text-ivory",
-  forest: "bg-forest text-ivory"
+  ivory: "bg-ivory text-espresso material-section",
+  white: "bg-[#fbf7ef] text-espresso material-section",
+  espresso: "bg-espresso text-ivory material-section material-section-dark",
+  forest: "bg-forest text-ivory material-section material-section-dark"
 };
 
 export function Section({
@@ -44,7 +44,7 @@ export function Section({
         {(eyebrow || title || intro) && (
           <div className="mb-14 grid gap-8 lg:mb-20 lg:grid-cols-[0.72fr_1fr] lg:items-end">
             {eyebrow ? (
-              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-gold">
+              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-gold">
                 {eyebrow}
               </p>
             ) : null}
@@ -55,7 +55,7 @@ export function Section({
                 </Heading>
               ) : null}
               {intro ? (
-                <p className="mt-7 max-w-2xl text-base leading-8 text-current/66 sm:text-[1.05rem]">
+                <p className="mt-8 max-w-2xl text-base font-light leading-8 text-current/66 sm:text-[1.06rem]">
                   {intro}
                 </p>
               ) : null}

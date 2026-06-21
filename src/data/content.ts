@@ -1,3 +1,5 @@
+import { brandImages } from "@/config/brand-assets";
+
 export const featuredCoffees = [
   {
     id: "single-origin",
@@ -6,7 +8,7 @@ export const featuredCoffees = [
     notes: "Roasted coffee, tea-like aromatics, warm hospitality",
     body: "The coffee program starts with Ethiopia as the source of the story: beans, brewing, and a traditional coffee experience that makes the cup feel connected to place.",
     price: "In store",
-    image: "/brand/images/hero-jebena-ceremony.png"
+    image: brandImages.coffeeDetail
   },
   {
     id: "espresso",
@@ -15,7 +17,7 @@ export const featuredCoffees = [
     notes: "Espresso structure, milk texture, balanced sweetness",
     body: "A familiar way into Buna House: espresso drinks served with the warmth of a neighborhood cafe and the cultural depth of an Ethiopian market.",
     price: "In store",
-    image: "/brand/images/cafe-market-interior.png"
+    image: brandImages.cafeAtmosphere
   },
   {
     id: "subscriptions",
@@ -24,7 +26,7 @@ export const featuredCoffees = [
     notes: "Beans, tea, gifts, and pantry companions",
     body: "Coffee can move from the cafe counter into the home pantry through beans, tea, brewing gifts, and shelf finds that change with availability.",
     price: "Ask in store",
-    image: "/brand/images/hero-jebena-ceremony.png"
+    image: brandImages.marketShelves
   }
 ];
 
@@ -32,22 +34,22 @@ export const marketCategories = [
   {
     title: "Injera Bread & Teff Flour",
     text: "Staples for the Ethiopian table, placed where guests can build a real meal after coffee.",
-    image: "/brand/images/cafe-market-interior.png"
+    image: brandImages.marketShelves
   },
   {
     title: "Coffee & Tea",
     text: "Cafe favorites and take-home goods that keep the Buna House ritual alive beyond the visit.",
-    image: "/brand/images/hero-jebena-ceremony.png"
+    image: brandImages.coffeeDetail
   },
   {
     title: "Spices",
     text: "Aromatic essentials for cooks who want Ethiopian warmth, color, and depth in the pantry.",
-    image: "/brand/images/cafe-market-interior.png"
+    image: brandImages.marketShelves
   },
   {
     title: "Habesha Kemis & Cultural Goods",
     text: "Cultural garments, gifts, and everyday pieces that make the market feel specific to Buna House.",
-    image: "/brand/images/heritage-coffee-farmers.png"
+    image: brandImages.heritageOrigin
   }
 ];
 

@@ -5,6 +5,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { EmptyState } from "@/components/content/EmptyState";
 import { MediaPlaceholder } from "@/components/content/MediaPlaceholder";
 import { Section } from "@/components/ui/Section";
+import { brandImages } from "@/config/brand-assets";
 import { createMetadata } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 
@@ -28,7 +29,7 @@ export default function AboutPage() {
         <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div className="relative aspect-[4/5] overflow-hidden border border-gold/22 bg-stone shadow-subtle">
             <Image
-              src="/brand/images/cafe-market-interior.png"
+              src={brandImages.cafeAtmosphere}
               alt="Buna House interior prepared for guests"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
@@ -58,7 +59,7 @@ export default function AboutPage() {
       <Section tone="white" eyebrow="Values" title="The principles behind the room.">
         <div className="grid gap-4 md:grid-cols-5">
           {values.map((value) => (
-            <div key={value} className="border border-gold/22 bg-[#fbf7ef] p-6">
+            <div key={value} className="luxury-card border border-gold/22 bg-[#fbf7ef] p-6 transition duration-300 ease-luxury hover:border-gold/45">
               <p className="font-display text-2xl uppercase leading-[1.02] tracking-[0.035em]">{value}</p>
             </div>
           ))}

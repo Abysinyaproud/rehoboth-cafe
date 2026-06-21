@@ -25,7 +25,7 @@ export function LuxuryMediaFrame({
   return (
     <figure
       className={cn(
-        "group relative overflow-hidden border border-gold/24 bg-espresso shadow-[0_34px_100px_rgba(8,20,18,0.28)]",
+        "luxury-card group relative overflow-hidden border border-gold/24 bg-espresso shadow-[0_34px_100px_rgba(8,20,18,0.28)] transition duration-300 ease-luxury hover:border-gold/50",
         className
       )}
     >
@@ -36,7 +36,7 @@ export function LuxuryMediaFrame({
           fill
           priority={priority}
           sizes="(min-width: 1024px) 52vw, 100vw"
-          className="object-cover opacity-92 saturate-[0.9] contrast-[1.04] transition duration-300 ease-luxury group-hover:scale-[1.012]"
+          className="media-breathe object-cover opacity-92 saturate-[0.9] contrast-[1.04]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(21,16,13,0.04),rgba(21,16,13,0.72)),linear-gradient(90deg,rgba(21,16,13,0.46),transparent_60%)]" />
         <div className="absolute inset-0 opacity-[0.12] mix-blend-soft-light texture" />

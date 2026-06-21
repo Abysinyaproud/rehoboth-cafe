@@ -16,8 +16,8 @@ export function EmptyState({
   ctaHref
 }: EmptyStateProps) {
   return (
-    <div className="border border-gold/22 bg-[#fbf7ef] p-7 shadow-subtle sm:p-8">
-      <p className="text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-gold">
+    <div className="luxury-card border border-gold/22 bg-[#fbf7ef] p-7 shadow-subtle transition duration-300 ease-luxury hover:border-gold/45 sm:p-8">
+      <p className="text-[0.66rem] font-semibold uppercase tracking-[0.26em] text-gold">
         {eyebrow}
       </p>
       <h3 className="mt-5 font-display text-[1.9rem] uppercase leading-[1.02] tracking-[0.035em] text-espresso">
