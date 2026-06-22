@@ -7,7 +7,7 @@
    3. Paste it below, replacing YOUR_FORM_ID, and redeploy.
    Until then, forms show a friendly confirmation but do not send.
    ===================================================================== */
-window.REHOBOTH_CONFIG = { formspreeId: "YOUR_FORM_ID" };
+window.REHOBOTH_CONFIG = { formspreeId: "mkolnrkg" };
 
 /* Returns a Promise. Resolves {demo:true} when not yet configured,
    otherwise POSTs to Formspree and resolves on success / rejects on failure. */
