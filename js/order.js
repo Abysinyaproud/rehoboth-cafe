@@ -120,11 +120,13 @@
       var total = (document.getElementById("summaryTotal") || {}).textContent || "";
       placeBtn.disabled = true;
       submit({
-        type: "order", drink: state.drink.name, milk: state.milk,
-        addons: state.addons.map(function (a) { return a.name; }).join(", "),
-        pickup: when, name: who, total: total
+        _subject: "New order ahead — Rehoboth website",
+        type: "order", Drink: state.drink.name, Milk: state.milk,
+        "Add-ons": state.addons.map(function (a) { return a.name; }).join(", ") || "—",
+        "Pickup time": when, Name: who, Total: total, _gotcha: ""
       }).then(function (res) {
         placeBtn.disabled = false;
+        if (window.rehobothTrack) window.rehobothTrack("order_submitted", { drink: state.drink.name });
         showToast(res && res.demo
           ? "Order placed — " + state.drink.name + " for " + who + ". (demo — set a Formspree ID to send for real)"
           : "Order received — " + state.drink.name + " for " + who + ", " + when.toLowerCase() + ".");
@@ -141,14 +143,20 @@
     reserveForm.addEventListener("submit", function (e) {
       e.preventDefault();
       var btn = reserveForm.querySelector('button[type="submit"]');
-      var data = { type: "reservation" };
-      Array.prototype.forEach.call(reserveForm.elements, function (el) {
-        if (el.name) data[el.name] = el.value;
-      });
+      var val = function (id) { var el = document.getElementById(id); return el ? el.value : ""; };
+      var gotcha = reserveForm.querySelector('[name="_gotcha"]');
+      var data = {
+        _subject: "New table reservation — Rehoboth website",
+        type: "reservation",
+        Date: val("r-date"), Time: val("r-time"), "Party size": val("r-party"),
+        Phone: val("r-phone"), Notes: val("r-note") || "—",
+        _gotcha: gotcha ? gotcha.value : ""
+      };
       if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "Sending…"; }
       var done = function () { if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || "Request Reservation"; } };
       submit(data).then(function (res) {
         done();
+        if (window.rehobothTrack) window.rehobothTrack("reservation_submitted");
         showToast(res && res.demo
           ? "Reservation requested — we’ll text to confirm. (demo)"
           : "Reservation requested — we’ll text to confirm shortly.");

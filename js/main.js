@@ -240,8 +240,13 @@
       if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "…"; }
       if (msg) { msg.style.color = ""; msg.textContent = ""; }
       var done = function () { if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || "Join"; } };
-      window.rehobothSubmit({ type: "newsletter", email: email })
+      var gotcha = form.querySelector('[name="_gotcha"]');
+      window.rehobothSubmit({
+        _subject: "New newsletter signup — Rehoboth website",
+        type: "newsletter", Email: email, _gotcha: gotcha ? gotcha.value : ""
+      })
         .then(function () {
+          if (window.rehobothTrack) window.rehobothTrack("newsletter_signup");
           if (msg) msg.textContent = "Thanks — see you in your inbox.";
           if (input) input.value = "";
           done();
