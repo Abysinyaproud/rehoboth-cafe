@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abysinyaproud.github.io/rehoboth-cafe/sitemap.xml
