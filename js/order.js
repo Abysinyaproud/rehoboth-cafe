@@ -106,6 +106,8 @@
     toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 4200);
   }
 
+  var submit = window.rehobothSubmit || function () { return Promise.resolve({ demo: true }); };
+
   /* ---------- Place order ---------- */
   var placeBtn = document.getElementById("placeOrder");
   if (placeBtn) {
@@ -114,8 +116,22 @@
       var nameInput = document.getElementById("name");
       var who = nameInput && nameInput.value.trim() ? nameInput.value.trim() : "your order";
       var pickup = document.getElementById("pickup");
-      var when = pickup ? pickup.value.toLowerCase() : "shortly";
-      showToast("Order placed — " + state.drink.name + " for " + who + ", ready " + when + ". (demo)");
+      var when = pickup ? pickup.value : "As soon as possible";
+      var total = (document.getElementById("summaryTotal") || {}).textContent || "";
+      placeBtn.disabled = true;
+      submit({
+        type: "order", drink: state.drink.name, milk: state.milk,
+        addons: state.addons.map(function (a) { return a.name; }).join(", "),
+        pickup: when, name: who, total: total
+      }).then(function (res) {
+        placeBtn.disabled = false;
+        showToast(res && res.demo
+          ? "Order placed — " + state.drink.name + " for " + who + ". (demo — set a Formspree ID to send for real)"
+          : "Order received — " + state.drink.name + " for " + who + ", " + when.toLowerCase() + ".");
+      }).catch(function () {
+        placeBtn.disabled = false;
+        showToast("Couldn’t place the order — please try again.");
+      });
     });
   }
 
@@ -124,8 +140,23 @@
   if (reserveForm) {
     reserveForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      showToast("Reservation requested — we’ll text to confirm. (demo)");
-      reserveForm.reset();
+      var btn = reserveForm.querySelector('button[type="submit"]');
+      var data = { type: "reservation" };
+      Array.prototype.forEach.call(reserveForm.elements, function (el) {
+        if (el.name) data[el.name] = el.value;
+      });
+      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "Sending…"; }
+      var done = function () { if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || "Request Reservation"; } };
+      submit(data).then(function (res) {
+        done();
+        showToast(res && res.demo
+          ? "Reservation requested — we’ll text to confirm. (demo)"
+          : "Reservation requested — we’ll text to confirm shortly.");
+        reserveForm.reset();
+      }).catch(function () {
+        done();
+        showToast("Couldn’t send the request — please try again.");
+      });
     });
   }
 

@@ -227,15 +227,29 @@
     });
   }
 
-  /* ---------- Newsletter (demo, no backend) ---------- */
+  /* ---------- Newsletter (Formspree-ready, graceful fallback) ---------- */
   var form = document.getElementById("newsletter");
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var msg = document.getElementById("newsMsg");
       var input = document.getElementById("news-email");
-      if (msg) msg.textContent = "Thanks — see you in your inbox.";
-      if (input) input.value = "";
+      var btn = form.querySelector("button");
+      var email = input ? input.value.trim() : "";
+      if (!email) return;
+      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "…"; }
+      if (msg) { msg.style.color = ""; msg.textContent = ""; }
+      var done = function () { if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || "Join"; } };
+      window.rehobothSubmit({ type: "newsletter", email: email })
+        .then(function () {
+          if (msg) msg.textContent = "Thanks — see you in your inbox.";
+          if (input) input.value = "";
+          done();
+        })
+        .catch(function () {
+          if (msg) { msg.style.color = "var(--red)"; msg.textContent = "Couldn’t sign you up — please try again."; }
+          done();
+        });
     });
   }
 })();
