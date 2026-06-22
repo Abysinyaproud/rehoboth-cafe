@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EmptyState } from "@/components/content/EmptyState";
+import { AnimatedPricingMenu } from "@/components/sections/AnimatedPricingMenu";
 import { MarketPreview } from "@/components/sections/MarketPreview";
 import { ButtonLink } from "@/components/ui/Button";
 import { LuxuryMediaFrame } from "@/components/ui/LuxuryMediaFrame";
@@ -55,6 +56,8 @@ export default function MarketPage() {
       </Section>
 
       <MarketPreview />
+
+      <AnimatedPricingMenu variant="market" />
 
       <Section
         tone="ivory"

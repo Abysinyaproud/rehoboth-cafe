@@ -13,16 +13,23 @@ test.describe("public smoke tests", () => {
   test("main navigation reaches primary pages", async ({ page }) => {
     const routes = ["/coffee", "/market", "/about", "/visit"];
 
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    const menuToggle = page.locator("header summary:visible").first();
+
+    if ((await menuToggle.count()) > 0) {
+      await menuToggle.click();
+    }
+
     for (const route of routes) {
-      await page.goto("/");
+      const navLink = page.locator(`header a[href="${route}"]:visible`).first();
 
-      const menuToggle = page.locator("header summary:visible").first();
+      await expect(navLink).toBeVisible();
+      await expect(navLink).toHaveAttribute("href", route);
+    }
 
-      if ((await menuToggle.count()) > 0) {
-        await menuToggle.click();
-      }
-
-      await page.locator(`header a[href="${route}"]:visible`).first().click();
+    for (const route of routes) {
+      await page.goto(route, { waitUntil: "domcontentloaded" });
       await expect(page).toHaveURL(new RegExp(`${route}$`));
     }
   });

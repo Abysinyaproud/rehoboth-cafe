@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { EmptyState } from "@/components/content/EmptyState";
+import { AnimatedPricingMenu } from "@/components/sections/AnimatedPricingMenu";
 import { FeaturedCoffee } from "@/components/sections/FeaturedCoffee";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
@@ -60,6 +61,8 @@ export default function CoffeePage() {
       </Section>
 
       <FeaturedCoffee />
+
+      <AnimatedPricingMenu variant="coffee" />
 
       <Section
         id="cafe-menu"

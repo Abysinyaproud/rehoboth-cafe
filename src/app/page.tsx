@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BunaEmblem } from "@/components/brand/BunaEmblem";
+import { AnimatedPricingMenu } from "@/components/sections/AnimatedPricingMenu";
 import { EthiopianCoffeeScene } from "@/components/visuals/EthiopianCoffeeScene";
 import { HeroVideo } from "@/components/visuals/HeroVideo";
 import { brandImages, brandVideos } from "@/config/brand-assets";
@@ -383,6 +384,8 @@ export default function HomePage() {
           </Link>
         ))}
       </section>
+
+      <AnimatedPricingMenu />
 
       <section className="artisan-surface material-section bg-ivory px-6 py-20 text-espresso sm:px-10 lg:px-12 lg:py-28">
         <div className="mx-auto grid max-w-[112rem] gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-end">
