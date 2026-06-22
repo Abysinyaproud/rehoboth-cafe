@@ -3,13 +3,13 @@ import { LaunchPageShell } from "@/components/ui/LaunchPageShell";
 export default function AccountPage() {
   return (
     <LaunchPageShell
-      eyebrow="Account"
-      title="Guest Account"
-      intro="Customer accounts will support order history, rewards, saved details, and preferences once authentication is connected."
-      primaryHref="/login"
-      primaryLabel="Log In"
-      secondaryHref="/register"
-      secondaryLabel="Create Account"
+      eyebrow="Account Staging"
+      title="Guest Experience"
+      intro="Customer accounts are not active yet. Order history, rewards, saved details, and preferences will be available after authentication and commerce are connected."
+      primaryHref="/visit"
+      primaryLabel="Plan a Visit"
+      secondaryHref="/coffee"
+      secondaryLabel="Explore Coffee"
     />
   );
 }

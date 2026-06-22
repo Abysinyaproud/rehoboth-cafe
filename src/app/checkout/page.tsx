@@ -3,13 +3,13 @@ import { LaunchPageShell } from "@/components/ui/LaunchPageShell";
 export default function CheckoutPage() {
   return (
     <LaunchPageShell
-      eyebrow="Checkout"
-      title="Checkout Ready"
-      intro="The checkout route is prepared for Shopify. Connect products, inventory, tax, shipping, and payment settings before accepting live orders."
-      primaryHref="/cart"
-      primaryLabel="Review Cart"
+      eyebrow="Checkout Disabled"
+      title="Checkout Coming Soon"
+      intro="Checkout is intentionally disabled for launch staging. No payment, order, shipping, or account information can be submitted here until Shopify is connected and verified."
+      primaryHref="/visit"
+      primaryLabel="Plan a Visit"
       secondaryHref="/coffee"
-      secondaryLabel="Shop Coffee"
+      secondaryLabel="Explore Coffee"
     />
   );
 }

@@ -7,6 +7,7 @@ import { Section } from "@/components/ui/Section";
 import { brandImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { featuredCoffees } from "@/data/content";
+import { cafeMenuSections, cafeMenuSource } from "@/data/sheet-menu";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -61,6 +62,41 @@ export default function CoffeePage() {
       <FeaturedCoffee />
 
       <Section
+        id="cafe-menu"
+        tone="white"
+        eyebrow="Cafe menu"
+        title="Prices from the live cafe menu."
+        intro={`Curated from ${cafeMenuSource.spreadsheet}, ${cafeMenuSource.tab}!${cafeMenuSource.range}, modified ${cafeMenuSource.modified}. Final availability may vary in store.`}
+      >
+        <div className="grid gap-5 lg:grid-cols-2">
+          {cafeMenuSections.map((section) => (
+            <article
+              key={section.title}
+              className="luxury-card border border-gold/22 bg-[#fbf7ef] p-6 shadow-subtle transition duration-300 ease-luxury hover:border-gold/45 sm:p-7"
+            >
+              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-gold">
+                {section.sourceCategory}
+              </p>
+              <h2 className="mt-4 font-display text-[2rem] uppercase leading-[1] tracking-[0.035em]">
+                {section.title}
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-ink/64">{section.note}</p>
+              <div className="mt-6 divide-y divide-espresso/10">
+                {section.items.slice(0, 6).map((item) => (
+                  <div key={item.name} className="grid gap-3 py-4 sm:grid-cols-[1fr_auto] sm:items-start">
+                    <p className="font-medium text-espresso">{item.name}</p>
+                    <p className="text-sm leading-6 text-espresso/68">
+                      {item.prices.filter(Boolean).join(" / ")}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section
         tone="ivory"
         eyebrow="How to choose"
         title="Pick by the way you want the cup to feel."
@@ -87,8 +123,8 @@ export default function CoffeePage() {
       <Section
         tone="espresso"
         eyebrow="Online shop"
-        title="Coffee offerings are gathered around origin and ritual."
-        intro="The page supports beans, tea, brewing gifts, future subscriptions, and Shopify checkout while keeping product details easy to update as the coffee program grows."
+        title="Coffee offerings are available in store while online checkout is staged."
+        intro="The public site now reflects the cafe menu and market coffee shelf, but Shopify checkout remains disabled until products, inventory, tax, shipping, and payment are connected."
       >
         <div className="grid gap-6 md:grid-cols-2">
           <EmptyState

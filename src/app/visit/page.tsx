@@ -5,6 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { brandImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { visitReasons } from "@/data/content";
+import { cafeMenuSource, visitMenuHighlights } from "@/data/sheet-menu";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -90,6 +91,24 @@ export default function VisitPage() {
                 <p className="mt-3 leading-7 text-ink/70">{text}</p>
               </article>
             ))}
+        </div>
+      </Section>
+
+      <Section
+        tone="espresso"
+        eyebrow="What to order"
+        title="Come for coffee. Leave with something for home."
+        intro={`Menu highlights are curated from ${cafeMenuSource.spreadsheet}, ${cafeMenuSource.tab}!${cafeMenuSource.range}, modified ${cafeMenuSource.modified}.`}
+      >
+        <div className="grid gap-4 md:grid-cols-2">
+          {visitMenuHighlights.map((highlight) => (
+            <article
+              key={highlight}
+              className="luxury-card border border-gold/24 bg-ivory/[0.06] p-6 transition duration-300 ease-luxury hover:border-gold/55"
+            >
+              <p className="font-subhead text-2xl leading-8 text-ivory/82">{highlight}</p>
+            </article>
+          ))}
         </div>
       </Section>
 

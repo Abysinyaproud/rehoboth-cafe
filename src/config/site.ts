@@ -66,7 +66,7 @@ export const footerNavigation = [
     links: [
       { label: "Hours", href: "/visit#hours" },
       { label: "Directions", href: "/visit#directions" },
-      { label: "Events", href: "/#events" },
+      { label: "Events", href: "/ceremony" },
       { label: "Call", href: "tel:+14435429767" }
     ]
   }

@@ -13,7 +13,11 @@ export const brandImages = {
 
 export const brandVideos = {
   heroCeremony: "/brand/video/buna-house-hero-ceremony-v2.mp4",
+  heroCeremonyMobile: "/brand/video/optimized/buna-house-hero-ceremony-mobile.mp4",
   origin: "/brand/video/origin/origin.mp4",
+  originMobile: "/brand/video/optimized/origin-mobile.mp4",
   ritual: "/brand/video/origin/ritual.mp4",
-  pour: "/brand/video/origin/pour.mp4"
+  ritualMobile: "/brand/video/optimized/ritual-mobile.mp4",
+  pour: "/brand/video/origin/pour.mp4",
+  pourMobile: "/brand/video/optimized/pour-mobile.mp4"
 } as const;

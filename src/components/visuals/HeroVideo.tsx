@@ -4,11 +4,12 @@ import { useEffect, useRef, useState } from "react";
 
 type HeroVideoProps = {
   src: string;
+  mobileSrc?: string;
   poster: string;
   className?: string;
 };
 
-export function HeroVideo({ src, poster, className = "" }: HeroVideoProps) {
+export function HeroVideo({ src, mobileSrc, poster, className = "" }: HeroVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -84,6 +85,7 @@ export function HeroVideo({ src, poster, className = "" }: HeroVideoProps) {
         poster={poster}
         aria-hidden="true"
       >
+        {mobileSrc ? <source src={mobileSrc} media="(max-width: 767px)" type="video/mp4" /> : null}
         <source src={src} type="video/mp4" />
       </video>
       <div className="hero-video-ui pointer-events-none absolute bottom-6 right-5 z-20 grid w-[min(18rem,calc(100vw-2.5rem))] gap-3 text-ivory sm:bottom-8 sm:right-8">

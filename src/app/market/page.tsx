@@ -7,6 +7,7 @@ import { Section } from "@/components/ui/Section";
 import { brandImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { marketCategories } from "@/data/content";
+import { marketMenuSource, marketProductHighlights } from "@/data/sheet-menu";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -54,6 +55,38 @@ export default function MarketPage() {
       </Section>
 
       <MarketPreview />
+
+      <Section
+        tone="ivory"
+        eyebrow="From the shelf"
+        title="Current market highlights from the inventory sheet."
+        intro={`Curated from ${marketMenuSource.spreadsheet}, ${marketMenuSource.tab}!${marketMenuSource.range}, modified ${marketMenuSource.modified}. Barcodes, tax rates, and full raw inventory are intentionally not published. Product availability and pricing should be confirmed in store.`}
+      >
+        <div className="grid gap-6 md:grid-cols-2">
+          {marketProductHighlights.map((group) => (
+            <article
+              key={group.category}
+              className="luxury-card border border-gold/22 bg-[#fbf7ef] p-7 shadow-subtle transition duration-300 ease-luxury hover:border-gold/55 sm:p-8"
+            >
+              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.26em] text-gold">
+                {group.category}
+              </p>
+              <p className="mt-4 leading-7 text-ink/70">{group.note}</p>
+              <p className="mt-3 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-gold/80">
+                Available in market / visit in store
+              </p>
+              <div className="mt-7 divide-y divide-espresso/10">
+                {group.items.map((item) => (
+                  <div key={item.name} className="flex items-start justify-between gap-5 py-3">
+                    <span className="text-sm font-medium leading-6 text-espresso">{item.name}</span>
+                    <span className="shrink-0 text-sm font-semibold leading-6 text-gold">{item.price}</span>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
 
       <Section tone="white" eyebrow="Retail rhythm" title="Curated, giftable, and seasonal.">
         <div className="grid gap-6 md:grid-cols-2">

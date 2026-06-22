@@ -19,6 +19,7 @@ const coffees = [
     notes: "Floral • Citrus • Tea Like",
     description: "A lifted Ethiopian profile with clean aromatics and a precise finish.",
     video: brandVideos.origin,
+    mobileVideo: brandVideos.originMobile,
     videoLabel: "Ethiopian coffee origin, cherries, green coffee, and hand sorting",
     href: "/coffee/yirgacheffe"
   },
@@ -27,6 +28,7 @@ const coffees = [
     notes: "Stone Fruit • Chocolate • Sweet",
     description: "Rounded, expressive, and generous without losing clarity.",
     video: brandVideos.ritual,
+    mobileVideo: brandVideos.ritualMobile,
     videoLabel: "Traditional Ethiopian coffee ritual with jebena, beans, steam, and incense",
     href: "/coffee/sidamo"
   },
@@ -35,6 +37,7 @@ const coffees = [
     notes: "Caramel • Spice • Wine Like",
     description: "Warm and composed with a smooth structure and quiet depth.",
     video: brandVideos.pour,
+    mobileVideo: brandVideos.pourMobile,
     videoLabel: "Coffee pouring from a jebena into Ethiopian sini cups with steam",
     href: "/coffee/limu"
   }
@@ -154,6 +157,7 @@ export default function HomePage() {
         />
         <HeroVideo
           src={brandImages.heroVideo}
+          mobileSrc={brandVideos.heroCeremonyMobile}
           poster={brandImages.heroJebena}
           className="hero-video absolute inset-0 size-full object-cover object-center saturate-[0.9] contrast-[1.08]"
         />
@@ -256,14 +260,16 @@ export default function HomePage() {
                 <div className="origin-video-panel relative aspect-[9/16] overflow-hidden">
                   <video
                     className="media-breathe size-full object-cover saturate-[0.88] contrast-[1.04]"
-                    src={coffee.video}
                     aria-label={coffee.videoLabel}
                     autoPlay
                     muted
                     loop
                     playsInline
                     preload="metadata"
-                  />
+                  >
+                    <source src={coffee.mobileVideo} media="(max-width: 767px)" type="video/mp4" />
+                    <source src={coffee.video} type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent" />
                 </div>
                 <div className="p-7 sm:p-8">
@@ -312,6 +318,7 @@ export default function HomePage() {
             playsInline
             preload="metadata"
           >
+            <source src={brandVideos.ritualMobile} media="(max-width: 767px)" type="video/mp4" />
             <source src={brandVideos.ritual} type="video/mp4" />
           </video>
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-forest/16 via-transparent to-espresso/12" />
@@ -350,6 +357,7 @@ export default function HomePage() {
                 playsInline
                 preload="metadata"
               >
+                <source src={brandVideos.pourMobile} media="(max-width: 767px)" type="video/mp4" />
                 <source src={item.video} type="video/mp4" />
               </video>
             ) : (

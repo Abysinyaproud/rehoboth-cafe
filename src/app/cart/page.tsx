@@ -3,13 +3,13 @@ import { LaunchPageShell } from "@/components/ui/LaunchPageShell";
 export default function CartPage() {
   return (
     <LaunchPageShell
-      eyebrow="Cart"
-      title="Your Cart"
-      intro="Your cart is ready for Shopify checkout integration. Products will appear here once live inventory and Storefront API credentials are connected."
+      eyebrow="Cart Staging"
+      title="Cart Coming Soon"
+      intro="Online cart and checkout are not live yet. Shopify inventory, tax, shipping, and payment settings must be connected before Buna House accepts web orders."
       primaryHref="/coffee"
-      primaryLabel="Continue Shopping"
-      secondaryHref="/checkout"
-      secondaryLabel="Checkout"
+      primaryLabel="Explore Coffee"
+      secondaryHref="/visit"
+      secondaryLabel="Visit Buna House"
     />
   );
 }

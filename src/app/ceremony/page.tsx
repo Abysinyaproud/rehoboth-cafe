@@ -5,6 +5,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { brandImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
+import { ceremonyMenuHighlights, cafeMenuSource } from "@/data/sheet-menu";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -85,6 +86,28 @@ export default function CeremonyPage() {
       </Section>
 
       <Section tone="white" eyebrow="Booking" title="Group experiences will open soon.">
+        <div className="mb-8 grid gap-4 md:grid-cols-4">
+          {ceremonyMenuHighlights.map((item) => (
+            <article
+              key={item.name}
+              className="luxury-card border border-gold/22 bg-[#fbf7ef] p-6 shadow-subtle"
+            >
+              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-gold">
+                Available in store
+              </p>
+              <h2 className="mt-4 font-display text-[1.7rem] leading-[1.05]">
+                {item.name}
+              </h2>
+              <p className="mt-3 text-lg font-semibold text-espresso">{item.price}</p>
+              <p className="mt-3 text-sm leading-6 text-ink/68">{item.note}</p>
+            </article>
+          ))}
+        </div>
+        <p className="mb-8 max-w-2xl text-sm leading-6 text-ink/62">
+          Ceremony pricing and home-ritual goods are curated from{" "}
+          {cafeMenuSource.spreadsheet}, modified {cafeMenuSource.modified}. Full
+          raw inventory, barcodes, and tax data are not published.
+        </p>
         <EmptyState
           eyebrow="Ceremony calendar"
           title="Ceremony inquiries are open."
