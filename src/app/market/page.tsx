@@ -25,18 +25,19 @@ export default function MarketPage() {
         tone="forest"
         headingLevel="h1"
         eyebrow="Market"
-        title="A market chosen for the Ethiopian table."
-        intro="Every shelf should feel edited: injera, teff flour, spices, coffee, tea, gifts, and cultural goods connected to home, ceremony, and gathering."
+        title="Bringing the best of Ethiopia and beyond to the community."
+        intro="A destination for authentic Ethiopian, East African, and international foods, beverages, spices, and specialty products."
       >
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div className="max-w-2xl">
             <p className="font-display text-[1.9rem] leading-[1.12] sm:text-4xl">
-              Injera bread, teff flour, spices, coffee, tea, and cultural goods
-              selected with the same care as the cup.
+              Fresh injera, Ethiopian coffee, traditional spices, pantry staples,
+              refrigerated foods, snacks, beverages, and specialty ingredients
+              for recreating the tastes of home.
             </p>
             <div className="mt-8 grid gap-3 border-l border-gold/45 pl-5 text-sm leading-6 text-ivory/62">
-              <p>Edited shelves, not visual noise.</p>
-              <p>Every object should feel useful, giftable, and rooted in Ethiopian hospitality.</p>
+              <p>Quality products that celebrate culture, tradition, and flavor.</p>
+              <p>A welcoming market for everyday essentials and special occasions.</p>
             </div>
             <div className="mt-8">
               <ButtonLink href="/visit" className="border-ivory bg-ivory text-espresso hover:bg-white">
@@ -91,7 +92,12 @@ export default function MarketPage() {
         </div>
       </Section>
 
-      <Section tone="white" eyebrow="Retail rhythm" title="Curated, giftable, and seasonal.">
+      <Section
+        tone="white"
+        eyebrow="What you'll find"
+        title="More than a market."
+        intro="Buna House is built as a welcoming place to discover new products, reconnect with heritage, and experience Ethiopian hospitality through the everyday shelf."
+      >
         <div className="grid gap-6 md:grid-cols-2">
           {marketCategories.map((category) => (
             <article key={category.title} className="luxury-card relative overflow-hidden border border-gold/22 bg-[#fbf7ef] p-7 shadow-subtle transition duration-300 ease-luxury hover:border-gold/55 sm:p-8">

@@ -70,6 +70,8 @@ export function HeroVideo({ src, mobileSrc, poster, className = "" }: HeroVideoP
       video.pause();
       setIsPaused(true);
     }
+
+    window.dispatchEvent(new Event("hero-video-interaction"));
   };
 
   return (
@@ -84,6 +86,7 @@ export function HeroVideo({ src, mobileSrc, poster, className = "" }: HeroVideoP
         preload="auto"
         poster={poster}
         aria-hidden="true"
+        onEnded={() => window.dispatchEvent(new Event("hero-video-interaction"))}
       >
         {mobileSrc ? <source src={mobileSrc} media="(max-width: 767px)" type="video/mp4" /> : null}
         <source src={src} type="video/mp4" />

@@ -7,7 +7,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { brandImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
-import { featuredCoffees } from "@/data/content";
+import { coffeeOrigins, coffeeQualityPoints, featuredCoffees } from "@/data/content";
 import { cafeMenuSections, cafeMenuSource } from "@/data/sheet-menu";
 import { createMetadata } from "@/lib/seo";
 
@@ -25,8 +25,8 @@ export default function CoffeePage() {
         tone="espresso"
         headingLevel="h1"
         eyebrow="Coffee"
-        title="Ethiopian coffee with origin in the foreground."
-        intro="Start with Ethiopian coffee, move into cafe favorites like macchiato and Americano, then bring the ritual home through the market shelf."
+        title="Single-origin Ethiopian coffee, rooted in heritage."
+        intro="Experience the authentic taste of Ethiopia, the birthplace of coffee. Buna House celebrates the growing regions, traditions, and exceptional flavors that make Ethiopian coffee world-renowned."
       >
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div className="relative aspect-[4/5] overflow-hidden border border-gold/24 bg-ivory/10 shadow-[0_34px_100px_rgba(8,20,18,0.24)]">
@@ -61,6 +61,43 @@ export default function CoffeePage() {
       </Section>
 
       <FeaturedCoffee />
+
+      <Section
+        id="single-origin"
+        tone="ivory"
+        eyebrow="Coffee shop"
+        title="Every cup tells a regional story."
+        intro="From the floral elegance of Yirgacheffe to the bold character of Harrar, each coffee is selected, roasted, and served to preserve its own character."
+      >
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {coffeeOrigins.map((origin) => (
+            <article
+              key={origin.name}
+              className="luxury-card border border-gold/20 bg-[#fbf7ef] p-6 shadow-subtle transition duration-300 ease-luxury hover:border-gold/45 sm:p-7"
+            >
+              <h2 className="font-display text-[2.2rem] uppercase leading-[0.96] tracking-[0.035em]">
+                {origin.name}
+              </h2>
+              <p className="mt-4 text-[0.72rem] font-semibold uppercase tracking-[0.13em] text-gold">
+                {origin.notes}
+              </p>
+              <p className="mt-3 text-sm leading-6 text-espresso/58">{origin.altitude}</p>
+              <p className="mt-5 leading-7 text-ink/70">{origin.body}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {coffeeQualityPoints.map((point) => (
+            <p
+              key={point}
+              className="border-t border-gold/24 pt-4 text-sm font-semibold uppercase tracking-[0.12em] text-espresso/68"
+            >
+              {point}
+            </p>
+          ))}
+        </div>
+      </Section>
 
       <AnimatedPricingMenu variant="coffee" />
 

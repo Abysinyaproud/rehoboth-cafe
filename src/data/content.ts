@@ -30,27 +30,81 @@ export const featuredCoffees = [
   }
 ];
 
+export const coffeeOrigins = [
+  {
+    name: "Yirgacheffe",
+    notes: "Floral • Citrus • Tea-like",
+    altitude: "1,700-2,200 meters",
+    body: "A graceful profile known for lifted aromatics, citrus clarity, and a tea-like finish."
+  },
+  {
+    name: "Sidamo",
+    notes: "Citrus • Berry • Floral",
+    altitude: "1,550-2,200 meters",
+    body: "Expressive and layered, with fruit brightness and a soft floral structure."
+  },
+  {
+    name: "Limu",
+    notes: "Cocoa • Honey • Smooth Citrus",
+    altitude: "1,500-2,100 meters",
+    body: "Rounded and balanced, bringing cocoa warmth, honeyed sweetness, and a clean finish."
+  },
+  {
+    name: "Harrar",
+    notes: "Blueberry • Winey • Mocha",
+    altitude: "1,500-2,100 meters",
+    body: "Bold and memorable, with wine-like fruit, mocha depth, and an unmistakable Ethiopian character."
+  }
+];
+
+export const coffeeQualityPoints = [
+  "100% Ethiopian Arabica coffee",
+  "Single-origin sourcing",
+  "Small-batch roasted",
+  "High-altitude grown",
+  "Ethically sourced",
+  "Freshly packed for peak flavor"
+];
+
 export const marketCategories = [
   {
-    title: "Injera Bread & Teff Flour",
-    text: "Staples for the Ethiopian table, placed where guests can build a real meal after coffee.",
+    title: "Ethiopian & East African Groceries",
+    text: "Authentic ingredients and everyday essentials from Ethiopia and neighboring regions.",
     image: brandImages.marketShelves
   },
   {
-    title: "Coffee & Tea",
-    text: "Cafe favorites and take-home goods that keep the Buna House ritual alive beyond the visit.",
+    title: "Fresh Injera",
+    text: "Traditional Ethiopian flatbread prepared with quality ingredients and available fresh.",
     image: brandImages.coffeeDetail
   },
   {
-    title: "Spices",
-    text: "Aromatic essentials for cooks who want Ethiopian warmth, color, and depth in the pantry.",
+    title: "Coffee & Tea",
+    text: "Premium Ethiopian single-origin coffees and specialty teas for the home table.",
     image: brandImages.marketShelves
   },
   {
-    title: "Habesha Kemis & Cultural Goods",
-    text: "Cultural garments, gifts, and everyday pieces that make the market feel specific to Buna House.",
+    title: "Spices & Seasonings",
+    text: "Berbere, mitmita, shiro, and traditional spice blends for depth, warmth, and memory.",
     image: brandImages.heritageOrigin
+  },
+  {
+    title: "Frozen & Refrigerated Foods",
+    text: "Convenient options for traditional meals, family gatherings, and everyday cooking.",
+    image: brandImages.marketShelves
+  },
+  {
+    title: "Houseware & Ceremony Goods",
+    text: "Jebena, sini cups, coffee sets, gifts, and specialty pieces that bring the ritual home.",
+    image: brandImages.coffeeDetail
   }
+];
+
+export const givingBackPoints = [
+  "Orphans in need of education and essential resources",
+  "Widows facing financial hardship",
+  "Community development initiatives",
+  "Family support programs",
+  "Humanitarian and relief efforts"
 ];
 
 export const events = [

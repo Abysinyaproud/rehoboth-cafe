@@ -14,9 +14,11 @@ export const siteConfig = {
     country: "US"
   },
   locationLabel: "9400 Snowden River Pkwy Suite 113, Columbia, MD 21045",
-  phone: "+14435429767",
-  phoneLabel: "(443) 542-9767",
-  email: "hello@bunahousecoffee.com",
+  phone: "+13019154354",
+  phoneLabel: "(301) 915-4354",
+  secondaryPhone: "+15109325997",
+  secondaryPhoneLabel: "(510) 932-5997",
+  email: "info@bunahouse.com",
   hours: [
     { days: "Monday-Saturday", time: "10:00 AM - 8:00 PM" },
     { days: "Sunday", time: "10:00 AM - 4:00 PM" }
@@ -67,7 +69,7 @@ export const footerNavigation = [
       { label: "Hours", href: "/visit#hours" },
       { label: "Directions", href: "/visit#directions" },
       { label: "Events", href: "/ceremony" },
-      { label: "Call", href: "tel:+14435429767" }
+      { label: "Call", href: "tel:+13019154354" }
     ]
   }
 ];

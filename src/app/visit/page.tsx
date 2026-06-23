@@ -53,6 +53,14 @@ export default function VisitPage() {
                 Call {siteConfig.phoneLabel}
               </ButtonLink>
             </div>
+            <div className="mt-6 grid gap-2 text-sm leading-6 text-ivory/64">
+              <a href={`tel:${siteConfig.secondaryPhone}`} className="transition hover:text-ivory">
+                Secondary phone: {siteConfig.secondaryPhoneLabel}
+              </a>
+              <a href={`mailto:${siteConfig.email}`} className="transition hover:text-ivory">
+                {siteConfig.email}
+              </a>
+            </div>
           </div>
 
           <div className="luxury-card relative min-h-[28rem] overflow-hidden border border-gold/24 bg-ivory/10">

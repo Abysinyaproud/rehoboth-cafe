@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { values } from "@/data/content";
+import { givingBackPoints, values } from "@/data/content";
 import { ButtonLink } from "@/components/ui/Button";
 import { EmptyState } from "@/components/content/EmptyState";
 import { MediaPlaceholder } from "@/components/content/MediaPlaceholder";
@@ -23,8 +23,8 @@ export default function AboutPage() {
         tone="ivory"
         headingLevel="h1"
         eyebrow="The Buna House story"
-        title="Built from the feeling of being welcomed in."
-        intro={`${siteConfig.listingName} brings Ethiopian coffee, market goods, and everyday hospitality together in Columbia, Maryland.`}
+        title="Coffee, culture, hospitality, and community."
+        intro={`${siteConfig.listingName} was created to share the rich culture, hospitality, and coffee heritage of Ethiopia with the local community and beyond.`}
       >
         <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div className="relative aspect-[4/5] overflow-hidden border border-gold/22 bg-stone shadow-subtle">
@@ -39,15 +39,14 @@ export default function AboutPage() {
           </div>
           <div>
             <p className="font-display text-[1.9rem] leading-[1.12] sm:text-4xl">
-              The ambition is simple and generous: give Maryland a place where
-              Ethiopian coffee is treated with the depth, beauty, and modernity
-              it deserves.
+              In Ethiopian culture, coffee is more than a beverage. It is a
+              tradition that brings people together through hospitality,
+              conversation, and connection.
             </p>
             <p className="mt-6 leading-8 text-ink/70">
-              Until the full founder interview and portraits are published, the
-              story is carried by the work guests can already experience: coffee,
+              Inspired by that heritage, Buna House brings Ethiopian coffee,
               tea, injera, teff flour, spices, cultural goods, and a room built
-              around welcome.
+              around welcome into one modern gathering place in Columbia.
             </p>
             <div className="mt-8">
               <ButtonLink href="/visit">Come Experience It</ButtonLink>
@@ -70,7 +69,7 @@ export default function AboutPage() {
         tone="forest"
         eyebrow="Coffee journey"
         title="From birthplace to gathering place."
-        intro="The story moves from Ethiopian origin to the cup in Columbia, then into the everyday lives of guests who return for coffee, pantry staples, cultural goods, and community."
+        intro="The story moves from Ethiopia's celebrated growing regions to the cup in Columbia, then into the everyday lives of guests who return for coffee, pantry staples, cultural goods, and community."
       >
         <div className="grid gap-4 md:grid-cols-3">
           {[
@@ -83,6 +82,38 @@ export default function AboutPage() {
               <p className="mt-4 leading-7 text-ivory/70">{text}</p>
             </article>
           ))}
+        </div>
+      </Section>
+
+      <Section
+        tone="ivory"
+        eyebrow="Giving back"
+        title="Every cup creates opportunity."
+        intro="Buna House is committed to directing 5% of coffee profits toward practical support for orphans, widows, and vulnerable communities through its compassion initiative."
+      >
+        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div className="luxury-card border border-gold/20 bg-[#fbf7ef] p-7 shadow-subtle sm:p-8">
+            <p className="font-display text-[2.4rem] uppercase leading-[0.96] tracking-[0.035em]">
+              Coffee with purpose.
+            </p>
+            <p className="mt-5 leading-8 text-ink/70">
+              The goal is simple: transform everyday purchases into opportunities
+              for hope, dignity, and lasting impact.
+            </p>
+            <p className="mt-6 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold">
+              5% given back / 100% purpose driven
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {givingBackPoints.map((point) => (
+              <p
+                key={point}
+                className="border-t border-gold/24 pt-4 text-sm font-semibold uppercase tracking-[0.1em] text-espresso/68"
+              >
+                {point}
+              </p>
+            ))}
+          </div>
         </div>
       </Section>
 

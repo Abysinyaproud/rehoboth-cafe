@@ -27,9 +27,9 @@ const footerGroups = [
 
 export function SiteFooter() {
   return (
-    <footer className="site-shell-footer material-section material-section-dark bg-forest px-5 pb-28 pt-16 text-ivory sm:px-8 md:pb-16 lg:px-12">
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_2.4fr_1fr]">
-        <div>
+    <footer className="site-shell-footer material-section material-section-dark overflow-hidden bg-forest px-5 pb-28 pt-16 text-ivory sm:px-8 md:pb-16 lg:px-12">
+      <div className="mx-auto grid max-w-[88rem] gap-12 lg:grid-cols-[0.95fr_1.8fr_0.95fr]">
+        <div className="min-w-0">
           <BunaEmblem className="size-24" />
           <h2 className="mt-6 font-display text-2xl uppercase leading-tight tracking-[0.08em] text-gold">
             Buna House
@@ -44,9 +44,9 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid min-w-0 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {footerGroups.map((group) => (
-            <div key={group.title}>
+            <div key={group.title} className="min-w-0">
               <h3 className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-gold">
                 {group.title}
               </h3>
@@ -66,7 +66,7 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div>
+        <div className="min-w-0">
           <h3 className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-gold">
             Contact
           </h3>
@@ -76,6 +76,18 @@ export function SiteFooter() {
             className="mt-4 block text-sm text-ivory/70 transition hover:text-ivory"
           >
             {siteConfig.phoneLabel}
+          </a>
+          <a
+            href={`tel:${siteConfig.secondaryPhone}`}
+            className="mt-2 block text-sm text-ivory/60 transition hover:text-ivory"
+          >
+            {siteConfig.secondaryPhoneLabel}
+          </a>
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="mt-2 block text-sm text-ivory/60 transition hover:text-ivory"
+          >
+            {siteConfig.email}
           </a>
           <div className="luxury-card mt-6 border border-gold/38 p-5">
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-gold">
@@ -90,7 +102,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-4 border-t border-gold/45 pt-6 text-[0.68rem] uppercase tracking-[0.12em] text-ivory/48 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto mt-12 flex max-w-[88rem] flex-col gap-4 border-t border-gold/45 pt-6 text-[0.68rem] uppercase tracking-[0.12em] text-ivory/48 sm:flex-row sm:items-center sm:justify-between">
         <p>&copy; {new Date().getFullYear()} {siteConfig.listingName}. All rights reserved.</p>
         <p>Privacy Policy&nbsp;&nbsp;&nbsp; Terms of Service</p>
       </div>

@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 import { BunaEmblem } from "@/components/brand/BunaEmblem";
 
 const leftNavigation = [
@@ -13,6 +17,45 @@ const rightNavigation = [
 ];
 
 export function SiteHeader() {
+  const pathname = usePathname();
+  const mobileMenuRef = useRef<HTMLDetailsElement>(null);
+
+  const closeMobileMenu = () => {
+    if (mobileMenuRef.current) {
+      mobileMenuRef.current.open = false;
+    }
+  };
+
+  useEffect(() => {
+    closeMobileMenu();
+  }, [pathname]);
+
+  useEffect(() => {
+    const handlePointerDown = (event: PointerEvent) => {
+      const menu = mobileMenuRef.current;
+
+      if (!menu?.open || !(event.target instanceof Node) || menu.contains(event.target)) {
+        return;
+      }
+
+      menu.open = false;
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeMobileMenu();
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
     <header className="site-shell-header sticky top-0 z-50 border-b border-gold/55 bg-forest/98 text-gold shadow-[0_18px_70px_rgba(0,0,0,0.22)] backdrop-blur-xl">
       <div className="mx-auto grid max-w-[110rem] grid-cols-[1fr_auto_1fr] items-center gap-3 px-5 py-4 sm:px-7 lg:px-12">
@@ -66,7 +109,7 @@ export function SiteHeader() {
           </Link>
         </div>
 
-        <details className="group relative col-start-3 justify-self-end sm:hidden">
+        <details ref={mobileMenuRef} className="group relative col-start-3 justify-self-end sm:hidden">
           <summary className="luxury-button flex min-h-11 cursor-pointer list-none items-center border border-gold/70 px-4 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold marker:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">
             <span>Menu</span>
           </summary>
@@ -76,6 +119,7 @@ export function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={closeMobileMenu}
                   className="px-3 py-3 text-base font-medium text-ivory/82 hover:bg-gold/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
                 >
                   {item.label}

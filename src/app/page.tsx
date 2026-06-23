@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BunaEmblem } from "@/components/brand/BunaEmblem";
+import { MobileDetailsMenu } from "@/components/layout/MobileDetailsMenu";
 import { AnimatedPricingMenu } from "@/components/sections/AnimatedPricingMenu";
+import { MobileHeroDissolve } from "@/components/sections/MobileHeroDissolve";
 import { EthiopianCoffeeScene } from "@/components/visuals/EthiopianCoffeeScene";
 import { HeroVideo } from "@/components/visuals/HeroVideo";
 import { brandImages, brandVideos } from "@/config/brand-assets";
@@ -12,7 +14,7 @@ const navItems = [
   ["Market", "/market"],
   ["Our Story", "/about"],
   ["Visit", "/visit"]
-];
+] as const;
 
 const coffees = [
   {
@@ -132,18 +134,12 @@ export default function HomePage() {
             ))}
           </nav>
 
-          <details className="relative justify-self-end lg:hidden">
-            <summary className="cursor-pointer list-none text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold">
-              Menu
-            </summary>
-            <nav className="absolute right-0 top-12 grid w-64 gap-3 border border-gold/45 bg-forest p-5 shadow-[0_24px_70px_rgba(0,0,0,0.36)]">
-              {navItems.map(([label, href]) => (
-                <Link key={href} href={href} className="py-2 text-sm text-ivory/76">
-                  {label}
-                </Link>
-              ))}
-            </nav>
-          </details>
+          <MobileDetailsMenu
+            items={navItems}
+            className="relative justify-self-end lg:hidden"
+            navClassName="absolute right-0 top-12 grid w-64 gap-3 border border-gold/45 bg-forest p-5 shadow-[0_24px_70px_rgba(0,0,0,0.36)]"
+            linkClassName="py-2 text-sm text-ivory/76 hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+          />
         </div>
       </header>
 
@@ -164,26 +160,28 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,77,70,0.94),rgba(27,23,20,0.7)_46%,rgba(15,77,70,0.18)),linear-gradient(0deg,rgba(27,23,20,0.74),transparent_48%)]" />
         <div className="relative mx-auto flex h-full max-w-[112rem] items-end px-5 pb-16 pt-32 sm:px-8 lg:px-12 lg:pb-24">
-          <div className="max-w-4xl">
-            <p className="font-display text-[clamp(4.2rem,9vw,10rem)] uppercase leading-[0.82] tracking-[0.05em] text-gold">
-              Buna
-              <br />
-              House
-            </p>
-            <LuxuryRule className="mt-8 text-gold" />
-            <h1 className="mt-8 font-subhead text-[clamp(2rem,3.4vw,4rem)] font-normal leading-[1.02] text-ivory">
-              The House of Ethiopian Coffee
-            </h1>
-            <p className="mt-7 max-w-2xl font-subhead text-2xl leading-9 text-ivory/82 sm:text-3xl sm:leading-10">
-              Rooted in Ethiopia. Crafted for modern hospitality.
-            </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <CtaLink href="/coffee">Explore Coffee</CtaLink>
-              <CtaLink href="/visit" variant="secondary">
-                Visit Buna House
-              </CtaLink>
+          <MobileHeroDissolve>
+            <div className="max-w-4xl">
+              <p className="font-display text-[clamp(4.2rem,9vw,10rem)] uppercase leading-[0.82] tracking-[0.05em] text-gold">
+                Buna
+                <br />
+                House
+              </p>
+              <LuxuryRule className="mt-8 text-gold" />
+              <h1 className="mt-8 font-subhead text-[clamp(2rem,3.4vw,4rem)] font-normal leading-[1.02] text-ivory">
+                The House of Ethiopian Coffee
+              </h1>
+              <p className="mt-7 max-w-2xl font-subhead text-2xl leading-9 text-ivory/82 sm:text-3xl sm:leading-10">
+                Rooted in Ethiopia. Crafted for modern hospitality.
+              </p>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <CtaLink href="/coffee">Explore Coffee</CtaLink>
+                <CtaLink href="/visit" variant="secondary">
+                  Visit Buna House
+                </CtaLink>
+              </div>
             </div>
-          </div>
+          </MobileHeroDissolve>
         </div>
       </section>
 
@@ -387,8 +385,8 @@ export default function HomePage() {
 
       <AnimatedPricingMenu />
 
-      <section className="artisan-surface material-section bg-ivory px-6 py-20 text-espresso sm:px-10 lg:px-12 lg:py-28">
-        <div className="mx-auto grid max-w-[112rem] gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-end">
+      <section className="artisan-surface material-section overflow-hidden bg-ivory px-5 py-20 text-espresso sm:px-8 lg:px-12 lg:py-28">
+        <div className="mx-auto grid max-w-[88rem] gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
           <div>
             <Eyebrow>Visit</Eyebrow>
             <h2 className="mt-7 max-w-4xl font-display text-[clamp(3rem,14vw,6.8rem)] uppercase leading-[0.9] tracking-[0.035em]">
@@ -396,7 +394,7 @@ export default function HomePage() {
             </h2>
             <LuxuryRule className="mt-9" />
           </div>
-          <div className="premium-panel border border-gold/26 bg-[#fbf7ef]/70 p-6 shadow-[0_28px_80px_rgba(8,20,18,0.08)] sm:p-8">
+          <div className="premium-panel min-w-0 border border-gold/20 bg-[#fbf7ef]/70 p-5 shadow-[0_28px_80px_rgba(8,20,18,0.08)] sm:p-8">
             <p className="font-subhead text-2xl leading-9 text-espresso/76">
               {siteConfig.locationLabel}
             </p>
@@ -420,36 +418,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="bg-forest px-6 py-14 text-ivory sm:px-10 lg:px-12">
-        <div className="mx-auto grid max-w-[112rem] gap-10 lg:grid-cols-[1fr_2fr_1fr]">
-          <div>
-            <BrandMark />
-            <p className="mt-6 max-w-xs text-sm leading-6 text-ivory/62">
-              Coffee. Culture. Community. From Ethiopia to your cup.
-            </p>
-          </div>
-          <nav className="grid gap-5 sm:grid-cols-4" aria-label="Footer navigation">
-            {navItems.map(([label, href]) => (
-              <Link
-                key={href}
-                href={href}
-                className="editorial-link w-fit text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-gold transition hover:text-ivory"
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
-          <div>
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">Columbia, Maryland</p>
-            <Link
-              href="/visit"
-              className="editorial-link mt-5 inline-flex text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-gold transition hover:text-ivory"
-            >
-              Plan Your Visit
-            </Link>
-          </div>
-        </div>
-      </footer>
     </article>
   );
 }

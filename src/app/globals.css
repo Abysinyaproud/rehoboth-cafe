@@ -117,6 +117,20 @@ a {
   filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.28));
 }
 
+.hero-copy-dissolve {
+  opacity: 1;
+}
+
+@media (max-width: 1023px) {
+  .hero-copy-dissolve[data-dimmed="true"] {
+    opacity: 0.16;
+  }
+
+  .hero-copy-dissolve[data-dimmed="true"]:focus-within {
+    opacity: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-video {
     display: none;
@@ -124,6 +138,10 @@ a {
 
   .hero-video-ui {
     display: none;
+  }
+
+  .hero-copy-dissolve {
+    opacity: 1 !important;
   }
 }
 

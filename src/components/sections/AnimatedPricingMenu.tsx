@@ -12,21 +12,19 @@ type AnimatedPricingMenuProps = {
   className?: string;
 };
 
-type PricingItem = {
+type MenuItem = {
   name: string;
   detail?: string;
   price: string;
 };
 
-type PricingGroup = {
+type MenuGroup = {
   eyebrow: string;
   title: string;
   description: string;
-  items: PricingItem[];
+  items: MenuItem[];
   ctaLabel: string;
   ctaHref: string;
-  featured?: boolean;
-  span?: string;
 };
 
 function displayPrices(prices: readonly string[]) {
@@ -44,7 +42,7 @@ function displayDetail(columns: readonly string[], prices: readonly string[]) {
     return "";
   }
 
-  const pairs = columns
+  return columns
     .map((column, index) => {
       const price = prices[index];
 
@@ -54,9 +52,8 @@ function displayDetail(columns: readonly string[], prices: readonly string[]) {
 
       return `${column} ${price}`;
     })
-    .filter(Boolean);
-
-  return pairs.join(" · ");
+    .filter(Boolean)
+    .join(" / ");
 }
 
 function cafeSection(title: string) {
@@ -67,7 +64,7 @@ function marketGroup(category: string) {
   return marketProductHighlights.find((group) => group.category === category);
 }
 
-function cafeItems(title: string, limit = 6): PricingItem[] {
+function cafeItems(title: string, limit = 4): MenuItem[] {
   const section = cafeSection(title);
 
   if (!section) {
@@ -81,7 +78,7 @@ function cafeItems(title: string, limit = 6): PricingItem[] {
   }));
 }
 
-function marketItems(category: string, limit = 5): PricingItem[] {
+function marketItems(category: string, limit = 4): MenuItem[] {
   const group = marketGroup(category);
 
   if (!group) {
@@ -95,179 +92,158 @@ function marketItems(category: string, limit = 5): PricingItem[] {
   }));
 }
 
-const ceremonyItems: PricingItem[] = ceremonyMenuHighlights.slice(0, 3).map((item) => ({
+const ceremonyItems: MenuItem[] = ceremonyMenuHighlights.slice(0, 3).map((item) => ({
   name: item.name,
   detail: item.note,
   price: item.price
 }));
 
-const groupsByVariant: Record<NonNullable<AnimatedPricingMenuProps["variant"]>, PricingGroup[]> = {
+const groupsByVariant: Record<NonNullable<AnimatedPricingMenuProps["variant"]>, MenuGroup[]> = {
   overview: [
     {
-      eyebrow: "Coffee",
-      title: "Single-Origin Pour Over",
+      eyebrow: "Coffee Bar",
+      title: "Single-origin coffee",
       description: "Yirgacheffe, Sidamo, and Guji brewed by size for a clear Ethiopian cup.",
       items: cafeItems("Single-Origin Pour Over", 3),
       ctaLabel: "View Menu",
-      ctaHref: "/coffee#cafe-menu",
-      featured: true,
-      span: "xl:col-span-5 xl:row-span-2"
+      ctaHref: "/coffee#cafe-menu"
     },
     {
       eyebrow: "Ceremony",
-      title: "Ritual & Service",
-      description: "A small in-store ceremony price and home ritual pieces from the market shelf.",
-      items: ceremonyItems,
+      title: "Coffee ceremony",
+      description: "A slower in-store ritual, built around welcome, aroma, and shared time.",
+      items: ceremonyItems.slice(0, 2),
       ctaLabel: "Available In Store",
-      ctaHref: "/ceremony",
-      span: "xl:col-span-3"
+      ctaHref: "/ceremony"
     },
     {
-      eyebrow: "Cafe",
-      title: "Breakfast & Bakery",
-      description: "Morning plates and bakery case staples for the slower visit.",
-      items: [...cafeItems("Morning Plates & Pastries", 3), ...cafeItems("Fresh Bakery", 2)],
+      eyebrow: "Morning",
+      title: "Breakfast & bakery",
+      description: "A short edit of morning plates and bakery case favorites.",
+      items: [...cafeItems("Morning Plates & Pastries", 2), ...cafeItems("Fresh Bakery", 1)],
       ctaLabel: "View Menu",
-      ctaHref: "/coffee#cafe-menu",
-      span: "xl:col-span-4"
+      ctaHref: "/coffee#cafe-menu"
     },
     {
       eyebrow: "Market",
-      title: "Ethiopian Shelf",
-      description: "Injera, teff, shiro, spices, tea, and coffee goods for the home table.",
+      title: "Ethiopian shelf",
+      description: "Injera, teff, shiro, spices, tea, and home ceremony pieces.",
       items: [
-        ...marketItems("Ethiopian Bread & Injera", 2),
-        ...marketItems("Spices", 2),
+        ...marketItems("Ethiopian Bread & Injera", 1),
+        ...marketItems("Spices", 1),
         ...marketItems("Tea", 1)
       ],
       ctaLabel: "Visit the Market",
-      ctaHref: "/market",
-      span: "xl:col-span-7"
+      ctaHref: "/market"
     }
   ],
   coffee: [
     {
       eyebrow: "Origin",
-      title: "Single-Origin Pour Over",
+      title: "Single-origin pour over",
       description: "Ethiopian origins by cup size.",
       items: cafeItems("Single-Origin Pour Over", 3),
       ctaLabel: "Available In Store",
-      ctaHref: "/visit",
-      featured: true,
-      span: "xl:col-span-4"
+      ctaHref: "/visit"
     },
     {
       eyebrow: "Espresso",
-      title: "Espresso Bar",
+      title: "Espresso bar",
       description: "Classic espresso drinks with single through quad options.",
-      items: cafeItems("Espresso Bar", 6),
+      items: cafeItems("Espresso Bar", 5),
       ctaLabel: "View Menu",
-      ctaHref: "/coffee#cafe-menu",
-      span: "xl:col-span-4"
+      ctaHref: "/coffee#cafe-menu"
     },
     {
       eyebrow: "Cold",
-      title: "Cold Classics",
+      title: "Cold classics",
       description: "Cold coffee, tea, and dessert-style cafe drinks.",
-      items: cafeItems("Cold Classics", 5),
+      items: cafeItems("Cold Classics", 4),
       ctaLabel: "View Menu",
-      ctaHref: "/coffee#cafe-menu",
-      span: "xl:col-span-4"
+      ctaHref: "/coffee#cafe-menu"
     },
     {
       eyebrow: "Wellness",
-      title: "Smoothies & Hot Drinks",
+      title: "Smoothies & hot drinks",
       description: "Smoothies, Beso, Telba, Atmit, turmeric, ginger, and honey.",
-      items: [...cafeItems("Fresh Smoothies", 3), ...cafeItems("Traditional Drinks", 3)],
+      items: [...cafeItems("Fresh Smoothies", 2), ...cafeItems("Traditional Drinks", 3)],
       ctaLabel: "Available In Store",
-      ctaHref: "/visit",
-      span: "xl:col-span-4"
+      ctaHref: "/visit"
     },
     {
       eyebrow: "Morning",
-      title: "Breakfast Plates",
+      title: "Breakfast plates",
       description: "Ethiopian-inspired and modern morning plates.",
-      items: cafeItems("Morning Plates & Pastries", 5),
+      items: cafeItems("Morning Plates & Pastries", 4),
       ctaLabel: "View Menu",
-      ctaHref: "/coffee#cafe-menu",
-      span: "xl:col-span-4"
+      ctaHref: "/coffee#cafe-menu"
     },
     {
       eyebrow: "Bakery",
-      title: "Fresh Bakery",
+      title: "Fresh bakery",
       description: "Croissants, muffins, scones, brownies, and sweet breads.",
-      items: cafeItems("Fresh Bakery", 6),
+      items: cafeItems("Fresh Bakery", 5),
       ctaLabel: "Available In Store",
-      ctaHref: "/visit",
-      span: "xl:col-span-4"
+      ctaHref: "/visit"
     }
   ],
   market: [
     {
       eyebrow: "Staples",
-      title: "Injera, Teff & Shiro",
+      title: "Injera, teff & shiro",
       description: "Foundational Ethiopian pantry goods for home meals and gatherings.",
       items: [
-        ...marketItems("Ethiopian Bread & Injera", 3),
-        ...marketItems("Flour, Teff & Shiro", 3)
+        ...marketItems("Ethiopian Bread & Injera", 2),
+        ...marketItems("Flour, Teff & Shiro", 2)
       ],
       ctaLabel: "Visit the Market",
-      ctaHref: "/visit",
-      featured: true,
-      span: "xl:col-span-6"
+      ctaHref: "/visit"
     },
     {
       eyebrow: "Aromatics",
-      title: "Spices & Tea",
+      title: "Spices & tea",
       description: "Berbere, mitmita, korerima, herbal teas, and tea spices.",
-      items: [...marketItems("Spices", 4), ...marketItems("Tea", 2)],
+      items: [...marketItems("Spices", 3), ...marketItems("Tea", 2)].slice(0, 5),
       ctaLabel: "Available In Store",
-      ctaHref: "/market",
-      span: "xl:col-span-6"
+      ctaHref: "/market"
     },
     {
       eyebrow: "Ceremony",
-      title: "Houseware & Coffee Sets",
+      title: "Houseware & coffee sets",
       description: "Jebena, sini, trays, and home ceremony pieces.",
-      items: marketItems("Houseware & Ceremony", 6),
+      items: marketItems("Houseware & Ceremony", 4),
       ctaLabel: "Visit the Market",
-      ctaHref: "/market",
-      span: "xl:col-span-6"
+      ctaHref: "/market"
     },
     {
       eyebrow: "Prepared",
-      title: "Bakery & Market Counter",
+      title: "Bakery & market counter",
       description: "Bakery, sambusa, kolo, and fresh counter highlights.",
-      items: [
-        ...marketItems("Bakery & Prepared Bites", 3),
-        ...marketItems("Ethiopian Snacks", 2),
-        ...marketItems("Fresh Meat Counter", 1)
-      ],
+      items: [...marketItems("Bakery & Prepared Bites", 3), ...marketItems("Ethiopian Snacks", 2)],
       ctaLabel: "Available In Store",
-      ctaHref: "/visit",
-      span: "xl:col-span-6"
+      ctaHref: "/visit"
     }
   ]
 };
 
 const copyByVariant = {
   overview: {
-    eyebrow: "Menu & market",
-    title: "Signature menu highlights.",
+    eyebrow: "Signature Menu Highlights",
+    title: "A short edit of what to order.",
     intro:
-      "Real cafe and market highlights, edited for guests. A quiet preview of what is available before you arrive."
+      "Coffee, ceremony, morning plates, and market goods. Enough to guide the visit without turning the page into a price sheet."
   },
   coffee: {
-    eyebrow: "Cafe pricing",
-    title: "A menu built around coffee, ceremony, and morning ritual.",
+    eyebrow: "Cafe Menu Highlights",
+    title: "Coffee first, then the morning ritual.",
     intro:
-      "An in-store menu view for Ethiopian pour-over, espresso, cold drinks, smoothies, medicinal hot drinks, breakfast plates, and fresh bakery."
+      "A calmer preview of the in-store cafe menu. The full menu remains below for guests who need every detail."
   },
   market: {
-    eyebrow: "Market pricing",
-    title: "Market highlights for the Ethiopian table.",
+    eyebrow: "Market Highlights",
+    title: "The Ethiopian shelf, edited.",
     intro:
-      "A curated look at market categories and in-store prices without exposing the raw back-office inventory."
+      "A focused preview of market categories and in-store prices without publishing raw inventory."
   }
 } as const;
 
@@ -281,83 +257,74 @@ export function AnimatedPricingMenu({
   return (
     <section
       className={cn(
-        "material-section material-section-dark relative overflow-hidden border-y border-gold/25 bg-espresso px-5 py-24 text-ivory sm:px-8 lg:px-12 lg:py-32",
+        "material-section material-section-dark relative overflow-hidden border-y border-gold/20 bg-espresso px-5 py-20 text-ivory sm:px-8 lg:px-12 lg:py-28",
         className
       )}
       aria-labelledby={`${variant}-pricing-menu-heading`}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(176,138,68,0.1),transparent_34%),radial-gradient(circle_at_82%_18%,rgba(244,233,216,0.08),transparent_28%)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gold/55" />
-      <div className="relative mx-auto max-w-7xl">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_86%_12%,rgba(201,169,110,0.08),transparent_26rem),linear-gradient(120deg,rgba(15,77,70,0.34),transparent_40%)]" />
+      <div className="relative mx-auto max-w-[88rem]">
         <MotionReveal>
-          <div className="grid gap-8 lg:grid-cols-[0.72fr_1fr] lg:items-end">
+          <div className="grid gap-8 border-b border-gold/18 pb-10 lg:grid-cols-[0.38fr_0.62fr] lg:items-end">
             <p className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-gold">
               {copy.eyebrow}
             </p>
             <div>
               <h2
                 id={`${variant}-pricing-menu-heading`}
-                className="max-w-5xl font-display text-4xl uppercase leading-[0.96] tracking-[0.035em] text-gold sm:text-5xl lg:text-6xl"
+                className="max-w-4xl font-display text-[clamp(2.6rem,5vw,5.6rem)] uppercase leading-[0.92] tracking-[0.035em] text-gold"
               >
                 {copy.title}
               </h2>
-              <p className="mt-8 max-w-2xl text-base font-light leading-8 text-ivory/68 sm:text-[1.06rem]">
+              <p className="mt-6 max-w-2xl text-base font-light leading-8 text-ivory/64">
                 {copy.intro}
               </p>
             </div>
           </div>
         </MotionReveal>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-12">
+        <div className="mt-10 grid gap-5 lg:grid-cols-2 lg:gap-6">
           {groups.map((group, index) => (
-            <MotionReveal key={group.title} className={group.span} delay={index * 0.05}>
-              <article
-                className={cn(
-                  "luxury-card group flex min-h-full flex-col border border-gold/22 bg-forest/26 p-6 shadow-[0_28px_90px_rgba(0,0,0,0.18)] transition duration-300 ease-luxury hover:-translate-y-1 hover:border-gold/60 hover:bg-forest/46 hover:shadow-[0_34px_110px_rgba(0,0,0,0.28)] sm:p-7",
-                  group.featured && "border-gold/55 bg-forest/58 xl:p-9"
-                )}
-              >
-                <div>
-                  <p className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-gold/82">
-                    {group.eyebrow}
-                  </p>
-                  <h3 className="mt-5 font-display text-[2rem] uppercase leading-[1] tracking-[0.035em] text-gold">
-                    {group.title}
-                  </h3>
-                  <p className="mt-4 max-w-xl text-sm leading-6 text-ivory/62">
-                    {group.description}
-                  </p>
-                </div>
+            <MotionReveal key={group.title} delay={index * 0.04}>
+              <article className="group min-h-full border border-gold/14 bg-forest/18 p-5 transition duration-300 ease-luxury hover:border-gold/34 hover:bg-forest/28 sm:p-6">
+                <div className="grid gap-5 sm:grid-cols-[0.4fr_0.6fr] sm:items-start">
+                  <div>
+                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-gold/78">
+                      {group.eyebrow}
+                    </p>
+                    <h3 className="mt-4 font-display text-[2rem] uppercase leading-[1] tracking-[0.035em] text-gold sm:text-[2.35rem]">
+                      {group.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-6 text-ivory/56">{group.description}</p>
+                  </div>
 
-                <div
-                  className={cn(
-                    "mt-7 grid gap-3",
-                    group.featured && "xl:grid-cols-2 xl:gap-x-5"
-                  )}
-                >
-                  {group.items.map((item) => (
-                    <div
-                      key={`${group.title}-${item.name}`}
-                      className="border-t border-gold/14 pt-4 transition duration-300 group-hover:border-gold/24"
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        <p className="text-sm font-medium leading-6 text-ivory">{item.name}</p>
-                        <p className="max-w-[7.5rem] shrink-0 text-right text-sm font-semibold leading-6 text-gold sm:max-w-[9rem]">
-                          {item.price || "In store"}
-                        </p>
+                  <div className="divide-y divide-gold/12">
+                    {group.items.map((item) => (
+                      <div
+                        key={`${group.title}-${item.name}`}
+                        className="grid gap-1.5 py-3 first:pt-0 last:pb-0"
+                      >
+                        <div className="grid grid-cols-[1fr_auto] items-baseline gap-4">
+                          <p className="text-[0.95rem] font-medium leading-6 text-ivory">
+                            {item.name}
+                          </p>
+                          <p className="shrink-0 text-right text-sm font-semibold leading-6 text-gold">
+                            {item.price || "In store"}
+                          </p>
+                        </div>
+                        {item.detail ? (
+                          <p className="max-w-md text-xs leading-5 text-ivory/42">{item.detail}</p>
+                        ) : null}
                       </div>
-                      {item.detail ? (
-                        <p className="max-w-[18rem] text-xs leading-5 text-ivory/46">{item.detail}</p>
-                      ) : null}
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
 
-                <div className="mt-auto pt-7">
+                <div className="mt-6 flex justify-end border-t border-gold/12 pt-5">
                   <ButtonLink
                     href={group.ctaHref}
                     variant="secondary"
-                    className="w-full border-gold/55 bg-transparent hover:shadow-[0_0_34px_rgba(176,138,68,0.2)]"
+                    className="min-h-10 border-gold/45 px-5 py-2 text-[0.62rem] hover:shadow-[0_0_24px_rgba(176,138,68,0.16)]"
                   >
                     {group.ctaLabel}
                   </ButtonLink>
