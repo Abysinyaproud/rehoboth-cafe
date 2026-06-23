@@ -581,6 +581,36 @@ body::after {
 @keyframes beam-trace { to { --beam-angle: 360deg; } }
 
 /* ---------------------------------------------------------------------
+   Why-our-coffee badges + Coffee-heritage topic cards
+   --------------------------------------------------------------------- */
+.badges {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px; margin: 28px 0 0; padding: 0; list-style: none;
+}
+.badges li {
+  display: flex; align-items: center; gap: 12px; padding: 15px 18px;
+  border: 1px solid var(--line-soft); border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--green-800), var(--green-850));
+  box-shadow: var(--hi), var(--shadow-card);
+  font-family: var(--font-head); font-size: 0.95rem; font-weight: 500;
+}
+.badges svg { width: 20px; height: 20px; color: var(--gold-bright); flex: none; }
+
+.topics {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px; margin-top: 30px;
+}
+.topic {
+  padding: 20px; border: 1px solid var(--line-soft); border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--green-800), var(--green-850));
+  box-shadow: var(--hi), var(--shadow-card);
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.topic:hover { border-color: var(--gold); transform: translateY(-3px); }
+.topic h3 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 600; }
+.topic p { margin: 6px 0 0; color: var(--cream-dim); font-size: 0.9rem; font-weight: 300; }
+
+/* ---------------------------------------------------------------------
    Reel — cinematic vertical video strip (autoplay-in-view, muted)
    --------------------------------------------------------------------- */
 .reel { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.6vw, 18px); margin-top: 30px; max-width: 760px; }
