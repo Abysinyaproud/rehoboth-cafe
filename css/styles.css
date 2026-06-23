@@ -581,6 +581,18 @@ body::after {
 @keyframes beam-trace { to { --beam-angle: 360deg; } }
 
 /* ---------------------------------------------------------------------
+   Reel — cinematic vertical video strip (autoplay-in-view, muted)
+   --------------------------------------------------------------------- */
+.reel { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.6vw, 18px); margin-top: 30px; max-width: 760px; }
+.reel__v {
+  width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block;
+  border-radius: var(--radius); border: 1px solid var(--line);
+  background: var(--green-800); box-shadow: var(--hi), var(--shadow-card);
+  transition: transform 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.reel__v:hover { transform: translateY(-3px); border-color: var(--gold); }
+
+/* ---------------------------------------------------------------------
    Market — category chips + real-product "shelf" cards
    --------------------------------------------------------------------- */
 .market__cats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }

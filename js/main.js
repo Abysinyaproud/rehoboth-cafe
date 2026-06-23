@@ -227,6 +227,30 @@
     });
   }
 
+  /* ---------- Reel: lazy-load + autoplay vertical clips in view ---------- */
+  var reels = Array.prototype.slice.call(document.querySelectorAll(".reel__v"));
+  if (reels.length) {
+    var loadReel = function (v) { if (!v.src && v.dataset.src) v.src = v.dataset.src; };
+    if (prefersReduced || !("IntersectionObserver" in window)) {
+      // honor reduced motion: load + give controls, don't autoplay
+      reels.forEach(function (v) { loadReel(v); v.removeAttribute("loop"); v.setAttribute("controls", ""); });
+    } else {
+      var rio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          var v = en.target;
+          if (en.isIntersecting) {
+            loadReel(v);
+            var p = v.play();
+            if (p && p.catch) p.catch(function () {});
+          } else if (!v.paused) {
+            v.pause();
+          }
+        });
+      }, { threshold: 0.4 });
+      reels.forEach(function (v) { rio.observe(v); });
+    }
+  }
+
   /* ---------- Newsletter (Formspree-ready, graceful fallback) ---------- */
   var form = document.getElementById("newsletter");
   if (form) {
