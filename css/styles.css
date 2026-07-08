@@ -101,6 +101,8 @@ h1, h2, h3 {
   margin-inline: auto; padding-inline: var(--gutter);
 }
 .section { padding-block: clamp(72px, 11vw, 150px); position: relative; }
+/* clean landing below the fixed header when jumping to in-page anchors */
+:where(section[id], [id^="story"], #top) { scroll-margin-top: 92px; }
 
 .eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
