@@ -1,18 +1,18 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
-import { brandImages } from "@/config/brand-assets";
+import { coffeexImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 
 export function Hero() {
   return (
     <section className="relative min-h-[calc(100svh-73px)] overflow-hidden bg-espresso text-ivory">
       <Image
-        src={brandImages.heroJebena}
-        alt="Ethiopian coffee ceremony with jebena coffee, steam, and roasted beans"
+        src={coffeexImages.heroDrinkTable.src}
+        alt={coffeexImages.heroDrinkTable.alt}
         fill
         priority
         sizes="100vw"
-        className="object-cover opacity-[0.56] saturate-[0.9] contrast-[1.04]"
+        className={`object-cover ${coffeexImages.heroDrinkTable.positionClassName} opacity-[0.56] saturate-[0.9] contrast-[1.04]`}
       />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(26,21,17,0.94),rgba(26,21,17,0.56)_48%,rgba(26,21,17,0.78)),linear-gradient(180deg,rgba(26,21,17,0.2),rgba(26,21,17,0.84))]" />
       <div className="absolute inset-0 opacity-[0.1] mix-blend-soft-light texture" />

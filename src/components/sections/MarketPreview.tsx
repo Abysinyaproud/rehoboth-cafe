@@ -16,10 +16,12 @@ export function MarketPreview() {
           <EditorialCard
             key={category.title}
             image={category.image}
+            imageAlt={category.imageAlt}
             eyebrow={`0${index + 1}`}
             title={category.title}
             text={category.text}
             imageClassName={index === 0 ? "lg:aspect-[3/4]" : undefined}
+            imagePositionClassName={category.imageClassName}
           />
         ))}
       </div>

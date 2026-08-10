@@ -37,11 +37,9 @@ export function SiteFooter() {
           <p className="mt-4 max-w-xs text-sm leading-6 text-ivory/62">
             The House of Ethiopian Coffee. Coffee. Culture. Community.
           </p>
-          <div className="mt-6 flex gap-4 text-sm text-gold" aria-label="Social links">
-            <Link href={siteConfig.socials.instagram}>Instagram</Link>
-            <Link href={siteConfig.socials.instagram}>Facebook</Link>
-            <Link href={siteConfig.socials.instagram}>TikTok</Link>
-          </div>
+          <p className="mt-6 text-sm leading-6 text-gold/78">
+            Social links will be connected once official Buna House profiles are confirmed.
+          </p>
         </div>
 
         <div className="grid min-w-0 gap-8 sm:grid-cols-2 lg:grid-cols-4">

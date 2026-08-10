@@ -27,7 +27,7 @@ export function LaunchPageShell({
         <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-gold">
           {eyebrow}
         </p>
-        <h1 className="mt-6 max-w-4xl font-display text-6xl uppercase leading-[0.95] tracking-[0.04em] text-gold md:text-8xl">
+        <h1 className="mt-6 max-w-4xl break-words font-display text-[clamp(3.2rem,15vw,6rem)] uppercase leading-[0.95] tracking-[0.03em] text-gold [overflow-wrap:anywhere] md:text-8xl md:tracking-[0.04em]">
           {title}
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-8 text-ivory/72">{intro}</p>

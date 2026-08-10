@@ -3,10 +3,8 @@ import Link from "next/link";
 import { BunaEmblem } from "@/components/brand/BunaEmblem";
 import { MobileDetailsMenu } from "@/components/layout/MobileDetailsMenu";
 import { AnimatedPricingMenu } from "@/components/sections/AnimatedPricingMenu";
-import { MobileHeroDissolve } from "@/components/sections/MobileHeroDissolve";
 import { EthiopianCoffeeScene } from "@/components/visuals/EthiopianCoffeeScene";
-import { HeroVideo } from "@/components/visuals/HeroVideo";
-import { brandImages, brandVideos } from "@/config/brand-assets";
+import { brandImages, coffeexImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 
 const navItems = [
@@ -21,27 +19,21 @@ const coffees = [
     name: "Yirgacheffe",
     notes: "Floral • Citrus • Tea Like",
     description: "A lifted Ethiopian profile with clean aromatics and a precise finish.",
-    video: brandVideos.origin,
-    mobileVideo: brandVideos.originMobile,
-    videoLabel: "Ethiopian coffee origin, cherries, green coffee, and hand sorting",
+    image: coffeexImages.coffeePackagingFlatlay,
     href: "/coffee/yirgacheffe"
   },
   {
     name: "Sidamo",
     notes: "Stone Fruit • Chocolate • Sweet",
     description: "Rounded, expressive, and generous without losing clarity.",
-    video: brandVideos.ritual,
-    mobileVideo: brandVideos.ritualMobile,
-    videoLabel: "Traditional Ethiopian coffee ritual with jebena, beans, steam, and incense",
+    image: coffeexImages.coffeePackagingStack,
     href: "/coffee/sidamo"
   },
   {
     name: "Limu",
     notes: "Caramel • Spice • Wine Like",
     description: "Warm and composed with a smooth structure and quiet depth.",
-    video: brandVideos.pour,
-    mobileVideo: brandVideos.pourMobile,
-    videoLabel: "Coffee pouring from a jebena into Ethiopian sini cups with steam",
+    image: coffeexImages.coffeeCupVertical,
     href: "/coffee/limu"
   }
 ];
@@ -145,54 +137,46 @@ export default function HomePage() {
 
       <section className="hero-video-section relative h-[100svh] max-h-[980px] min-h-[720px] overflow-hidden bg-forest text-ivory">
         <Image
-          src={brandImages.heroJebena}
-          alt="Ethiopian coffee ceremony atmosphere with jebena and warm light"
+          src={coffeexImages.heroDrinkTable.src}
+          alt={coffeexImages.heroDrinkTable.alt}
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center saturate-[0.92] contrast-[1.06]"
-        />
-        <HeroVideo
-          src={brandImages.heroVideo}
-          mobileSrc={brandVideos.heroCeremonyMobile}
-          poster={brandImages.heroJebena}
-          className="hero-video absolute inset-0 size-full object-cover object-center saturate-[0.9] contrast-[1.08]"
+          className={`object-cover ${coffeexImages.heroDrinkTable.positionClassName} saturate-[0.92] contrast-[1.06]`}
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,77,70,0.94),rgba(27,23,20,0.7)_46%,rgba(15,77,70,0.18)),linear-gradient(0deg,rgba(27,23,20,0.74),transparent_48%)]" />
         <div className="relative mx-auto flex h-full max-w-[112rem] items-end px-5 pb-16 pt-32 sm:px-8 lg:px-12 lg:pb-24">
-          <MobileHeroDissolve>
-            <div className="max-w-4xl">
-              <p className="font-display text-[clamp(4.2rem,9vw,10rem)] uppercase leading-[0.82] tracking-[0.05em] text-gold">
-                Buna
-                <br />
-                House
-              </p>
-              <LuxuryRule className="mt-8 text-gold" />
-              <h1 className="mt-8 font-subhead text-[clamp(2rem,3.4vw,4rem)] font-normal leading-[1.02] text-ivory">
-                The House of Ethiopian Coffee
-              </h1>
-              <p className="mt-7 max-w-2xl font-subhead text-2xl leading-9 text-ivory/82 sm:text-3xl sm:leading-10">
-                Rooted in Ethiopia. Crafted for modern hospitality.
-              </p>
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <CtaLink href="/coffee">Explore Coffee</CtaLink>
-                <CtaLink href="/visit" variant="secondary">
-                  Visit Buna House
-                </CtaLink>
-              </div>
+          <div className="max-w-4xl">
+            <p className="font-display text-[clamp(4.2rem,9vw,10rem)] uppercase leading-[0.82] tracking-[0.05em] text-gold">
+              Buna
+              <br />
+              House
+            </p>
+            <LuxuryRule className="mt-8 text-gold" />
+            <h1 className="mt-8 font-subhead text-[clamp(2rem,3.4vw,4rem)] font-normal leading-[1.02] text-ivory">
+              The House of Ethiopian Coffee
+            </h1>
+            <p className="mt-7 max-w-2xl font-subhead text-2xl leading-9 text-ivory/82 sm:text-3xl sm:leading-10">
+              Rooted in Ethiopia. Crafted for modern hospitality.
+            </p>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <CtaLink href="/coffee">Explore Coffee</CtaLink>
+              <CtaLink href="/visit" variant="secondary">
+                Visit Buna House
+              </CtaLink>
             </div>
-          </MobileHeroDissolve>
+          </div>
         </div>
       </section>
 
       <section className="artisan-surface material-section grid border-y border-gold/35 bg-ivory lg:grid-cols-[0.44fr_0.56fr]">
         <div className="premium-image relative min-h-[28rem] min-w-0 overflow-hidden border-b border-gold/35 lg:min-h-[44rem] lg:border-b-0 lg:border-r">
           <Image
-            src={brandImages.heritageOrigin}
-            alt="Coffee origin and Ethiopian coffee heritage"
+            src={coffeexImages.founderRoasterFull.src}
+            alt={coffeexImages.founderRoasterFull.alt}
             fill
             sizes="(min-width: 1024px) 44vw, 100vw"
-            className="object-cover object-center saturate-[0.9] contrast-[1.04]"
+            className={`object-contain ${coffeexImages.founderRoasterFull.positionClassName} bg-[#e8ddcb] saturate-[0.9] contrast-[1.04]`}
           />
         </div>
         <div className="premium-copy flex min-h-[34rem] min-w-0 flex-col justify-center px-6 py-20 sm:px-12 lg:px-20">
@@ -200,7 +184,7 @@ export default function HomePage() {
             01
           </span>
           <Eyebrow>Our Heritage</Eyebrow>
-          <h2 className="mt-8 max-w-4xl font-display text-[clamp(3rem,15vw,7.8rem)] uppercase leading-[0.86] tracking-[0.035em] text-espresso">
+          <h2 className="mt-8 max-w-3xl font-display text-[clamp(3rem,8.8vw,6.4rem)] uppercase leading-[0.88] tracking-[0.035em] text-espresso">
             The Birthplace of Coffee
           </h2>
           <LuxuryRule className="mt-9" />
@@ -257,18 +241,13 @@ export default function HomePage() {
                 className="luxury-card group mx-auto w-full max-w-[24rem] border border-gold/28 bg-espresso/26 transition duration-300 hover:border-gold/70 hover:bg-espresso/42 hover:shadow-[0_30px_100px_rgba(0,0,0,0.32)] md:max-w-none md:[&:nth-child(2)]:mt-[-1.5rem]"
               >
                 <div className="origin-video-panel relative aspect-[9/16] overflow-hidden">
-                  <video
-                    className="media-breathe size-full object-cover saturate-[0.88] contrast-[1.04]"
-                    aria-label={coffee.videoLabel}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                  >
-                    <source src={coffee.mobileVideo} media="(max-width: 767px)" type="video/mp4" />
-                    <source src={coffee.video} type="video/mp4" />
-                  </video>
+                  <Image
+                    src={coffee.image.src}
+                    alt={coffee.image.alt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className={`media-breathe object-cover ${coffee.image.positionClassName} saturate-[0.88] contrast-[1.04]`}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent" />
                 </div>
                 <div className="p-7 sm:p-8">
@@ -307,19 +286,13 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="premium-image relative min-h-[30rem] min-w-0 overflow-hidden border-t border-gold/35 bg-espresso lg:min-h-[44rem] lg:border-l lg:border-t-0">
-          <video
-            className="absolute inset-0 size-full object-cover object-center saturate-[0.86] contrast-[1.08]"
-            poster={brandImages.ceremony}
-            aria-label="Ethiopian coffee ceremony atmosphere with jebena, smoke, and warm light"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          >
-            <source src={brandVideos.ritualMobile} media="(max-width: 767px)" type="video/mp4" />
-            <source src={brandVideos.ritual} type="video/mp4" />
-          </video>
+          <Image
+            src={coffeexImages.ritualDrinkBeans.src}
+            alt={coffeexImages.ritualDrinkBeans.alt}
+            fill
+            sizes="(min-width: 1024px) 44vw, 100vw"
+            className={`object-cover ${coffeexImages.ritualDrinkBeans.positionClassName} saturate-[0.86] contrast-[1.08]`}
+          />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-forest/16 via-transparent to-espresso/12" />
         </div>
       </section>
@@ -329,15 +302,15 @@ export default function HomePage() {
           {
             title: "Cafe",
             text: "Specialty coffee, quiet hospitality, and a room made for gathering.",
-            video: brandVideos.pour,
-            mediaLabel: "Coffee pouring into Ethiopian cups with warm hospitality atmosphere",
+            image: coffeexImages.founderRoasterFull,
+            mediaClassName: "object-contain bg-[#102420] opacity-95 saturate-[0.88] contrast-[1.05]",
             href: "/visit"
           },
           {
             title: "Market",
             text: "Curated Ethiopian goods, coffee, tea, spices, and pantry staples.",
-            image: brandImages.marketShelves,
-            mediaClassName: "scale-110 object-center opacity-70 saturate-[0.82] contrast-[1.08]",
+            image: coffeexImages.marketProductShelf,
+            mediaClassName: "scale-105 opacity-90 saturate-[0.82] contrast-[1.08]",
             href: "/market"
           }
         ].map((item) => (
@@ -346,29 +319,14 @@ export default function HomePage() {
             href={item.href}
             className="luxury-card group relative min-h-[32rem] overflow-hidden border-b border-gold/35 lg:border-b-0 lg:border-r"
           >
-            {"video" in item ? (
-              <video
-                className="media-breathe absolute inset-0 size-full object-cover object-center saturate-[0.84] contrast-[1.08]"
-                aria-label={item.mediaLabel}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-              >
-                <source src={brandVideos.pourMobile} media="(max-width: 767px)" type="video/mp4" />
-                <source src={item.video} type="video/mp4" />
-              </video>
-            ) : (
-              <Image
-                src={item.image}
-                alt={`${item.title} at Buna House`}
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className={`media-breathe object-cover ${item.mediaClassName}`}
-              />
-            )}
-            <div className="absolute inset-0 bg-forest/74 transition duration-300 group-hover:bg-forest/64" />
+            <Image
+              src={item.image.src}
+              alt={item.image.alt}
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className={`media-breathe ${item.mediaClassName} ${item.image.positionClassName}`}
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,20,18,0.72),rgba(8,20,18,0.42)_48%,rgba(8,20,18,0.24)),linear-gradient(0deg,rgba(8,20,18,0.72),transparent_60%)] transition duration-300 group-hover:opacity-90" />
             <div className="relative flex h-full min-h-[32rem] flex-col justify-end p-8 sm:p-12">
               <h3 className="font-display text-[clamp(3rem,5vw,5.8rem)] uppercase tracking-[0.05em] text-gold">
                 {item.title}

@@ -5,7 +5,7 @@ import { AnimatedPricingMenu } from "@/components/sections/AnimatedPricingMenu";
 import { FeaturedCoffee } from "@/components/sections/FeaturedCoffee";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { brandImages } from "@/config/brand-assets";
+import { coffeexImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { coffeeOrigins, coffeeQualityPoints, featuredCoffees } from "@/data/content";
 import { cafeMenuSections, cafeMenuSource } from "@/data/sheet-menu";
@@ -31,11 +31,11 @@ export default function CoffeePage() {
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div className="relative aspect-[4/5] overflow-hidden border border-gold/24 bg-ivory/10 shadow-[0_34px_100px_rgba(8,20,18,0.24)]">
             <Image
-              src={brandImages.coffeeDetail}
-              alt="Buna House Ethiopian coffee ceremony and roasted coffee beans"
+              src={coffeexImages.coffeePackagingFlatlay.src}
+              alt={coffeexImages.coffeePackagingFlatlay.alt}
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
-              className="object-cover opacity-92 saturate-[0.9] contrast-[1.04]"
+              className={`object-cover ${coffeexImages.coffeePackagingFlatlay.positionClassName} opacity-92 saturate-[0.9] contrast-[1.04]`}
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">

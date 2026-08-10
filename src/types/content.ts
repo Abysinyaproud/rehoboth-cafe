@@ -2,6 +2,8 @@ export type ContentCard = {
   title: string;
   text: string;
   image?: string;
+  imageAlt?: string;
+  imageClassName?: string;
 };
 
 export type ProductPreview = {
@@ -12,4 +14,6 @@ export type ProductPreview = {
   body: string;
   price: string;
   image: string;
+  imageAlt?: string;
+  imageClassName?: string;
 };

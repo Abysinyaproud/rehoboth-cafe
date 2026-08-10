@@ -3,7 +3,7 @@ import Image from "next/image";
 import { EmptyState } from "@/components/content/EmptyState";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { brandImages } from "@/config/brand-assets";
+import { coffeexImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { ceremonyMenuHighlights, cafeMenuSource } from "@/data/sheet-menu";
 import { createMetadata } from "@/lib/seo";
@@ -28,11 +28,11 @@ export default function CeremonyPage() {
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
           <div className="relative aspect-[16/11] overflow-hidden rounded-brand bg-espresso/20">
             <Image
-              src={brandImages.ceremony}
-              alt="Ethiopian coffee ceremony with jebena coffee prepared for guests"
+              src={coffeexImages.ritualDrinkBeans.src}
+              alt={coffeexImages.ritualDrinkBeans.alt}
               fill
               sizes="(min-width: 1024px) 52vw, 100vw"
-              className="object-cover opacity-92 saturate-[0.9] contrast-[1.04]"
+              className={`object-cover ${coffeexImages.ritualDrinkBeans.positionClassName} opacity-92 saturate-[0.9] contrast-[1.04]`}
             />
           </div>
           <div className="rounded-brand border border-ivory/15 p-7">

@@ -30,11 +30,13 @@ export function FeaturedCoffee() {
           <MotionReveal key={coffee.id} delay={index * 0.06}>
             <EditorialCard
               image={coffee.image}
+              imageAlt={coffee.imageAlt}
               eyebrow={`${coffee.eyebrow} / 0${index + 1}`}
               title={coffee.name}
               text={coffee.body}
               meta={`${coffee.notes} · ${coffee.price}`}
               imageClassName={index === 0 ? "md:aspect-[3/4]" : undefined}
+              imagePositionClassName={coffee.imageClassName}
             >
               <ButtonLink href={`/coffee#${coffee.id}`} variant="text">
                 Learn more

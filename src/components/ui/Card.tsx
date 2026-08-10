@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 
 type EditorialCardProps = {
   image: string;
+  imageAlt?: string;
   eyebrow?: string;
   title: string;
   text: string;
@@ -11,18 +12,25 @@ type EditorialCardProps = {
   children?: ReactNode;
   className?: string;
   imageClassName?: string;
+  imageFit?: "cover" | "contain";
+  imagePositionClassName?: string;
 };
 
 export function EditorialCard({
   image,
+  imageAlt,
   eyebrow,
   title,
   text,
   meta,
   children,
   className,
-  imageClassName
+  imageClassName,
+  imageFit = "cover",
+  imagePositionClassName = "object-center"
 }: EditorialCardProps) {
+  const fitClassName = imageFit === "contain" ? "object-contain" : "object-cover";
+
   return (
     <article
       className={cn(
@@ -33,10 +41,10 @@ export function EditorialCard({
       <div className={cn("relative aspect-[4/3] overflow-hidden bg-stone", imageClassName)}>
         <Image
           src={image}
-          alt=""
+          alt={imageAlt ?? title}
           fill
           sizes="(min-width: 1024px) 33vw, 100vw"
-          className="media-breathe object-cover saturate-[0.86] contrast-[1.02]"
+          className={`media-breathe ${fitClassName} ${imagePositionClassName} saturate-[0.86] contrast-[1.02]`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-espresso/32 via-transparent to-transparent opacity-75" />
         <div className="absolute left-5 top-5 h-10 w-px bg-gold/70" aria-hidden="true" />

@@ -9,6 +9,8 @@ type LuxuryMediaFrameProps = {
   meta?: string;
   className?: string;
   imageClassName?: string;
+  imageFit?: "cover" | "contain";
+  imagePositionClassName?: string;
   priority?: boolean;
 };
 
@@ -20,8 +22,12 @@ export function LuxuryMediaFrame({
   meta,
   className,
   imageClassName,
+  imageFit = "cover",
+  imagePositionClassName = "object-center",
   priority = false
 }: LuxuryMediaFrameProps) {
+  const fitClassName = imageFit === "contain" ? "object-contain" : "object-cover";
+
   return (
     <figure
       className={cn(
@@ -36,7 +42,7 @@ export function LuxuryMediaFrame({
           fill
           priority={priority}
           sizes="(min-width: 1024px) 52vw, 100vw"
-          className="media-breathe object-cover opacity-92 saturate-[0.9] contrast-[1.04]"
+          className={`media-breathe ${fitClassName} ${imagePositionClassName} opacity-92 saturate-[0.9] contrast-[1.04]`}
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(21,16,13,0.04),rgba(21,16,13,0.72)),linear-gradient(90deg,rgba(21,16,13,0.46),transparent_60%)]" />
         <div className="absolute inset-0 opacity-[0.12] mix-blend-soft-light texture" />

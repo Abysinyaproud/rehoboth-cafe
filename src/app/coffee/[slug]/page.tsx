@@ -1,4 +1,5 @@
 import { LaunchPageShell } from "@/components/ui/LaunchPageShell";
+import { siteConfig } from "@/config/site";
 
 const productNames: Record<string, string> = {
   yirgacheffe: "Yirgacheffe",
@@ -18,11 +19,11 @@ export default async function CoffeeProductPage({
     <LaunchPageShell
       eyebrow="Single Origin"
       title={productName}
-      intro="This product page is ready for real Shopify product data, gallery images, tasting notes, inventory, reviews, quantity selection, wishlist, and buy-now actions."
+      intro="This single-origin page is staged for future Shopify product data. Online purchase is not live yet, so guests should call or visit for current coffee availability."
       primaryHref="/coffee"
       primaryLabel="Back to Coffee"
-      secondaryHref="/cart"
-      secondaryLabel="Add to Cart Soon"
+      secondaryHref={`tel:${siteConfig.phone}`}
+      secondaryLabel="Ask In Store"
     />
   );
 }

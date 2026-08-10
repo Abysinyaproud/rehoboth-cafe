@@ -1,4 +1,4 @@
-import { brandImages } from "@/config/brand-assets";
+import { coffeexImages } from "@/config/brand-assets";
 
 export const featuredCoffees = [
   {
@@ -8,7 +8,9 @@ export const featuredCoffees = [
     notes: "Roasted coffee, tea-like aromatics, warm hospitality",
     body: "The coffee program starts with Ethiopia as the source of the story: beans, brewing, and a traditional coffee experience that makes the cup feel connected to place.",
     price: "In store",
-    image: brandImages.coffeeDetail
+    image: coffeexImages.coffeePackagingFlatlay.src,
+    imageAlt: coffeexImages.coffeePackagingFlatlay.alt,
+    imageClassName: coffeexImages.coffeePackagingFlatlay.positionClassName
   },
   {
     id: "espresso",
@@ -17,7 +19,9 @@ export const featuredCoffees = [
     notes: "Espresso structure, milk texture, balanced sweetness",
     body: "A familiar way into Buna House: espresso drinks served with the warmth of a neighborhood cafe and the cultural depth of an Ethiopian market.",
     price: "In store",
-    image: brandImages.cafeAtmosphere
+    image: coffeexImages.latteBeansWide.src,
+    imageAlt: coffeexImages.latteBeansWide.alt,
+    imageClassName: coffeexImages.latteBeansWide.positionClassName
   },
   {
     id: "subscriptions",
@@ -26,7 +30,9 @@ export const featuredCoffees = [
     notes: "Beans, tea, gifts, and pantry companions",
     body: "Coffee can move from the cafe counter into the home pantry through beans, tea, brewing gifts, and shelf finds that change with availability.",
     price: "Ask in store",
-    image: brandImages.marketShelves
+    image: coffeexImages.marketProductShelf.src,
+    imageAlt: coffeexImages.marketProductShelf.alt,
+    imageClassName: coffeexImages.marketProductShelf.positionClassName
   }
 ];
 
@@ -70,32 +76,44 @@ export const marketCategories = [
   {
     title: "Ethiopian & East African Groceries",
     text: "Authentic ingredients and everyday essentials from Ethiopia and neighboring regions.",
-    image: brandImages.marketShelves
+    image: coffeexImages.marketProductShelf.src,
+    imageAlt: coffeexImages.marketProductShelf.alt,
+    imageClassName: coffeexImages.marketProductShelf.positionClassName
   },
   {
     title: "Fresh Injera",
     text: "Traditional Ethiopian flatbread prepared with quality ingredients and available fresh.",
-    image: brandImages.coffeeDetail
+    image: coffeexImages.heroCoffeeTexture.src,
+    imageAlt: coffeexImages.heroCoffeeTexture.alt,
+    imageClassName: coffeexImages.heroCoffeeTexture.positionClassName
   },
   {
     title: "Coffee & Tea",
     text: "Premium Ethiopian single-origin coffees and specialty teas for the home table.",
-    image: brandImages.marketShelves
+    image: coffeexImages.coffeePackagingStack.src,
+    imageAlt: coffeexImages.coffeePackagingStack.alt,
+    imageClassName: coffeexImages.coffeePackagingStack.positionClassName
   },
   {
     title: "Spices & Seasonings",
     text: "Berbere, mitmita, shiro, and traditional spice blends for depth, warmth, and memory.",
-    image: brandImages.heritageOrigin
+    image: coffeexImages.beansLatteOverhead.src,
+    imageAlt: coffeexImages.beansLatteOverhead.alt,
+    imageClassName: coffeexImages.beansLatteOverhead.positionClassName
   },
   {
     title: "Frozen & Refrigerated Foods",
     text: "Convenient options for traditional meals, family gatherings, and everyday cooking.",
-    image: brandImages.marketShelves
+    image: coffeexImages.coffeePackagingPour.src,
+    imageAlt: coffeexImages.coffeePackagingPour.alt,
+    imageClassName: coffeexImages.coffeePackagingPour.positionClassName
   },
   {
     title: "Houseware & Ceremony Goods",
     text: "Jebena, sini cups, coffee sets, gifts, and specialty pieces that bring the ritual home.",
-    image: brandImages.coffeeDetail
+    image: coffeexImages.ritualDrinkBeans.src,
+    imageAlt: coffeexImages.ritualDrinkBeans.alt,
+    imageClassName: coffeexImages.ritualDrinkBeans.positionClassName
   }
 ];
 

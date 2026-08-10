@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { givingBackPoints, values } from "@/data/content";
 import { ButtonLink } from "@/components/ui/Button";
-import { EmptyState } from "@/components/content/EmptyState";
-import { MediaPlaceholder } from "@/components/content/MediaPlaceholder";
 import { Section } from "@/components/ui/Section";
-import { brandImages } from "@/config/brand-assets";
+import { coffeexImages } from "@/config/brand-assets";
 import { createMetadata } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 
@@ -29,11 +27,11 @@ export default function AboutPage() {
         <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div className="relative aspect-[4/5] overflow-hidden border border-gold/22 bg-stone shadow-subtle">
             <Image
-              src={brandImages.cafeAtmosphere}
-              alt="Buna House interior prepared for guests"
+              src={coffeexImages.founderRoasterFull.src}
+              alt={coffeexImages.founderRoasterFull.alt}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover saturate-[0.9] contrast-[1.04]"
+              className={`object-contain ${coffeexImages.founderRoasterFull.positionClassName} bg-[#e8ddcb] saturate-[0.9] contrast-[1.04]`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-espresso/42 via-transparent to-transparent" />
           </div>
@@ -117,21 +115,38 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section tone="ivory" eyebrow="Founder story" title="The personal story belongs here.">
+      <Section tone="ivory" eyebrow="Founder story" title="Born in Ethiopia. Shared with the world.">
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <MediaPlaceholder
-            label="Founder portrait"
-            title="Founder portrait"
-            body="A dedicated portrait and behind-the-scenes image set can be added here when production photography is complete."
-            className="min-h-[24rem]"
-          />
-          <EmptyState
-            eyebrow="Founder content"
-            title="Founder story content is intentionally reserved for the real interview."
-            body="Until the founder interview is complete, this space keeps the page honest and complete without adding biography, awards, sourcing relationships, or personal history that has not been confirmed."
-            ctaLabel="Contact Buna House"
-            ctaHref={`tel:${siteConfig.phone}`}
-          />
+          <div className="relative min-h-[24rem] overflow-hidden border border-gold/22 bg-stone shadow-subtle">
+            <Image
+              src={coffeexImages.founderApronPortrait.src}
+              alt={coffeexImages.founderApronPortrait.alt}
+              fill
+              sizes="(min-width: 1024px) 44vw, 100vw"
+              className={`object-cover ${coffeexImages.founderApronPortrait.positionClassName} saturate-[0.9] contrast-[1.04]`}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-espresso/48 via-transparent to-transparent" />
+          </div>
+          <div className="luxury-card border border-gold/20 bg-[#fbf7ef] p-7 shadow-subtle sm:p-8">
+            <p className="font-display text-[2.4rem] uppercase leading-[0.96] tracking-[0.035em]">
+              Born in Ethiopia. Shared with the world.
+            </p>
+            <p className="mt-6 leading-8 text-ink/70">
+              Buna House was founded to bring the birthplace of coffee closer to
+              home. Inspired by Ethiopia&apos;s centuries-old coffee tradition, we
+              serve every cup with the warmth, hospitality, and sense of
+              community that define our culture.
+            </p>
+            <p className="mt-5 leading-8 text-ink/70">
+              More than a coffee shop, Buna House is a place to slow down,
+              connect, and experience coffee where its story began.
+            </p>
+            <div className="mt-8">
+              <ButtonLink href="/visit" variant="secondary">
+                Visit Buna House
+              </ButtonLink>
+            </div>
+          </div>
         </div>
       </Section>
     </>

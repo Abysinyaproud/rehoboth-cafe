@@ -5,7 +5,7 @@ import { MarketPreview } from "@/components/sections/MarketPreview";
 import { ButtonLink } from "@/components/ui/Button";
 import { LuxuryMediaFrame } from "@/components/ui/LuxuryMediaFrame";
 import { Section } from "@/components/ui/Section";
-import { brandImages } from "@/config/brand-assets";
+import { coffeexImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { marketCategories } from "@/data/content";
 import { marketMenuSource, marketProductHighlights } from "@/data/sheet-menu";
@@ -46,12 +46,13 @@ export default function MarketPage() {
             </div>
           </div>
           <LuxuryMediaFrame
-            src={brandImages.marketShelves}
-            alt="Buna House interior with Ethiopian market shelves and coffee service"
+            src={coffeexImages.marketProductShelf.src}
+            alt={coffeexImages.marketProductShelf.alt}
             eyebrow="Shelf ritual"
             title="Coffee, pantry, and cultural goods with restraint."
             meta="A quiet market experience for guests who want to bring Ethiopian hospitality home."
             imageClassName="aspect-[16/12] lg:aspect-[16/11]"
+            imagePositionClassName={coffeexImages.marketProductShelf.positionClassName}
           />
         </div>
       </Section>

@@ -17,25 +17,28 @@ export function MobileHeroDissolve({ children }: MobileHeroDissolveProps) {
     }
   }, []);
 
-  const scheduleFade = useCallback(() => {
-    clearFadeTimer();
-
+  const shouldFadeOnThisViewport = useCallback(() => {
     if (typeof window === "undefined") {
-      return;
+      return false;
     }
 
     const isCompact = window.matchMedia("(max-width: 1023px)").matches;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (!isCompact || prefersReducedMotion) {
-      setIsDimmed(false);
+    return isCompact && !prefersReducedMotion;
+  }, []);
+
+  const scheduleFade = useCallback(() => {
+    clearFadeTimer();
+
+    if (!shouldFadeOnThisViewport()) {
       return;
     }
 
     timeoutRef.current = setTimeout(() => {
       setIsDimmed(true);
     }, 3600);
-  }, [clearFadeTimer]);
+  }, [clearFadeTimer, shouldFadeOnThisViewport]);
 
   const revealCopy = useCallback(() => {
     setIsDimmed(false);
@@ -43,7 +46,13 @@ export function MobileHeroDissolve({ children }: MobileHeroDissolveProps) {
   }, [scheduleFade]);
 
   useEffect(() => {
-    scheduleFade();
+    clearFadeTimer();
+
+    if (shouldFadeOnThisViewport()) {
+      timeoutRef.current = setTimeout(() => {
+        setIsDimmed(true);
+      }, 3600);
+    }
 
     window.addEventListener("scroll", revealCopy, { passive: true });
     window.addEventListener("resize", revealCopy);
@@ -55,7 +64,7 @@ export function MobileHeroDissolve({ children }: MobileHeroDissolveProps) {
       window.removeEventListener("resize", revealCopy);
       window.removeEventListener("hero-video-interaction", revealCopy);
     };
-  }, [clearFadeTimer, revealCopy, scheduleFade]);
+  }, [clearFadeTimer, revealCopy, shouldFadeOnThisViewport]);
 
   return (
     <div

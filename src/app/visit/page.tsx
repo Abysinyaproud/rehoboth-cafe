@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { brandImages } from "@/config/brand-assets";
+import { coffeexImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { visitReasons } from "@/data/content";
 import { cafeMenuSource, visitMenuHighlights } from "@/data/sheet-menu";
@@ -65,11 +65,11 @@ export default function VisitPage() {
 
           <div className="luxury-card relative min-h-[28rem] overflow-hidden border border-gold/24 bg-ivory/10">
             <Image
-              src={brandImages.cafeAtmosphere}
-              alt="Buna House interior with coffee counter and warm hospitality atmosphere"
+              src={coffeexImages.storefront.src}
+              alt={coffeexImages.storefront.alt}
               fill
               sizes="(min-width: 1024px) 52vw, 100vw"
-              className="media-breathe object-cover opacity-92 saturate-[0.9] contrast-[1.04]"
+              className={`media-breathe object-contain ${coffeexImages.storefront.positionClassName} bg-[#102420] opacity-92 saturate-[0.9] contrast-[1.04]`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-espresso/75 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
