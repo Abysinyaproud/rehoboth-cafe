@@ -9,3 +9,5 @@ coverage
 *.log
 tsconfig.tsbuildinfo
 test-results/
+.vercel
+.env*
