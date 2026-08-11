@@ -1,5 +1,5 @@
 export const cafeMenuSource = {
-  spreadsheet: "REHOBOTH CAFE AND MARKET MENU",
+  spreadsheet: "Buna House cafe menu",
   modified: "June 23, 2026 live verification",
   tab: "Cafe",
   range: "A1:F74",
@@ -8,7 +8,7 @@ export const cafeMenuSource = {
 } as const;
 
 export const marketMenuSource = {
-  spreadsheet: "REHOBOTH CAFE AND MARKET MENU",
+  spreadsheet: "Buna House market inventory",
   modified: "June 23, 2026 live verification",
   tab: "Market",
   range: "A1:I441",

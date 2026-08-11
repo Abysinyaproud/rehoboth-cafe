@@ -4,7 +4,8 @@ import { BunaEmblem } from "@/components/brand/BunaEmblem";
 import { MobileDetailsMenu } from "@/components/layout/MobileDetailsMenu";
 import { AnimatedPricingMenu } from "@/components/sections/AnimatedPricingMenu";
 import { EthiopianCoffeeScene } from "@/components/visuals/EthiopianCoffeeScene";
-import { brandImages, coffeexImages } from "@/config/brand-assets";
+import { LuxuryVideoFrame } from "@/components/ui/LuxuryVideoFrame";
+import { brandImages, brandVideos, coffeexImages } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 
 const navItems = [
@@ -285,60 +286,67 @@ export default function HomePage() {
             Discover the Ceremony
           </Link>
         </div>
-        <div className="premium-image relative min-h-[30rem] min-w-0 overflow-hidden border-t border-gold/35 bg-espresso lg:min-h-[44rem] lg:border-l lg:border-t-0">
-          <Image
-            src={coffeexImages.ritualDrinkBeans.src}
-            alt={coffeexImages.ritualDrinkBeans.alt}
-            fill
-            sizes="(min-width: 1024px) 44vw, 100vw"
-            className={`object-cover ${coffeexImages.ritualDrinkBeans.positionClassName} saturate-[0.86] contrast-[1.08]`}
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-forest/16 via-transparent to-espresso/12" />
-        </div>
+        <LuxuryVideoFrame
+          src={brandVideos.ceremonyHeritageFilm.src}
+          poster={brandVideos.ceremonyHeritageFilm.poster}
+          label={brandVideos.ceremonyHeritageFilm.label}
+          eyebrow="Ceremony film"
+          title="A living ritual"
+          meta="A quiet visual note on roasting, serving, and Ethiopian welcome."
+          className="min-h-[30rem] min-w-0 rounded-none border-t border-gold/35 shadow-none lg:min-h-[44rem] lg:border-l lg:border-t-0"
+          aspectClassName="h-full min-h-[30rem] lg:min-h-[44rem]"
+          videoClassName="object-[58%_50%]"
+        />
       </section>
 
-      <section className="material-section material-section-dark woven-dark grid border-y border-gold/35 bg-forest text-ivory lg:grid-cols-2">
+      <section className="material-section material-section-dark woven-dark border-y border-gold/35 bg-forest px-5 py-12 text-ivory sm:px-8 lg:px-12 lg:py-16">
+        <div className="mx-auto grid max-w-[112rem] gap-5 lg:grid-cols-2 lg:gap-0">
         {[
           {
             title: "Cafe",
             text: "Specialty coffee, quiet hospitality, and a room made for gathering.",
             image: coffeexImages.founderRoasterFull,
-            mediaClassName: "object-contain bg-[#102420] opacity-95 saturate-[0.88] contrast-[1.05]",
+            mediaClassName: "object-contain bg-[#102420] saturate-[0.88] contrast-[1.05]",
             href: "/visit"
           },
           {
             title: "Market",
             text: "Curated Ethiopian goods, coffee, tea, spices, and pantry staples.",
             image: coffeexImages.marketProductShelf,
-            mediaClassName: "scale-105 opacity-90 saturate-[0.82] contrast-[1.08]",
+            mediaClassName: "object-cover saturate-[0.86] contrast-[1.06]",
             href: "/market"
           }
         ].map((item) => (
           <Link
             key={item.title}
             href={item.href}
-            className="luxury-card group relative min-h-[32rem] overflow-hidden border-b border-gold/35 lg:border-b-0 lg:border-r"
+            className="luxury-card group overflow-hidden border border-gold/28 bg-forest transition duration-300 hover:border-gold/55 lg:relative lg:min-h-[36rem] lg:border-r-0 last:lg:border-r"
           >
-            <Image
-              src={item.image.src}
-              alt={item.image.alt}
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className={`media-breathe ${item.mediaClassName} ${item.image.positionClassName}`}
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,20,18,0.72),rgba(8,20,18,0.42)_48%,rgba(8,20,18,0.24)),linear-gradient(0deg,rgba(8,20,18,0.72),transparent_60%)] transition duration-300 group-hover:opacity-90" />
-            <div className="relative flex h-full min-h-[32rem] flex-col justify-end p-8 sm:p-12">
-              <h3 className="font-display text-[clamp(3rem,5vw,5.8rem)] uppercase tracking-[0.05em] text-gold">
+            <div className="relative aspect-[4/5] overflow-hidden border-b border-gold/24 lg:absolute lg:inset-0 lg:aspect-auto lg:border-b-0">
+              <Image
+                src={item.image.src}
+                alt={item.image.alt}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className={`media-breathe ${item.mediaClassName} ${item.image.positionClassName}`}
+              />
+              <div className="hidden absolute inset-0 bg-[linear-gradient(90deg,rgba(8,20,18,0.72),rgba(8,20,18,0.28)_48%,rgba(8,20,18,0.06)),linear-gradient(0deg,rgba(8,20,18,0.78),transparent_58%)] transition duration-300 group-hover:opacity-85 lg:block" />
+            </div>
+            <div className="relative flex min-h-[18rem] flex-col justify-between p-7 sm:p-10 lg:min-h-[36rem] lg:justify-end lg:p-12">
+              <div>
+                <h3 className="font-display text-[clamp(2.65rem,4.4vw,4.9rem)] uppercase tracking-[0.05em] text-gold">
                 {item.title}
-              </h3>
-              <LuxuryRule className="mt-6 max-w-52 text-gold" />
-              <p className="mt-5 max-w-sm font-subhead text-2xl leading-8 text-ivory/82">{item.text}</p>
-              <span className="editorial-link mt-8 inline-flex w-fit text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold">
+                </h3>
+                <LuxuryRule className="mt-5 max-w-52 text-gold" />
+                <p className="mt-5 max-w-sm font-subhead text-2xl leading-8 text-ivory/82">{item.text}</p>
+              </div>
+              <span className="editorial-link mt-8 inline-flex w-fit text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold lg:mt-9">
                 Visit {item.title}
               </span>
             </div>
           </Link>
         ))}
+        </div>
       </section>
 
       <AnimatedPricingMenu />

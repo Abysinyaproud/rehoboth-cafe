@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { EmptyState } from "@/components/content/EmptyState";
 import { ButtonLink } from "@/components/ui/Button";
+import { LuxuryVideoFrame } from "@/components/ui/LuxuryVideoFrame";
 import { Section } from "@/components/ui/Section";
-import { coffeexImages } from "@/config/brand-assets";
+import { brandVideos } from "@/config/brand-assets";
 import { siteConfig } from "@/config/site";
 import { ceremonyMenuHighlights, cafeMenuSource } from "@/data/sheet-menu";
 import { createMetadata } from "@/lib/seo";
@@ -26,15 +26,16 @@ export default function CeremonyPage() {
         intro="The Ethiopian coffee ceremony turns coffee into an act of care. Buna House presents traditional coffee experiences as a way to slow down, learn, gather, and feel Ethiopian hospitality."
       >
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-          <div className="relative aspect-[16/11] overflow-hidden rounded-brand bg-espresso/20">
-            <Image
-              src={coffeexImages.ritualDrinkBeans.src}
-              alt={coffeexImages.ritualDrinkBeans.alt}
-              fill
-              sizes="(min-width: 1024px) 52vw, 100vw"
-              className={`object-cover ${coffeexImages.ritualDrinkBeans.positionClassName} opacity-92 saturate-[0.9] contrast-[1.04]`}
-            />
-          </div>
+          <LuxuryVideoFrame
+            src={brandVideos.ceremonyHeritageFilm.src}
+            poster={brandVideos.ceremonyHeritageFilm.poster}
+            label={brandVideos.ceremonyHeritageFilm.label}
+            eyebrow="Ceremony film"
+            title="Roasted, poured, shared."
+            meta="A slow-moving glimpse of the ritual that gives Ethiopian coffee its hospitality."
+            aspectClassName="aspect-[16/11]"
+            videoClassName="object-[58%_50%]"
+          />
           <div className="rounded-brand border border-ivory/15 p-7">
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-gold/82">
               Ceremony details

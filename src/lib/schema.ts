@@ -18,7 +18,7 @@ export function localBusinessSchema() {
     servesCuisine: ["Coffee", "Ethiopian"],
     priceRange: "$$",
     openingHours: ["Mo-Sa 10:00-20:00", "Su 10:00-16:00"],
-    sameAs: [siteConfig.yelpUrl, siteConfig.socials.instagram]
+    sameAs: [siteConfig.yelpUrl, siteConfig.socials.instagram].filter(Boolean)
   };
 
   if (siteConfig.phone) {

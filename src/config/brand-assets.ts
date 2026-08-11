@@ -165,7 +165,21 @@ export const brandImages = {
   heroWide: coffeexImages.heroCoffeeTexture.src,
   storefront: coffeexImages.storefront.src,
   founder: coffeexImages.founderApronPortrait.src,
-  kitLogo: "/brand/kit/logos/rehoboth-ethiopian-logo.png",
-  kitLogoLockup: "/brand/kit/logos/rehoboth-ethiopian-logo-lockup.png",
+  favicon: "/brand/logos/buna-house-favicon.svg",
+  kitLogo: "/brand/logos/buna-house-favicon.svg",
+  kitLogoLockup: "/brand/logos/buna-house-favicon.svg",
   kitWebBanner: "/brand/kit/banners/web-banner.jpg"
+} as const;
+
+export const brandVideos = {
+  ceremonyHeritageFilm: {
+    src: "/brand/video/ceremony-heritage-film.mp4",
+    poster: coffeexImages.ritualDrinkBeans.src,
+    label: "Stylized Ethiopian coffee ceremony film with jebena, cups, and roasting ritual details"
+  },
+  marketGreenCoffeeShelf: {
+    src: "/brand/video/market-green-coffee-shelf.mp4",
+    poster: coffeexImages.marketProductShelf.src,
+    label: "Buna House market shelf with take-home coffee bags and green coffee beans"
+  }
 } as const;

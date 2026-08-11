@@ -31,7 +31,7 @@ export const siteConfig = {
   yelpUrl:
     "https://www.yelp.com/biz/rehoboth-cafe-and-market-columbia?utm_source=ishare",
   socials: {
-    instagram: "https://www.instagram.com/"
+    instagram: ""
   }
 };
 

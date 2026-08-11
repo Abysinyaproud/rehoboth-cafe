@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.name,
   icons: {
-    icon: brandImages.kitLogo,
-    shortcut: brandImages.kitLogo,
+    icon: brandImages.favicon,
+    shortcut: brandImages.favicon,
     apple: brandImages.kitLogo
   },
   keywords: [
